@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 走进 JuneYang 的技术世界
+title:  Android 技术内参
 subtitle: '一个专注于技术分享的博客'
-description: '主要涉猎方向有 Java 、 Android、设计模式、算法与数据结构等领域'
-keywords:
+description: '主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域'
+keywords:  Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知
 author: June Yang
 language: zh-CN
 timezone: ''
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
