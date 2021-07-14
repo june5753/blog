@@ -20,31 +20,36 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Android 技术内参">
-<meta property="og:url" content="https://github.com/june5753/index.html">
+  <meta name="description" content="根据学习根据极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。 分别介绍编码规范的三个部分：命名与注释（Naming and Comments）、代码风格（Code Style）和编程技巧（Coding Tips）。  关于命名 命名的关键是能准确达意。对于不同作用域的命名，我们可以适当地选择不同的长度。作用域小的变量（比如临时变量），可以适当地选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让你最快速地改善代码质量的20条编程规范">
+<meta property="og:url" content="https://github.com/june5753/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/index.html">
 <meta property="og:site_name" content="Android 技术内参">
-<meta property="og:description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
+<meta property="og:description" content="根据学习根据极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。 分别介绍编码规范的三个部分：命名与注释（Naming and Comments）、代码风格（Code Style）和编程技巧（Coding Tips）。  关于命名 命名的关键是能准确达意。对于不同作用域的命名，我们可以适当地选择不同的长度。作用域小的变量（比如临时变量），可以适当地选">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gpzb9eujt3j30me07uq41.jpg">
+<meta property="article:published_time" content="2021-07-09T11:18:47.000Z">
+<meta property="article:modified_time" content="2021-07-09T11:21:02.255Z">
 <meta property="article:author" content="June Yang">
-<meta property="article:tag" content="Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知">
+<meta property="article:tag" content="编程规范">
+<meta property="article:tag" content="设计模式之美">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gpzb9eujt3j30me07uq41.jpg">
 
-<link rel="canonical" href="https://github.com/june5753/">
+<link rel="canonical" href="https://github.com/june5753/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Android 技术内参</title>
+  <title>让你最快速地改善代码质量的20条编程规范 | Android 技术内参</title>
   
 
 
@@ -143,66 +148,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/june5753/2021/07/09/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="June Yang">
-      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Android 技术内参">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/07/09/test/" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-09 19:18:47" itemprop="dateCreated datePublished" datetime="2021-07-09T19:18:47+08:00">2021-07-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -218,10 +167,9 @@
       <meta itemprop="name" content="Android 技术内参">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">让你最快速地改善代码质量的20条编程规范</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          让你最快速地改善代码质量的20条编程规范
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -254,7 +202,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
+        <blockquote>
 <p>根据学习根据极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。</p>
 <p>分别介绍编码规范的三个部分：命名与注释（Naming and Comments）、代码风格（Code Style）和编程技巧（Coding Tips）。</p>
 </blockquote>
@@ -449,312 +397,37 @@
 <p>正例：极致扩展性的标志，就是需求的新增，不会在原有代码交付物上进行任何形式的修改。</p>
 <h2 id="11-【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。"><a href="#11-【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。" class="headerlink" title="11.【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。"></a>11.【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。</h2><p>说明：代码的深度调用，模块层面上的依赖关系网，业务场景逻辑，非功能性需求等问题是需要相应的文档来完整地呈现的。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/blog/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" rel="tag"># 编程规范</a>
+              <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/" rel="tag"># 设计模式之美</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/june5753/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="June Yang">
-      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Android 技术内参">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">10x 程序员工作法 学习总结笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-07-09 11:41:10 / 修改时间：19:12:04" itemprop="dateCreated datePublished" datetime="2021-07-09T11:41:10+08:00">2021-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">思维方式</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>本文总结了做为一个程序员有哪些高效的工作方式、思考方式和落实起来有用的方式和实操，请选择使用。</p>
-</blockquote>
-<p>软件行业的名著《人月神话》里提到两个重要概念：本质复杂度（Essential Complexity）和偶然复杂度（Accident Complexity）。简单来说，本质复杂度就是解决一个问题时，无论如何都要做的事，而偶然复杂度是因为做事方法不当，而导致要多做的事。</p>
-<p>所以做事需要讲究方法，各位各业都有不同的做事方法，本文总结了10x程序员的做事法则。</p>
-<p>本文笔记 根据 来自极客时间专栏上资深架构师郑晔的《10x程序员工作法》中的学习部分笔记、和其他相关资料加上个人思考的而形成的总结笔记。</p>
-<h2 id="忙碌原因"><a href="#忙碌原因" class="headerlink" title="忙碌原因"></a>忙碌原因</h2><ul>
-<li><p>本质复杂度(Essential Complexity)</p>
-<p>  问题本身复杂</p>
-</li>
-<li><p>偶然复杂度(Accident Complexity)</p>
-<p>  选用方法不当, 导致复杂度上升</p>
-</li>
-</ul>
-<h2 id="客观事实"><a href="#客观事实" class="headerlink" title="客观事实"></a>客观事实</h2><p>大部分程序员忙碌解决的问题，都不是程序问题，而是由偶然复杂度导致的问题</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>减少偶然复杂度引发的问题, 让软件开发工作有序、高效地进行; 优秀程序员的开发效率是普通程序员的 10 倍。</p>
-<p>遵循以下原则有利于减少偶然复杂度</p>
-<ul>
-<li>以始为终</li>
-<li>任务分解</li>
-<li>沟通反馈</li>
-<li>自动化</li>
-</ul>
-<h1 id="10x工作法原则"><a href="#10x工作法原则" class="headerlink" title="10x工作法原则"></a>10x工作法原则</h1><p>如何让努力不白费？</p>
-<h2 id="以终为始：遇到事情，倒着想"><a href="#以终为始：遇到事情，倒着想" class="headerlink" title="以终为始：遇到事情，倒着想"></a>以终为始：遇到事情，倒着想</h2><p>网上流传着一个帖子，亚马逊 CTO 介绍亚马逊是如何开发一项产品的，简单来说，他们采用向后工作的方法，开发一项产品的顺序为：</p>
-<ul>
-<li><p>写新闻稿；</p>
-</li>
-<li><p>写 FAQ （常见问题解答）；</p>
-</li>
-<li><p>写用户文档；</p>
-</li>
-<li><p>写代码。</p>
-</li>
-</ul>
-<p>任何事物都要经过两次创造：一次是在头脑中的创造，也就是智力上的或者第一次创造（Mental/First Creation），然后才是付诸实践，也就是实际的或第二次创造（Physical/Second Creation）。我们应该在第一次创造上多下功夫，统一集体想象，让目标更明确。</p>
-<p>“以终为始”的思维可以帮助我们更好地规划我们手头任务，也可以帮助我们发现过程中的问题。</p>
-<p>“ 以终为始”也是《高效能人士的七个习惯》中提到的一个重要习惯。这本书值得一读。</p>
-<p>史蒂芬.柯维说绝对不要以任何片面的事情为中心，应该要以原则为中心。“一个以原则为中心的人，对自己的选择胸有成竹，无论结果怎么都能专注于此，并且心安理得，内心没有羁绊。以原则为生活中心的人，总是见解不凡，思想与行为也独具一格，而坚实稳定的内在核心赐予他们高度的安全感，人生方向，智慧与力量。会让他们度过积极与充实的一生。”<br>所以找到你人生的原则，设定一个目标，以终为始。</p>
-<h2 id="任务分解"><a href="#任务分解" class="headerlink" title="任务分解"></a>任务分解</h2><ul>
-<li><p>任务分解：按部就班的前提</p>
-</li>
-<li><p>软件开发的任务分解：</p>
-<ul>
-<li>一个大问题，我们都很难给出答案，但回答小问题却是我们擅长的</li>
-<li>任务分解的粒度: 可执行。不同的可执行定义差别在于，你是否能清楚地知道这个问题该如何解决。</li>
-</ul>
-</li>
-<li><p>大师级程序员工作的秘笈</p>
-<ul>
-<li>将任务拆小，越小越好</li>
-<li>将大问题拆解成能够解决的小问题</li>
-</ul>
-</li>
-<li><p>测试也是程序员的一部分</p>
-<ul>
-<li><p>对于每个程序员来说，只有在开发阶段把代码和测试都写好，才有资格说，自己交付的是高质量的代码</p>
-</li>
-<li><p>测试驱动开发(TDD)，一种设计挑战</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>小结：面对看上去无法解决的问题，需要学会分解问题，不然无从下手。</p>
-<h2 id="大师级程序员的工作秘笈"><a href="#大师级程序员的工作秘笈" class="headerlink" title="大师级程序员的工作秘笈"></a>大师级程序员的工作秘笈</h2><p>大师级程序员每当遇到一件要做的事，把他分解成几个小任务，记录在一个清单上，然后才是动手写测试、写代码、重构这样一个小循环。等一个循环完成了，他会划掉已经做完的任务，开始下一个。一旦在解决问题的过程中遇到任务新问题，他会把要解决的问题记录在清单上，保证问题不会丢失，然后，继续回到自己正在处理的任务上。当他把一个个任务完成的时候，问题就解决完了。每个任务完成时，代码都是可以提交的。看上去简单，但是很多程序员都做不到。</p>
-<p>只有把任务分解到很小，才可能做到小步提交。而把任务分解到很小，其实证明你已经想清楚了。而大多数程序员之所以开发效率低，很多时候是没想清楚就动手了。</p>
-<p>任务分解是个好习惯，但是想要掌握它，大量的练习是必须的。</p>
-<p>作者能保持连续在github上提交代码1000天，还是挺牛逼的，这个连续提交的基础，就是我自己在练习任务分解时，不断的尝试把一件事拆细，这样，我每天都至少能保证完成一小步。当然，如果有时间了，我也会多写一点。</p>
-<p>经过这种练习之后，任务分解也就成了我的本能，不再局限于写程序上。我遇到任何需要解决的问题，脑子里的第一反应一定是，它可以怎么一步一步的完成，确定好分解之后，解决问题就是一步步做了。</p>
-<h2 id="DoD的价值：在做任何事情之前，先定义完成的标准"><a href="#DoD的价值：在做任何事情之前，先定义完成的标准" class="headerlink" title="DoD的价值：在做任何事情之前，先定义完成的标准"></a>DoD的价值：在做任何事情之前，先定义完成的标准</h2><p>DoD（Definition Of Done，完成的定义），这个概念本身并不复杂，它就是告诉我们怎样算完成了，尽量减少因为理解偏差造成的各种浪费。</p>
-<p>比如一次开发完成，表示：</p>
-<ul>
-<li>开发人员编写好功能代码</li>
-<li>编写好单元测试代码</li>
-<li>编写好集成测试代码</li>
-<li>测试可以通过</li>
-<li>代码通过了代码风格检查、测试覆盖率检查。</li>
-</ul>
-<p>一旦 DoD 确定好了，谁该做什么事、该做到什么程度就一目了然了。</p>
-<h2 id="如何更好得使用-DoD呢？"><a href="#如何更好得使用-DoD呢？" class="headerlink" title="如何更好得使用 DoD呢？"></a>如何更好得使用 DoD呢？</h2><ul>
-<li><p>DoD 是一个清单，由一个个检查项组成的，用来检查工作完成情况。</p>
-</li>
-<li><p>DoD 的检查项应该是实际可检查的，比如代码写好了，可以展示代码，单元测试代码写好了，可以进行现场测试。</p>
-</li>
-<li><p>DoD 是团队成员间彼此汇报的一种机制。有了 DoD，做事只有两种状态，即 “做完” 和 “没做完”。</p>
-</li>
-</ul>
-<h2 id="在做任何需求或任务之前，先定好验收标准。"><a href="#在做任何需求或任务之前，先定好验收标准。" class="headerlink" title="在做任何需求或任务之前，先定好验收标准。"></a>在做任何需求或任务之前，先定好验收标准。</h2><p>我们都知道，需求是软件开发的一个重要组成部分，但你可能没有仔细想过，不同的需求描述方式，可能会影响程序员对需求的理解。</p>
-<p>很多公司的软件开发模式是基于功能列表的，这个列表 “ 规定 ” 了程序员要做的功能，这种方式把一个完整的需求拆成了碎片。不到最后一刻，大部分人并没有一个完整的概念，这也就会在最后关头遇到很多意料之外的问题，结果必然是手忙脚乱。</p>
-<p>那么，这个时候验收标准变得极为重要，验收标准不仅仅描述了正常流程，也会关注到异常流程的处理。它给出了这个需求最基本的测试用例，保证了开发人员完成需求最基本的质量。一旦定义好验收标准，大量的扯皮工作就随之烟消云散了。 </p>
-<h2 id="尽早提交代码去集成"><a href="#尽早提交代码去集成" class="headerlink" title="尽早提交代码去集成"></a>尽早提交代码去集成</h2><p>持续集成指的是，频繁地将代码集成到主干。</p>
-<p>它的好处主要有两个。</p>
-<p>快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。<br>防止分支大幅偏离主干。如果不是经常集成，主干又在不断更新，会导致以后集成的难度变大，甚至难以集成。<br>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量</p>
-<p>Martin Fowler 说过，”持续集成并不能消除 Bug，而是让它们非常容易发现和改正。”</p>
-<h2 id="在没弄清楚之前，需求都不做"><a href="#在没弄清楚之前，需求都不做" class="headerlink" title="在没弄清楚之前，需求都不做"></a>在没弄清楚之前，需求都不做</h2><p>精益创业：这个名字并不是指导人们创业挣大钱的方法论。它要解决的是面向不确定性创造新事物。</p>
-<p>精益创业中的 “精益”这个词，让人们开始理解价值创造和浪费之间的关系。创造价值是每个人都能理解的，但减少浪费是很多人忽略的。所以，精益创业就是在尽可能少浪费的前提下，面向不确定性创造新事物。</p>
-<p>既然是面向不确定性创造新事物，我们唯一能做的就是 “ 试 ”。也就是说，当你有了一个新的想法时，就把想法开发成产品投入市场，然后，手机数据获取反馈，看看前面的想法是否靠谱。好想法继续加强，不靠谱的想法丢掉。</p>
-<p>既然是试，也不确定想法的有效性，最好的办法就是以最低的成本试。许多软件团队都会陷入一个非常典型的误区，不管什么需求都想做出来看看，殊不知，把软件完整做出来是最大的浪费。</p>
-<p>精益创业提供给我们的是一个做产品的思考框架。当产品经理要做一个新产品或是产品的新特性，我们就可以用精益创业的概念检验一下产品经理是否想清楚了。比如，你要做个产品特性，你要验证的东西是什么呢？要验证的目标是否有数据可以度量呢？要解决的这个问题是不是当前最重要的事情？稳了这些，我们能更好地确定产品经理提出的需求确实是经过严格思考的。</p>
-<h2 id="接到需求，-要先做哪些事情"><a href="#接到需求，-要先做哪些事情" class="headerlink" title="接到需求， 要先做哪些事情"></a>接到需求， 要先做哪些事情</h2><p>需求的拆分:用户故事</p>
-<ul>
-<li><p>问题</p>
-<p>基本上，闯入你脑海的需求描述是主题（epic），在敏捷开发中，有人称之为主用户故事（master story)<br>绝大多数问题都是由于分解的粒度太大造成的，少有因为粒度太小而出问题的<br>用户故事，它将是我们这里讨论需求管理的基本单位。</p>
-</li>
-<li><p>需求要分解<br>用户故事原则：</p>
-</li>
-</ul>
-<p>1、Independent，独立的<br>2、Negotiable，可协商的<br>3、Valuable，有价值的<br>4、Estimatable，可估算的<br>5、Small，小<br>6、Testable，可测试的</p>
-<p>需求的估算:</p>
-<p>估算的结果是相对的，不是绝对精确的，我们不必像做科研一样，只要给出一个相对估算就好，一般来说，估算的过程也是大家加深对需求理解的过程。</p>
-<p>优先级管理：做最重要的事情</p>
-<p>需求分解之后，最重要的是，排列需求的优先级。优先级的排列方式有很多，我们可以借鉴时间管理的方法，把事情按照重要和紧急的维度进行划分，得到了四个象限。我们要尽可能把精力放在重要的事情上，而不是把紧急的事情当成优先级排序的方式。</p>
-<p>确定事情的重要程度, 一种方式就是找回丢失的上下文，如果无法判断好的办法, 那就引入外部更大的上下文</p>
-<p><strong>小结</strong>：需求从产品、开发、测试需要对齐，确保理解一致，按一定的敏捷开发流程来不段迭代开发流程，也是高效的工作法则之一。</p>
-<h2 id="为什么说做事情之前先要进行推演"><a href="#为什么说做事情之前先要进行推演" class="headerlink" title="为什么说做事情之前先要进行推演"></a>为什么说做事情之前先要进行推演</h2><ul>
-<li>沙盘推演, 从军事指挥室里学来的大学问</li>
-<li>即便已经确定了自己的工作目标，我们依然要在具体动手之前，把实施步骤推演一番，完成一次头脑中的创造，也就是第一次创造或智力上的创造。这种思想在军事上称之为沙盘推演，在很多领域都有广泛地应用</li>
-<li>通向结果的路径才是更重要的</li>
-<li>在动手做一件事之前，先推演一番。</li>
-</ul>
-<h2 id="解决了很多技术问题，为什么依然在”坑”里？"><a href="#解决了很多技术问题，为什么依然在”坑”里？" class="headerlink" title="解决了很多技术问题，为什么依然在”坑”里？"></a>解决了很多技术问题，为什么依然在”坑”里？</h2><p>技术是一把利刃，程序员相信技术可以改变世界，但并不是所有问题都要用技术解决。花大力气去解决一个可能并不是问题的问题，常常是很多程序员的盲区。</p>
-<ul>
-<li><p>更大范围内寻找”终”</p>
-</li>
-<li><p>程序员总喜欢用技术去解决一切问题，但很多令人寝食难安的问题其实根本不是问题。之所以找不出更简单的解决方案，很多时候原因在于程序员被自己的思考局限住了。</p>
-</li>
-<li><p>不同角色工作真正的差异在于上下文的差异。在一个局部上下文难以解决的问题，换到另外一个上下文甚至是可以不解决的。所以说无论单点有多努力也只是局部优化，很难达到最优的效果</p>
-</li>
-<li><p>角色的差异：</p>
-<ul>
-<li>不同角色工作上真正的差异是上下文的不同</li>
-<li>虽然写的代码都一样，但你看到的是树木，人家看到的是森林，他更能从全局思考</li>
-<li>我并不是靠技术能力解决了问题，而是凭借对需求的理解把这个问题绕过去了</li>
-<li>而能想到问这样的问题，前提就是要跳出程序员角色思维，扩大自己工作的上下文</li>
-<li>当你对软件开发的全生命周期都有了认识之后，你看到的就不再是一个点了，而是一条线</li>
-</ul>
-</li>
-<li><p>工作的上下文不同，看到的维度差异很大</p>
-<ul>
-<li>单一维度的思考，在多维度思考者的眼里几乎就是漏洞百出的</li>
-<li>扩大自己工作的上下文，别把自己局限在一个“程序员”的角色上。</li>
-</ul>
-</li>
-</ul>
-<p>小结：遇到问题，多沟通，多请教，学会转换视角，转换思维，实现对问题的降维打击，以解决问题。</p>
-<h2 id="入职新公司-如何快速进入工作状态？"><a href="#入职新公司-如何快速进入工作状态？" class="headerlink" title="入职新公司, 如何快速进入工作状态？"></a>入职新公司, 如何快速进入工作状态？</h2><p>步骤：</p>
-<ul>
-<li><p>了解业务</p>
-</li>
-<li><p>技术</p>
-<ul>
-<li><p>技术栈</p>
-</li>
-<li><p>业务架构</p>
-</li>
-<li><p>内外依赖</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>团队运作</p>
-<p>需求, 产品，向谁汇报</p>
-</li>
-<li><p>内部活动</p>
-<p>站会、 回顾会议、周会、代码评审、内部分享等。</p>
-</li>
-<li><p>使用“行话”。在交流的过程中，学习一点”行话“。</p>
-<p>这会让人觉得你懂行，让你很快得到信任，尽早融入团队</p>
-</li>
-<li><p>找到关键点，迅速下手</p>
-</li>
-<li><p>由大到小， 由内而外</p>
-</li>
-</ul>
-<h2 id="如何管理你的上级？"><a href="#如何管理你的上级？" class="headerlink" title="如何管理你的上级？"></a>如何管理你的上级？</h2><ul>
-<li>领导要求的，无力反驳怎么办？</li>
-</ul>
-<p>我们要敢于管理上级。</p>
-<p>第一，管理上级的预期。这个过程，相当于我把自己看到的问题暴露给上级，让他选择。<br>第二，帮助上级丰富知识。<br>第三，说出你的想法。这其实就是我们熟悉的一个最简单的道理：会哭的孩子有奶吃。</p>
-<ul>
-<li>产品经理总拿老板说事，怎么办？</li>
-</ul>
-<p>实际上，老板要求的是方向，不是产品特性。大老板不会安排那么细的细节。所以，一个产品经理该做的事就是把老板给的方向，变成一个个可以实现的产品特性，他要分析其中的合理与不合理。</p>
-<p>不合理的部分应该是他和老板去沟通的，而不是让开发团队来实现。</p>
-<ul>
-<li>别人能做的，我们也要做</li>
-</ul>
-<p>第一，竞争对手有的产品，我们也要有。</p>
-<p>“抄”不是问题，问题是无脑地抄。</p>
-<p>所以，如果你的产品经理只想无脑抄袭，本质上，他就是在偷懒，没干好他该干的活。</p>
-<p>第二：人家能做到，说明技术上是可行的。</p>
-<p>要做什么是需求，怎么做是技术。与产品经理要确认的是，这个需求是不是合理，该不该做。技术上能否实现，这是开发团队要考虑的事情，并不是产品经理说事的理由。</p>
-<h1 id="刻意练习"><a href="#刻意练习" class="headerlink" title="刻意练习"></a>刻意练习</h1><p>最牛B的编码套路：</p>
-<p>Steve Yegge 在“<a target="_blank" rel="noopener" href="https://sites.google.com/site/steveyegge2/practicing-programming">Practicing Programming</a>”（练习编程）提到：</p>
-<blockquote>
-<p>与你所相信的恰恰相反，单纯地每天埋头于工作并不能算是真正意义上的锻炼——参加会议并不能锻炼你的人际交往能力；回复邮件并不能提高你的打字水平。你必须定期留出时间，集中锻炼，这样才能把事情做得更好。</p>
-</blockquote>
-<p>每天都开车去上班，但我的驾驶水平远远不如专业车手；类似的情况，天天编程可能并不足以使你成为一名专业的程序员。那么，什么才能把一个普通人变成一名专业车手或者专业程序员呢？你需要锻炼什么呢？</p>
-<p>答案就在《科学美国人》的一篇名为“The Expert Mind”（专家思维）的文章里：</p>
-<blockquote>
-<p>爱立信提出，重要的并不是经验本身，而是“努力的学习”，也就是要不断地挑战自身能力之外的东西。一些狂热的爱好者花费了大量的时间去下棋、打高尔夫球或者玩乐器，但他们可能始终停留在业余水平上，而一个训练有素的学生却可以在相对较短的时间里超越他们，原因就在这里。值得注意的是，在提高水平方面，花费在下棋上的大量时间（即使参加各种比赛）似乎还是比不过专门的训练来得更为有效。训练的主要价值在于发现弱点，并有针对性地进行提高。</p>
-</blockquote>
-<p>“努力的学习”意味着，要常常去处理那些刚好在你能力极限上的问题，也就是那些对你来说有很大可能失败的事情。如果不经历一些失败的话，你可能就不会成长。你必须不断地挑战自我，超越自己的极限。</p>
-<p>那样的挑战有时会在工作中碰到，但也未必。将锻炼从职业工作中分离出来，这在编程领域常被人称为“编码套路”（Code Kata）。</p>
-<p>Code Kata的概念是由David Thomas提出的，他是《程序员修炼之道：从小工到专家》的作者之一。这个概念主要指的是:</p>
-<blockquote>
-<p>针对某一种特定技术或技能进行重复性的练习，从而将其熟练掌握。——译者注</p>
-</blockquote>
-<p>还有一些实践经验不在此列出，最后作者总结了最精炼的编程套路：</p>
-<p>第一：写博客 </p>
-<p>第二：积极参与著名的开源项目</p>
-<p>小结： 输出倒逼输入，是最好的学习方式之一；“Talk is cheap ,show me the code”. 刻意练习。</p>
-<h1 id="精进书单"><a href="#精进书单" class="headerlink" title="精进书单"></a>精进书单</h1><p>《程序员修炼之道：从小工到专家》</p>
-<p>《高效能人士的七个习惯》</p>
-<p>《好好学习》</p>
-<p>《好好思考》</p>
-<p>《刻意练习》</p>
-<p>……</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>学会学习、学会思考、学习用好工具, 学会复盘，学会自我迭代，学会精进，学会掌握底层思考利器。</p>
-<p>如里觉得总结对你有一点用的话，请给一个赞哦。</p>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="http://oenhan.com/technical-experts">如何成为一位技术专家</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/happydeer/article/details/17023229">最牛B的编码套路</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/" rel="prev" title="10x 程序员工作法 学习总结笔记">
+      <i class="fa fa-chevron-left"></i> 10x 程序员工作法 学习总结笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2021/07/09/test/" rel="next" title="test">
+      test <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -807,6 +480,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%91%BD%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">关于命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%B3%A8%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">关于注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">补充：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83%EF%BC%88%E4%B8%AD%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">理论五：让你最快速地改善代码质量的20条编程规范（中）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%87%BD%E6%95%B0%E3%80%81%E7%B1%BB%E5%A4%9A%E5%A4%A7%E6%89%8D%E5%90%88%E9%80%82%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1 函数、类多大才合适？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%A4%9A%E9%95%BF%E6%9C%80%E5%90%88%E9%80%82%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">2.一行代码多长最合适？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%96%84%E7%94%A8%E7%A9%BA%E8%A1%8C%E5%88%86%E5%89%B2%E5%8D%95%E5%85%83%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">3. 善用空行分割单元块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9B%9B%E6%A0%BC%E7%BC%A9%E8%BF%9B%E8%BF%98%E6%98%AF%E4%B8%A4%E6%A0%BC%E7%BC%A9%E8%BF%9B%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">4. 四格缩进还是两格缩进？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A4%A7%E6%8B%AC%E5%8F%B7%E6%98%AF%E5%90%A6%E8%A6%81%E5%8F%A6%E8%B5%B7%E4%B8%80%E8%A1%8C%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">5. 大括号是否要另起一行？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%B1%BB%E4%B8%AD%E6%88%90%E5%91%98%E7%9A%84%E6%8E%92%E5%88%97%E9%A1%BA%E5%BA%8F"><span class="nav-number">6.</span> <span class="nav-text">6. 类中成员的排列顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BC%96%E7%A0%81%E6%8A%80%E5%B7%A7"><span class="nav-number"></span> <span class="nav-text">关于编码技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%B0%86%E5%A4%8D%E6%9D%82%E7%9A%84%E9%80%BB%E8%BE%91%E6%8F%90%E7%82%BC%E6%8B%86%E5%88%86%E6%88%90%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1. 将复杂的逻辑提炼拆分成函数和类。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%80%9A%E8%BF%87%E6%8B%86%E5%88%86%E6%88%90%E5%A4%9A%E4%B8%AA%E5%87%BD%E6%95%B0%E6%88%96%E5%B0%86%E5%8F%82%E6%95%B0%E5%B0%81%E8%A3%85%E4%B8%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%9D%A5%E5%A4%84%E7%90%86%E5%8F%82%E6%95%B0%E8%BF%87%E5%A4%9A%E7%9A%84%E6%83%85%E5%86%B5%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2. 通过拆分成多个函数或将参数封装为对象的方式，来处理参数过多的情况。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%87%BD%E6%95%B0%E4%B8%AD%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8F%82%E6%95%B0%E6%9D%A5%E5%81%9A%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%80%BB%E8%BE%91%E7%9A%84%E6%8E%A7%E5%88%B6%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 函数中不要使用参数来做代码执行逻辑的控制。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1%E8%A6%81%E8%81%8C%E8%B4%A3%E5%8D%95%E4%B8%80%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4. 函数设计要职责单一。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%A7%BB%E9%99%A4%E8%BF%87%E6%B7%B1%E7%9A%84%E5%B5%8C%E5%A5%97%E5%B1%82%E6%AC%A1%EF%BC%8C%E6%96%B9%E6%B3%95%E5%8C%85%E6%8B%AC%EF%BC%9A%E5%8E%BB%E6%8E%89%E5%A4%9A%E4%BD%99%E7%9A%84-if-%E6%88%96-else-%E8%AF%AD%E5%8F%A5%EF%BC%8C%E4%BD%BF%E7%94%A8-continue%E3%80%81break%E3%80%81return-%E5%85%B3%E9%94%AE%E5%AD%97%E6%8F%90%E5%89%8D%E9%80%80%E5%87%BA%E5%B5%8C%E5%A5%97%EF%BC%8C%E8%B0%83%E6%95%B4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%9D%A5%E5%87%8F%E5%B0%91%E5%B5%8C%E5%A5%97%EF%BC%8C%E5%B0%86%E9%83%A8%E5%88%86%E5%B5%8C%E5%A5%97%E9%80%BB%E8%BE%91%E6%8A%BD%E8%B1%A1%E6%88%90%E5%87%BD%E6%95%B0%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">5. 移除过深的嵌套层次，方法包括：去掉多余的 if 或 else 语句，使用 continue、break、return 关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%94%A8%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E5%8F%96%E4%BB%A3%E9%AD%94%E6%B3%95%E6%95%B0%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">6. 用字面常量取代魔法数。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E7%94%A8%E8%A7%A3%E9%87%8A%E6%80%A7%E5%8F%98%E9%87%8F%E6%9D%A5%E8%A7%A3%E9%87%8A%E5%A4%8D%E6%9D%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E4%BB%A5%E6%AD%A4%E6%8F%90%E9%AB%98%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7%E3%80%82"><span class="nav-number">7.</span> <span class="nav-text">7. 用解释性变量来解释复杂表达式，以此提高代码可读性。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E3%80%8A%E9%98%BF%E9%87%8C-JAVA-%E8%A7%84%E8%8C%83%E3%80%8B"><span class="nav-number"></span> <span class="nav-text">其他《阿里 JAVA 规范》</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OOP-%E8%A7%84%E7%BA%A6%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">OOP 规约：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91POJO-%E7%B1%BB%E4%B8%AD%E7%9A%84%E4%BB%BB%E4%BD%95%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%8C%E9%83%BD%E4%B8%8D%E8%A6%81%E5%8A%A0-is-%E5%89%8D%E7%BC%80%EF%BC%8C%E5%90%A6%E5%88%99%E9%83%A8%E5%88%86%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90%E4%BC%9A%E5%BC%95%E8%B5%B7%E5%BA%8F%E5%88%97%E5%8C%96%E9%94%99%E8%AF%AF%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1. 【强制】POJO 类中的任何布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E5%9C%A8%E5%B8%B8%E9%87%8F%E4%B8%8E%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D%E6%97%B6%EF%BC%8C%E8%A1%A8%E7%A4%BA%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%90%8D%E8%AF%8D%E6%94%BE%E5%9C%A8%E8%AF%8D%E5%B0%BE%EF%BC%8C%E4%BB%A5%E6%8F%90%E5%8D%87%E8%BE%A8%E8%AF%86%E5%BA%A6%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2. 【推荐】在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E6%B3%A8%E9%87%8A%E7%9A%84%E5%8F%8C%E6%96%9C%E7%BA%BF%E4%B8%8E%E6%B3%A8%E9%87%8A%E5%86%85%E5%AE%B9%E4%B9%8B%E9%97%B4%E6%9C%89%E4%B8%94%E4%BB%85%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 【强制】注释的双斜线与注释内容之间有且仅有一个空格。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91-POJO-%E7%B1%BB%E5%BF%85%E9%A1%BB%E5%86%99-toString-%E6%96%B9%E6%B3%95%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4.【强制】 POJO 类必须写 toString 方法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%8A%A0%E5%85%A5%E4%BB%BB%E4%BD%95%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%BB%E8%BE%91%EF%BC%8C%E8%AF%B7%E6%94%BE%E5%9C%A8-init-%E6%96%B9%E6%B3%95%E4%B8%AD%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">5. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在 init 方法中。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%AE%9A%E4%B9%89-DO-DTO-VO-%E7%AD%89-POJO-%E7%B1%BB%E6%97%B6%EF%BC%8C%E4%B8%8D%E8%A6%81%E8%AE%BE%E5%AE%9A%E4%BB%BB%E4%BD%95%E5%B1%9E%E6%80%A7%E9%BB%98%E8%AE%A4%E5%80%BC%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">6. 【强制】定义 DO&#x2F;DTO&#x2F;VO 等 POJO 类时，不要设定任何属性默认值。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91final-%E5%8F%AF%E4%BB%A5%E5%A3%B0%E6%98%8E%E7%B1%BB%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E3%80%81%E6%96%B9%E6%B3%95%E3%80%81%E4%BB%A5%E5%8F%8A%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F%EF%BC%8C%E4%B8%8B%E5%88%97%E6%83%85%E5%86%B5%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">7. 【推荐】final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E7%B1%BB%E6%88%90%E5%91%98%E4%B8%8E%E6%96%B9%E6%B3%95%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E4%BB%8E%E4%B8%A5%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">8. 【推荐】类成员与方法访问控制从严：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">日期时间：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%EF%BC%8C%E4%BC%A0%E5%85%A5-pattern-%E4%B8%AD%E8%A1%A8%E7%A4%BA%E5%B9%B4%E4%BB%BD%E7%BB%9F%E4%B8%80%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%86%99%E7%9A%84-y%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1. 【强制】日期格式化时，传入 pattern 中表示年份统一使用小写的 y。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%9C%A8%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%AD%E5%88%86%E6%B8%85%E6%A5%9A%E5%A4%A7%E5%86%99%E7%9A%84-M-%E5%92%8C%E5%B0%8F%E5%86%99%E7%9A%84-m%EF%BC%8C%E5%A4%A7%E5%86%99%E7%9A%84-H-%E5%92%8C%E5%B0%8F%E5%86%99%E7%9A%84-h-%E5%88%86%E5%88%AB%E6%8C%87%E4%BB%A3%E7%9A%84%E6%84%8F%E4%B9%89%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2. 【强制】在日期格式中分清楚大写的 M 和小写的 m，大写的 H 和小写的 h 分别指代的意义。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE%E5%80%BC%E6%9D%A5%E6%8C%87%E4%BB%A3%E6%9C%88%E4%BB%BD%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%97%EF%BC%8C%E6%B3%A8%E6%84%8F-Date%EF%BC%8CCalendar-%E7%AD%89%E6%97%A5%E6%9C%9F%E7%9B%B8%E5%85%B3%E7%B1%BB%E7%9A%84%E6%9C%88%E4%BB%BD-month-%E5%8F%96%E5%80%BC%E5%9C%A8-0-11-%E4%B9%8B%E9%97%B4%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 【推荐】使用枚举值来指代月份。如果使用数字，注意 Date，Calendar 等日期相关类的月份 month 取值在 0-11 之间。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">集合处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%85%B3%E4%BA%8E-hashCode-%E5%92%8C-equals-%E7%9A%84%E5%A4%84%E7%90%86%EF%BC%8C%E9%81%B5%E5%BE%AA%E5%A6%82%E4%B8%8B%E8%A7%84%E5%88%99%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">1.【强制】关于 hashCode 和 equals 的处理，遵循如下规则：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%88%A4%E6%96%AD%E6%89%80%E6%9C%89%E9%9B%86%E5%90%88%E5%86%85%E9%83%A8%E7%9A%84%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%EF%BC%8C%E4%BD%BF%E7%94%A8-isEmpty-%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF-size-0-%E7%9A%84%E6%96%B9%E5%BC%8F%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2.【强制】判断所有集合内部的元素是否为空，使用 isEmpty()方法，而不是 size()&#x3D;&#x3D;0 的方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%9C%A8%E4%BD%BF%E7%94%A8-Collection-%E6%8E%A5%E5%8F%A3%E4%BB%BB%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84-addAll-%E6%96%B9%E6%B3%95%E6%97%B6%EF%BC%8C%E9%83%BD%E8%A6%81%E5%AF%B9%E8%BE%93%E5%85%A5%E7%9A%84%E9%9B%86%E5%90%88%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8CNPE-%E5%88%A4%E6%96%AD%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3.【强制】在使用 Collection 接口任何实现类的 addAll()方法时，都要对输入的集合参数进行NPE 判断。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E4%B8%8D%E8%A6%81%E5%9C%A8-foreach-%E5%BE%AA%E7%8E%AF%E9%87%8C%E8%BF%9B%E8%A1%8C%E5%85%83%E7%B4%A0%E7%9A%84-remove-add-%E6%93%8D%E4%BD%9C%E3%80%82remove-%E5%85%83%E7%B4%A0%E8%AF%B7%E4%BD%BF%E7%94%A8-Iterator%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%B9%B6%E5%8F%91%E6%93%8D%E4%BD%9C%EF%BC%8C%E9%9C%80%E8%A6%81%E5%AF%B9-Iterator-%E5%AF%B9%E8%B1%A1%E5%8A%A0%E9%94%81%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4.【强制】不要在 foreach 循环里进行元素的 remove&#x2F;add 操作。remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%9C%A8-JDK7-%E7%89%88%E6%9C%AC%E5%8F%8A%E4%BB%A5%E4%B8%8A%EF%BC%8CComparator-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E8%A6%81%E6%BB%A1%E8%B6%B3%E5%A6%82%E4%B8%8B%E4%B8%89%E4%B8%AA%E6%9D%A1%E4%BB%B6%EF%BC%8C%E4%B8%8D%E7%84%B6-Arrays-sort%EF%BC%8CCollections-sort-%E4%BC%9A%E6%8A%9B-IllegalArgumentException-%E5%BC%82%E5%B8%B8%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">5. 【强制】在 JDK7 版本及以上，Comparator 实现类要满足如下三个条件，不然 Arrays.sort，Collections.sort 会抛 IllegalArgumentException 异常。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E4%BD%BF%E7%94%A8-entrySet-%E9%81%8D%E5%8E%86-Map-%E7%B1%BB%E9%9B%86%E5%90%88-KV%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF-keySet-%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E9%81%8D%E5%8E%86%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">6. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E9%AB%98%E5%BA%A6%E6%B3%A8%E6%84%8F-Map-%E7%B1%BB%E9%9B%86%E5%90%88-K-V-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%AD%98%E5%82%A8-null-%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E5%A6%82%E4%B8%8B%E8%A1%A8%E6%A0%BC%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">【推荐】高度注意 Map 类集合 K&#x2F;V 能不能存储 null 值的情况，如下表格：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E8%A7%84%E7%BA%A6%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">前后端规约：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E7%9A%84-API%EF%BC%8C%E9%9C%80%E8%A6%81%E6%98%8E%E7%A1%AE%E5%8D%8F%E8%AE%AE%E3%80%81%E5%9F%9F%E5%90%8D%E3%80%81%E8%B7%AF%E5%BE%84%E3%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E3%80%81%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81%E3%80%81%E5%93%8D%E5%BA%94%E4%BD%93%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1. 【强制】前后端交互的 API，需要明确协议、域名、路径、请求方法、请求内容、状态码、响应体。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%88%97%E8%A1%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%BA%E7%A9%BA%EF%BC%8C%E5%88%99%E8%BF%94%E5%9B%9E%E7%A9%BA%E6%95%B0%E7%BB%84-%E6%88%96%E7%A9%BA%E9%9B%86%E5%90%88-%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2.【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组[]或空集合{}。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E6%97%B6%EF%BC%8C%E8%BF%94%E5%9B%9E%E7%BB%99%E5%89%8D%E7%AB%AF%E7%9A%84%E5%93%8D%E5%BA%94%E4%BF%A1%E6%81%AF%E5%BF%85%E9%A1%BB%E5%8C%85%E5%90%AB-HTTP-%E7%8A%B6%E6%80%81%E7%A0%81%EF%BC%8CerrorCode%E3%80%81errorMessage%E3%80%81%E7%94%A8%E6%88%B7%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF%E5%9B%9B%E4%B8%AA%E9%83%A8%E5%88%86%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 【强制】服务端发生错误时，返回给前端的响应信息必须包含 HTTP 状态码，errorCode、errorMessage、用户提示信息四个部分。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%AF%B9%E4%BA%8E%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%B6%85%E5%A4%A7%E6%95%B4%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%80%E5%BE%8B%E4%BD%BF%E7%94%A8-String-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E8%BF%94%E5%9B%9E%EF%BC%8C%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8Long-%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4. 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用Long 类型。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">异常处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E6%96%B9%E6%B3%95%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%E5%8F%AF%E4%BB%A5%E4%B8%BA-null%EF%BC%8C%E4%B8%8D%E5%BC%BA%E5%88%B6%E8%BF%94%E5%9B%9E%E7%A9%BA%E9%9B%86%E5%90%88%EF%BC%8C%E6%88%96%E8%80%85%E7%A9%BA%E5%AF%B9%E8%B1%A1%E7%AD%89%EF%BC%8C%E5%BF%85%E9%A1%BB%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A%E5%85%85%E5%88%86%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E8%BF%94%E5%9B%9E-null-%E5%80%BC%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1.【推荐】方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回 null 值。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E9%98%B2%E6%AD%A2-NPE%EF%BC%8C%E6%98%AF%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BF%AE%E5%85%BB%EF%BC%8C%E6%B3%A8%E6%84%8F-NPE-%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">2. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E6%98%AF%E4%B8%BA%E4%BA%86%E5%A4%84%E7%90%86%E5%AE%83%EF%BC%8C%E4%B8%8D%E8%A6%81%E6%8D%95%E8%8E%B7%E4%BA%86%E5%8D%B4%E4%BB%80%E4%B9%88%E9%83%BD%E4%B8%8D%E5%A4%84%E7%90%86%E8%80%8C%E6%8A%9B%E5%BC%83%E4%B9%8B%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%83%B3%E5%A4%84%E7%90%86%E5%AE%83%EF%BC%8C%E8%AF%B7%E5%B0%86%E8%AF%A5%E5%BC%82%E5%B8%B8%E6%8A%9B%E7%BB%99%E5%AE%83%E7%9A%84%E8%B0%83%E7%94%A8%E8%80%85%E3%80%82%E6%9C%80%E5%A4%96%E5%B1%82%E7%9A%84%E4%B8%9A%E5%8A%A1%E4%BD%BF%E7%94%A8%E8%80%85%EF%BC%8C%E5%BF%85%E9%A1%BB%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8%EF%BC%8C%E5%B0%86%E5%85%B6%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%94%A8%E6%88%B7%E5%8F%AF%E4%BB%A5%E7%90%86%E8%A7%A3%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3. 【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%90%E5%8F%82%E8%80%83%E3%80%91%E5%AF%B9%E4%BA%8E%E5%85%AC%E5%8F%B8%E5%A4%96%E7%9A%84-http-api-%E5%BC%80%E6%94%BE%E6%8E%A5%E5%8F%A3%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-errorCode%EF%BC%9B%E8%80%8C%E5%BA%94%E7%94%A8%E5%86%85%E9%83%A8%E6%8E%A8%E8%8D%90%E5%BC%82%E5%B8%B8%E6%8A%9B%E5%87%BA%EF%BC%9B%E8%B7%A8%E5%BA%94%E7%94%A8%E9%97%B4-RPC-%E8%B0%83%E7%94%A8%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8-Result-%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%B0%81%E8%A3%85-isSuccess-%E6%96%B9%E6%B3%95%E3%80%81errorCode%E3%80%81errorMessage%EF%BC%9B%E8%80%8C%E5%BA%94%E7%94%A8%E5%86%85%E9%83%A8%E7%9B%B4%E6%8E%A5%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4. 【参考】对于公司外的 http&#x2F;api 开放接口必须使用 errorCode；而应用内部推荐异常抛出；跨应用间 RPC 调用优先考虑使用 Result 方式，封装 isSuccess()方法、errorCode、errorMessage；而应用内部直接抛出异常即可。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E8%A7%84%E7%BA%A6%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">日志规约：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%9C%A8%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA%E6%97%B6%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%98%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8B%BC%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%8D%A0%E4%BD%8D%E7%AC%A6%E7%9A%84%E6%96%B9%E5%BC%8F%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1.【强制】在日志输出时，字符串变量之间的拼接使用占位符的方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E5%B0%BD%E9%87%8F%E7%94%A8%E8%8B%B1%E6%96%87%E6%9D%A5%E6%8F%8F%E8%BF%B0%E6%97%A5%E5%BF%97%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%97%A5%E5%BF%97%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%94%A8%E8%8B%B1%E6%96%87%E6%8F%8F%E8%BF%B0%E4%B8%8D%E6%B8%85%E6%A5%9A%E7%9A%84%E8%AF%9D%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E6%8F%8F%E8%BF%B0%E5%8D%B3%E5%8F%AF%EF%BC%8C%E5%90%A6%E5%88%99%E5%AE%B9%E6%98%93%E4%BA%A7%E7%94%9F%E6%AD%A7%E4%B9%89%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2.【推荐】尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E7%BA%A6%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">设计规约：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88%E5%92%8C%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%8E%B7%E5%BE%97%E8%AF%84%E5%AE%A1%E4%B8%80%E8%87%B4%E9%80%9A%E8%BF%87%EF%BC%8C%E5%B9%B6%E6%B2%89%E6%B7%80%E6%88%90%E4%B8%BA%E6%96%87%E6%A1%A3%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">1.【强制】存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E5%A6%82%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%8A%9F%E8%83%BD%E7%9A%84%E8%B0%83%E7%94%A8%E9%93%BE%E8%B7%AF%E4%B8%8A%E7%9A%84%E6%B6%89%E5%8F%8A%E5%AF%B9%E8%B1%A1%E8%B6%85%E8%BF%87-3-%E4%B8%AA%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E5%BA%8F%E5%9B%BE%E6%9D%A5%E8%A1%A8%E8%BE%BE%E5%B9%B6%E4%B8%94%E6%98%8E%E7%A1%AE%E5%90%84%E8%B0%83%E7%94%A8%E7%8E%AF%E8%8A%82%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">2.【强制】如果系统中某个功能的调用链路上的涉及对象超过 3 个，使用时序图来表达并且明确各调用环节的输入与输出。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E7%B1%BB%E5%9C%A8%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E6%97%B6%E8%A6%81%E7%AC%A6%E5%90%88%E5%8D%95%E4%B8%80%E5%8E%9F%E5%88%99%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">3.【推荐】类在设计与实现时要符合单一原则。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E8%B0%A8%E6%85%8E%E4%BD%BF%E7%94%A8%E7%BB%A7%E6%89%BF%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%89%A9%E5%B1%95%EF%BC%8C%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E8%81%9A%E5%90%88-%E7%BB%84%E5%90%88%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">4.【推荐】谨慎使用继承的方式来进行扩展，优先使用聚合&#x2F;组合的方式来实现。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5%EF%BC%8C%E6%A0%B9%E6%8D%AE%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%EF%BC%8C%E5%B0%BD%E9%87%8F%E4%BE%9D%E8%B5%96%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%9C%89%E5%88%A9%E4%BA%8E%E6%89%A9%E5%B1%95%E4%B8%8E%E7%BB%B4%E6%8A%A4%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">5.【推荐】系统设计阶段，根据依赖倒置原则，尽量依赖抽象类与接口，有利于扩展与维护。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5%EF%BC%8C%E6%B3%A8%E6%84%8F%E5%AF%B9%E6%89%A9%E5%B1%95%E5%BC%80%E6%94%BE%EF%BC%8C%E5%AF%B9%E4%BF%AE%E6%94%B9%E9%97%AD%E5%90%88%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">6.【推荐】系统设计阶段，注意对扩展开放，对修改闭合。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5%EF%BC%8C%E5%85%B1%E6%80%A7%E4%B8%9A%E5%8A%A1%E6%88%96%E5%85%AC%E5%85%B1%E8%A1%8C%E4%B8%BA%E6%8A%BD%E5%8F%96%E5%87%BA%E6%9D%A5%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97%E3%80%81%E5%85%AC%E5%85%B1%E9%85%8D%E7%BD%AE%E3%80%81%E5%85%AC%E5%85%B1%E7%B1%BB%E3%80%81%E5%85%AC%E5%85%B1%E6%96%B9%E6%B3%95%E7%AD%89%EF%BC%8C%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%B8%8D%E5%87%BA%E7%8E%B0%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E5%8D%B3-DRY-%E5%8E%9F%E5%88%99%EF%BC%88Don%E2%80%99t-Repeat-Yourself%EF%BC%89%E3%80%82"><span class="nav-number">7.</span> <span class="nav-text">7. 【推荐】系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，在系统中不出现重复代码的情况，即 DRY 原则（Don’t Repeat Yourself）。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E9%81%BF%E5%85%8D%E5%A6%82%E4%B8%8B%E8%AF%AF%E8%A7%A3%EF%BC%9A%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91-%E8%AE%B2%E6%95%85%E4%BA%8B-%E7%BC%96%E7%A0%81-%E5%8F%91%E5%B8%83%E3%80%82"><span class="nav-number">8.</span> <span class="nav-text">8.【推荐】避免如下误解：敏捷开发 &#x3D; 讲故事 + 编码 + 发布。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E3%80%90%E5%8F%82%E8%80%83%E3%80%91%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E6%98%8E%E7%A1%AE%E9%9C%80%E6%B1%82%E3%80%81%E7%90%86%E9%A1%BA%E9%80%BB%E8%BE%91%E3%80%81%E5%90%8E%E6%9C%9F%E7%BB%B4%E6%8A%A4%EF%BC%8C%E6%AC%A1%E8%A6%81%E7%9B%AE%E7%9A%84%E7%94%A8%E4%BA%8E%E6%8C%87%E5%AF%BC%E7%BC%96%E7%A0%81%E3%80%82"><span class="nav-number">9.</span> <span class="nav-text">9.【参考】设计文档的作用是明确需求、理顺逻辑、后期维护，次要目的用于指导编码。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E3%80%90%E5%8F%82%E8%80%83%E3%80%91%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E6%89%BE%E5%88%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%98%E5%8C%96%E7%82%B9%EF%BC%8C%E5%B9%B6%E9%9A%94%E7%A6%BB%E5%8F%98%E5%8C%96%E7%82%B9%E3%80%82"><span class="nav-number">10.</span> <span class="nav-text">10.【参考】可扩展性的本质是找到系统的变化点，并隔离变化点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E3%80%90%E5%8F%82%E8%80%83%E3%80%91%E4%BB%A3%E7%A0%81%E5%8D%B3%E6%96%87%E6%A1%A3%E7%9A%84%E8%A7%82%E7%82%B9%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84%EF%BC%8C%E6%B8%85%E6%99%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%AA%E6%98%AF%E6%96%87%E6%A1%A3%E7%9A%84%E6%9F%90%E4%B8%AA%E7%89%87%E6%96%AD%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E5%85%A8%E9%83%A8%E3%80%82"><span class="nav-number">11.</span> <span class="nav-text">11.【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
