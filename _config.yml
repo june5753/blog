@@ -18,9 +18,10 @@ E-Mail: yangjun5753@163.com || fa fa-envelope
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/june5753
+#url: https://github.com/june5753
 
-root: /blog
+# 主要在版权中的连接配置
+url: https://june5753.github.io/blog/
 
 permalink: :year/:month/:day/:title/
 permalink_defaults:
