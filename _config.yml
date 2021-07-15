@@ -11,6 +11,11 @@ author: June Yang
 language: zh-CN
 timezone: ''
 
+social:
+CSDN: https://blog.csdn.net/jun5753 || CSDN
+GitHub: https://github.com/june5753 || fab fa-github
+E-Mail: yangjun5753@163.com || fa fa-envelope
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://github.com/june5753
@@ -108,3 +113,11 @@ deploy:
   type: git
   repo: git@github.com:june5753/blog.git
   branch: master
+
+# 参考：https://blog.csdn.net/qq_44082148/article/details/105701427
+symbols_count_time:
+  symbols: true                # 文章字数统计
+  time: true                   # 文章阅读时长
+  total_symbols: true          # 站点总字数统计
+  total_time: true             # 站点总阅读时长
+  exclude_codeblock: false     # 排除代码字数统计
