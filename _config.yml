@@ -7,9 +7,9 @@ title:  Android 技术内参
 subtitle: '一个专注于技术分享的博客'
 description: '主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域'
 keywords:  Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知
-author: June Yang
+author: 小羊子说
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'  #时区
 
 social:
 CSDN: https://blog.csdn.net/jun5753 || CSDN
