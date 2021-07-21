@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"june5753.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","unescape":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言 本文总结了做为一个程序员有哪些高效的工作方式、思考方式和落实起来有用的方式和实操，请选择使用。  软件行业的名著《人月神话》里提到两个重要概念：本质复杂度（Essential Complexity）和偶然复杂度（Accident Complexity）。简单来说，本质复杂度就是解决一个问题时，无论如何都要做的事，而偶然复杂度是因为做事方法不当，而导致要多做的事。 所以做事需要讲究方法，各位各">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10x 程序员工作法 学习总结笔记">
+<meta property="og:url" content="https://june5753.github.io/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Android 技术内参">
+<meta property="og:description" content="前言 本文总结了做为一个程序员有哪些高效的工作方式、思考方式和落实起来有用的方式和实操，请选择使用。  软件行业的名著《人月神话》里提到两个重要概念：本质复杂度（Essential Complexity）和偶然复杂度（Accident Complexity）。简单来说，本质复杂度就是解决一个问题时，无论如何都要做的事，而偶然复杂度是因为做事方法不当，而导致要多做的事。 所以做事需要讲究方法，各位各">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-09T03:41:10.000Z">
+<meta property="article:modified_time" content="2021-07-15T04:08:45.669Z">
+<meta property="article:author" content="小羊子说">
+<meta property="article:tag" content="高效方法">
+<meta property="article:tag" content="10x 程序员">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://june5753.github.io/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>10x 程序员工作法 学习总结笔记 | Android 技术内参</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Android 技术内参</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个专注于技术分享的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://june5753.github.io/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="小羊子说">
+      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Android 技术内参">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          10x 程序员工作法 学习总结笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-09 11:41:10" itemprop="dateCreated datePublished" datetime="2021-07-09T11:41:10+08:00">2021-07-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-15 12:08:45" itemprop="dateModified" datetime="2021-07-15T12:08:45+08:00">2021-07-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">思维方式</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>本文总结了做为一个程序员有哪些高效的工作方式、思考方式和落实起来有用的方式和实操，请选择使用。</p>
+</blockquote>
+<p>软件行业的名著《人月神话》里提到两个重要概念：本质复杂度（Essential Complexity）和偶然复杂度（Accident Complexity）。简单来说，本质复杂度就是解决一个问题时，无论如何都要做的事，而偶然复杂度是因为做事方法不当，而导致要多做的事。</p>
+<p>所以做事需要讲究方法，各位各业都有不同的做事方法，本文总结了10x程序员的做事法则。</p>
+<p>本文笔记 根据 来自极客时间专栏上资深架构师郑晔的《10x程序员工作法》中的学习部分笔记、和其他相关资料加上个人思考的而形成的总结笔记。</p>
+<h2 id="忙碌原因"><a href="#忙碌原因" class="headerlink" title="忙碌原因"></a>忙碌原因</h2><ul>
+<li><p>本质复杂度(Essential Complexity)</p>
+<p>  问题本身复杂</p>
+</li>
+<li><p>偶然复杂度(Accident Complexity)</p>
+<p>  选用方法不当, 导致复杂度上升</p>
+</li>
+</ul>
+<h2 id="客观事实"><a href="#客观事实" class="headerlink" title="客观事实"></a>客观事实</h2><p>大部分程序员忙碌解决的问题，都不是程序问题，而是由偶然复杂度导致的问题</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>减少偶然复杂度引发的问题, 让软件开发工作有序、高效地进行; 优秀程序员的开发效率是普通程序员的 10 倍。</p>
+<p>遵循以下原则有利于减少偶然复杂度</p>
+<ul>
+<li>以始为终</li>
+<li>任务分解</li>
+<li>沟通反馈</li>
+<li>自动化</li>
+</ul>
+<h1 id="10x工作法原则"><a href="#10x工作法原则" class="headerlink" title="10x工作法原则"></a>10x工作法原则</h1><p>如何让努力不白费？</p>
+<h2 id="以终为始：遇到事情，倒着想"><a href="#以终为始：遇到事情，倒着想" class="headerlink" title="以终为始：遇到事情，倒着想"></a>以终为始：遇到事情，倒着想</h2><p>网上流传着一个帖子，亚马逊 CTO 介绍亚马逊是如何开发一项产品的，简单来说，他们采用向后工作的方法，开发一项产品的顺序为：</p>
+<ul>
+<li><p>写新闻稿；</p>
+</li>
+<li><p>写 FAQ （常见问题解答）；</p>
+</li>
+<li><p>写用户文档；</p>
+</li>
+<li><p>写代码。</p>
+</li>
+</ul>
+<p>任何事物都要经过两次创造：一次是在头脑中的创造，也就是智力上的或者第一次创造（Mental/First Creation），然后才是付诸实践，也就是实际的或第二次创造（Physical/Second Creation）。我们应该在第一次创造上多下功夫，统一集体想象，让目标更明确。</p>
+<p>“以终为始”的思维可以帮助我们更好地规划我们手头任务，也可以帮助我们发现过程中的问题。</p>
+<p>“ 以终为始”也是《高效能人士的七个习惯》中提到的一个重要习惯。这本书值得一读。</p>
+<p>史蒂芬.柯维说绝对不要以任何片面的事情为中心，应该要以原则为中心。“一个以原则为中心的人，对自己的选择胸有成竹，无论结果怎么都能专注于此，并且心安理得，内心没有羁绊。以原则为生活中心的人，总是见解不凡，思想与行为也独具一格，而坚实稳定的内在核心赐予他们高度的安全感，人生方向，智慧与力量。会让他们度过积极与充实的一生。”<br>所以找到你人生的原则，设定一个目标，以终为始。</p>
+<h2 id="任务分解"><a href="#任务分解" class="headerlink" title="任务分解"></a>任务分解</h2><ul>
+<li><p>任务分解：按部就班的前提</p>
+</li>
+<li><p>软件开发的任务分解：</p>
+<ul>
+<li>一个大问题，我们都很难给出答案，但回答小问题却是我们擅长的</li>
+<li>任务分解的粒度: 可执行。不同的可执行定义差别在于，你是否能清楚地知道这个问题该如何解决。</li>
+</ul>
+</li>
+<li><p>大师级程序员工作的秘笈</p>
+<ul>
+<li>将任务拆小，越小越好</li>
+<li>将大问题拆解成能够解决的小问题</li>
+</ul>
+</li>
+<li><p>测试也是程序员的一部分</p>
+<ul>
+<li><p>对于每个程序员来说，只有在开发阶段把代码和测试都写好，才有资格说，自己交付的是高质量的代码</p>
+</li>
+<li><p>测试驱动开发(TDD)，一种设计挑战</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>小结：面对看上去无法解决的问题，需要学会分解问题，不然无从下手。</p>
+<h2 id="大师级程序员的工作秘笈"><a href="#大师级程序员的工作秘笈" class="headerlink" title="大师级程序员的工作秘笈"></a>大师级程序员的工作秘笈</h2><p>大师级程序员每当遇到一件要做的事，把他分解成几个小任务，记录在一个清单上，然后才是动手写测试、写代码、重构这样一个小循环。等一个循环完成了，他会划掉已经做完的任务，开始下一个。一旦在解决问题的过程中遇到任务新问题，他会把要解决的问题记录在清单上，保证问题不会丢失，然后，继续回到自己正在处理的任务上。当他把一个个任务完成的时候，问题就解决完了。每个任务完成时，代码都是可以提交的。看上去简单，但是很多程序员都做不到。</p>
+<p>只有把任务分解到很小，才可能做到小步提交。而把任务分解到很小，其实证明你已经想清楚了。而大多数程序员之所以开发效率低，很多时候是没想清楚就动手了。</p>
+<p>任务分解是个好习惯，但是想要掌握它，大量的练习是必须的。</p>
+<p>作者能保持连续在github上提交代码1000天，还是挺牛逼的，这个连续提交的基础，就是我自己在练习任务分解时，不断的尝试把一件事拆细，这样，我每天都至少能保证完成一小步。当然，如果有时间了，我也会多写一点。</p>
+<p>经过这种练习之后，任务分解也就成了我的本能，不再局限于写程序上。我遇到任何需要解决的问题，脑子里的第一反应一定是，它可以怎么一步一步的完成，确定好分解之后，解决问题就是一步步做了。</p>
+<h2 id="DoD的价值：在做任何事情之前，先定义完成的标准"><a href="#DoD的价值：在做任何事情之前，先定义完成的标准" class="headerlink" title="DoD的价值：在做任何事情之前，先定义完成的标准"></a>DoD的价值：在做任何事情之前，先定义完成的标准</h2><p>DoD（Definition Of Done，完成的定义），这个概念本身并不复杂，它就是告诉我们怎样算完成了，尽量减少因为理解偏差造成的各种浪费。</p>
+<p>比如一次开发完成，表示：</p>
+<ul>
+<li>开发人员编写好功能代码</li>
+<li>编写好单元测试代码</li>
+<li>编写好集成测试代码</li>
+<li>测试可以通过</li>
+<li>代码通过了代码风格检查、测试覆盖率检查。</li>
+</ul>
+<p>一旦 DoD 确定好了，谁该做什么事、该做到什么程度就一目了然了。</p>
+<h2 id="如何更好得使用-DoD呢？"><a href="#如何更好得使用-DoD呢？" class="headerlink" title="如何更好得使用 DoD呢？"></a>如何更好得使用 DoD呢？</h2><ul>
+<li><p>DoD 是一个清单，由一个个检查项组成的，用来检查工作完成情况。</p>
+</li>
+<li><p>DoD 的检查项应该是实际可检查的，比如代码写好了，可以展示代码，单元测试代码写好了，可以进行现场测试。</p>
+</li>
+<li><p>DoD 是团队成员间彼此汇报的一种机制。有了 DoD，做事只有两种状态，即 “做完” 和 “没做完”。</p>
+</li>
+</ul>
+<h2 id="在做任何需求或任务之前，先定好验收标准。"><a href="#在做任何需求或任务之前，先定好验收标准。" class="headerlink" title="在做任何需求或任务之前，先定好验收标准。"></a>在做任何需求或任务之前，先定好验收标准。</h2><p>我们都知道，需求是软件开发的一个重要组成部分，但你可能没有仔细想过，不同的需求描述方式，可能会影响程序员对需求的理解。</p>
+<p>很多公司的软件开发模式是基于功能列表的，这个列表 “ 规定 ” 了程序员要做的功能，这种方式把一个完整的需求拆成了碎片。不到最后一刻，大部分人并没有一个完整的概念，这也就会在最后关头遇到很多意料之外的问题，结果必然是手忙脚乱。</p>
+<p>那么，这个时候验收标准变得极为重要，验收标准不仅仅描述了正常流程，也会关注到异常流程的处理。它给出了这个需求最基本的测试用例，保证了开发人员完成需求最基本的质量。一旦定义好验收标准，大量的扯皮工作就随之烟消云散了。 </p>
+<h2 id="尽早提交代码去集成"><a href="#尽早提交代码去集成" class="headerlink" title="尽早提交代码去集成"></a>尽早提交代码去集成</h2><p>持续集成指的是，频繁地将代码集成到主干。</p>
+<p>它的好处主要有两个。</p>
+<p>快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。<br>防止分支大幅偏离主干。如果不是经常集成，主干又在不断更新，会导致以后集成的难度变大，甚至难以集成。<br>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量</p>
+<p>Martin Fowler 说过，”持续集成并不能消除 Bug，而是让它们非常容易发现和改正。”</p>
+<h2 id="在没弄清楚之前，需求都不做"><a href="#在没弄清楚之前，需求都不做" class="headerlink" title="在没弄清楚之前，需求都不做"></a>在没弄清楚之前，需求都不做</h2><p>精益创业：这个名字并不是指导人们创业挣大钱的方法论。它要解决的是面向不确定性创造新事物。</p>
+<p>精益创业中的 “精益”这个词，让人们开始理解价值创造和浪费之间的关系。创造价值是每个人都能理解的，但减少浪费是很多人忽略的。所以，精益创业就是在尽可能少浪费的前提下，面向不确定性创造新事物。</p>
+<p>既然是面向不确定性创造新事物，我们唯一能做的就是 “ 试 ”。也就是说，当你有了一个新的想法时，就把想法开发成产品投入市场，然后，手机数据获取反馈，看看前面的想法是否靠谱。好想法继续加强，不靠谱的想法丢掉。</p>
+<p>既然是试，也不确定想法的有效性，最好的办法就是以最低的成本试。许多软件团队都会陷入一个非常典型的误区，不管什么需求都想做出来看看，殊不知，把软件完整做出来是最大的浪费。</p>
+<p>精益创业提供给我们的是一个做产品的思考框架。当产品经理要做一个新产品或是产品的新特性，我们就可以用精益创业的概念检验一下产品经理是否想清楚了。比如，你要做个产品特性，你要验证的东西是什么呢？要验证的目标是否有数据可以度量呢？要解决的这个问题是不是当前最重要的事情？稳了这些，我们能更好地确定产品经理提出的需求确实是经过严格思考的。</p>
+<h2 id="接到需求，-要先做哪些事情"><a href="#接到需求，-要先做哪些事情" class="headerlink" title="接到需求， 要先做哪些事情"></a>接到需求， 要先做哪些事情</h2><p>需求的拆分:用户故事</p>
+<ul>
+<li><p>问题</p>
+<p>基本上，闯入你脑海的需求描述是主题（epic），在敏捷开发中，有人称之为主用户故事（master story)<br>绝大多数问题都是由于分解的粒度太大造成的，少有因为粒度太小而出问题的<br>用户故事，它将是我们这里讨论需求管理的基本单位。</p>
+</li>
+<li><p>需求要分解<br>用户故事原则：</p>
+</li>
+</ul>
+<p>1、Independent，独立的<br>2、Negotiable，可协商的<br>3、Valuable，有价值的<br>4、Estimatable，可估算的<br>5、Small，小<br>6、Testable，可测试的</p>
+<p>需求的估算:</p>
+<p>估算的结果是相对的，不是绝对精确的，我们不必像做科研一样，只要给出一个相对估算就好，一般来说，估算的过程也是大家加深对需求理解的过程。</p>
+<p>优先级管理：做最重要的事情</p>
+<p>需求分解之后，最重要的是，排列需求的优先级。优先级的排列方式有很多，我们可以借鉴时间管理的方法，把事情按照重要和紧急的维度进行划分，得到了四个象限。我们要尽可能把精力放在重要的事情上，而不是把紧急的事情当成优先级排序的方式。</p>
+<p>确定事情的重要程度, 一种方式就是找回丢失的上下文，如果无法判断好的办法, 那就引入外部更大的上下文</p>
+<p><strong>小结</strong>：需求从产品、开发、测试需要对齐，确保理解一致，按一定的敏捷开发流程来不段迭代开发流程，也是高效的工作法则之一。</p>
+<h2 id="为什么说做事情之前先要进行推演"><a href="#为什么说做事情之前先要进行推演" class="headerlink" title="为什么说做事情之前先要进行推演"></a>为什么说做事情之前先要进行推演</h2><ul>
+<li>沙盘推演, 从军事指挥室里学来的大学问</li>
+<li>即便已经确定了自己的工作目标，我们依然要在具体动手之前，把实施步骤推演一番，完成一次头脑中的创造，也就是第一次创造或智力上的创造。这种思想在军事上称之为沙盘推演，在很多领域都有广泛地应用</li>
+<li>通向结果的路径才是更重要的</li>
+<li>在动手做一件事之前，先推演一番。</li>
+</ul>
+<h2 id="解决了很多技术问题，为什么依然在”坑”里？"><a href="#解决了很多技术问题，为什么依然在”坑”里？" class="headerlink" title="解决了很多技术问题，为什么依然在”坑”里？"></a>解决了很多技术问题，为什么依然在”坑”里？</h2><p>技术是一把利刃，程序员相信技术可以改变世界，但并不是所有问题都要用技术解决。花大力气去解决一个可能并不是问题的问题，常常是很多程序员的盲区。</p>
+<ul>
+<li><p>更大范围内寻找”终”</p>
+</li>
+<li><p>程序员总喜欢用技术去解决一切问题，但很多令人寝食难安的问题其实根本不是问题。之所以找不出更简单的解决方案，很多时候原因在于程序员被自己的思考局限住了。</p>
+</li>
+<li><p>不同角色工作真正的差异在于上下文的差异。在一个局部上下文难以解决的问题，换到另外一个上下文甚至是可以不解决的。所以说无论单点有多努力也只是局部优化，很难达到最优的效果</p>
+</li>
+<li><p>角色的差异：</p>
+<ul>
+<li>不同角色工作上真正的差异是上下文的不同</li>
+<li>虽然写的代码都一样，但你看到的是树木，人家看到的是森林，他更能从全局思考</li>
+<li>我并不是靠技术能力解决了问题，而是凭借对需求的理解把这个问题绕过去了</li>
+<li>而能想到问这样的问题，前提就是要跳出程序员角色思维，扩大自己工作的上下文</li>
+<li>当你对软件开发的全生命周期都有了认识之后，你看到的就不再是一个点了，而是一条线</li>
+</ul>
+</li>
+<li><p>工作的上下文不同，看到的维度差异很大</p>
+<ul>
+<li>单一维度的思考，在多维度思考者的眼里几乎就是漏洞百出的</li>
+<li>扩大自己工作的上下文，别把自己局限在一个“程序员”的角色上。</li>
+</ul>
+</li>
+</ul>
+<p>小结：遇到问题，多沟通，多请教，学会转换视角，转换思维，实现对问题的降维打击，以解决问题。</p>
+<h2 id="入职新公司-如何快速进入工作状态？"><a href="#入职新公司-如何快速进入工作状态？" class="headerlink" title="入职新公司, 如何快速进入工作状态？"></a>入职新公司, 如何快速进入工作状态？</h2><p>步骤：</p>
+<ul>
+<li><p>了解业务</p>
+</li>
+<li><p>技术</p>
+<ul>
+<li><p>技术栈</p>
+</li>
+<li><p>业务架构</p>
+</li>
+<li><p>内外依赖</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>团队运作</p>
+<p>需求, 产品，向谁汇报</p>
+</li>
+<li><p>内部活动</p>
+<p>站会、 回顾会议、周会、代码评审、内部分享等。</p>
+</li>
+<li><p>使用“行话”。在交流的过程中，学习一点”行话“。</p>
+<p>这会让人觉得你懂行，让你很快得到信任，尽早融入团队</p>
+</li>
+<li><p>找到关键点，迅速下手</p>
+</li>
+<li><p>由大到小， 由内而外</p>
+</li>
+</ul>
+<h2 id="如何管理你的上级？"><a href="#如何管理你的上级？" class="headerlink" title="如何管理你的上级？"></a>如何管理你的上级？</h2><ul>
+<li>领导要求的，无力反驳怎么办？</li>
+</ul>
+<p>我们要敢于管理上级。</p>
+<p>第一，管理上级的预期。这个过程，相当于我把自己看到的问题暴露给上级，让他选择。<br>第二，帮助上级丰富知识。<br>第三，说出你的想法。这其实就是我们熟悉的一个最简单的道理：会哭的孩子有奶吃。</p>
+<ul>
+<li>产品经理总拿老板说事，怎么办？</li>
+</ul>
+<p>实际上，老板要求的是方向，不是产品特性。大老板不会安排那么细的细节。所以，一个产品经理该做的事就是把老板给的方向，变成一个个可以实现的产品特性，他要分析其中的合理与不合理。</p>
+<p>不合理的部分应该是他和老板去沟通的，而不是让开发团队来实现。</p>
+<ul>
+<li>别人能做的，我们也要做</li>
+</ul>
+<p>第一，竞争对手有的产品，我们也要有。</p>
+<p>“抄”不是问题，问题是无脑地抄。</p>
+<p>所以，如果你的产品经理只想无脑抄袭，本质上，他就是在偷懒，没干好他该干的活。</p>
+<p>第二：人家能做到，说明技术上是可行的。</p>
+<p>要做什么是需求，怎么做是技术。与产品经理要确认的是，这个需求是不是合理，该不该做。技术上能否实现，这是开发团队要考虑的事情，并不是产品经理说事的理由。</p>
+<h1 id="刻意练习"><a href="#刻意练习" class="headerlink" title="刻意练习"></a>刻意练习</h1><p>最牛B的编码套路：</p>
+<p>Steve Yegge 在“<a target="_blank" rel="noopener" href="https://sites.google.com/site/steveyegge2/practicing-programming">Practicing Programming</a>”（练习编程）提到：</p>
+<blockquote>
+<p>与你所相信的恰恰相反，单纯地每天埋头于工作并不能算是真正意义上的锻炼——参加会议并不能锻炼你的人际交往能力；回复邮件并不能提高你的打字水平。你必须定期留出时间，集中锻炼，这样才能把事情做得更好。</p>
+</blockquote>
+<p>每天都开车去上班，但我的驾驶水平远远不如专业车手；类似的情况，天天编程可能并不足以使你成为一名专业的程序员。那么，什么才能把一个普通人变成一名专业车手或者专业程序员呢？你需要锻炼什么呢？</p>
+<p>答案就在《科学美国人》的一篇名为“The Expert Mind”（专家思维）的文章里：</p>
+<blockquote>
+<p>爱立信提出，重要的并不是经验本身，而是“努力的学习”，也就是要不断地挑战自身能力之外的东西。一些狂热的爱好者花费了大量的时间去下棋、打高尔夫球或者玩乐器，但他们可能始终停留在业余水平上，而一个训练有素的学生却可以在相对较短的时间里超越他们，原因就在这里。值得注意的是，在提高水平方面，花费在下棋上的大量时间（即使参加各种比赛）似乎还是比不过专门的训练来得更为有效。训练的主要价值在于发现弱点，并有针对性地进行提高。</p>
+</blockquote>
+<p>“努力的学习”意味着，要常常去处理那些刚好在你能力极限上的问题，也就是那些对你来说有很大可能失败的事情。如果不经历一些失败的话，你可能就不会成长。你必须不断地挑战自我，超越自己的极限。</p>
+<p>那样的挑战有时会在工作中碰到，但也未必。将锻炼从职业工作中分离出来，这在编程领域常被人称为“编码套路”（Code Kata）。</p>
+<p>Code Kata的概念是由David Thomas提出的，他是《程序员修炼之道：从小工到专家》的作者之一。这个概念主要指的是:</p>
+<blockquote>
+<p>针对某一种特定技术或技能进行重复性的练习，从而将其熟练掌握。——译者注</p>
+</blockquote>
+<p>还有一些实践经验不在此列出，最后作者总结了最精炼的编程套路：</p>
+<p>第一：写博客 </p>
+<p>第二：积极参与著名的开源项目</p>
+<p>小结： 输出倒逼输入，是最好的学习方式之一；“Talk is cheap ,show me the code”. 刻意练习。</p>
+<h1 id="精进书单"><a href="#精进书单" class="headerlink" title="精进书单"></a>精进书单</h1><p>《程序员修炼之道：从小工到专家》</p>
+<p>《高效能人士的七个习惯》</p>
+<p>《好好学习》</p>
+<p>《好好思考》</p>
+<p>《刻意练习》</p>
+<p>……</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>学会学习、学会思考、学习用好工具, 学会复盘，学会自我迭代，学会精进，学会掌握底层思考利器。</p>
+<p>如里觉得总结对你有一点用的话，请给一个赞哦。</p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="http://oenhan.com/technical-experts">如何成为一位技术专家</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/happydeer/article/details/17023229">最牛B的编码套路</a></p>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束---感谢您的阅读-------------</div>
+    
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小羊子说
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://june5753.github.io/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/" title="10x 程序员工作法 学习总结笔记">https://june5753.github.io/blog/2021/07/09/10x程序员工作法 学习总结笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/blog/tags/%E9%AB%98%E6%95%88%E6%96%B9%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 高效方法</a>
+              <a href="/blog/tags/10x-%E7%A8%8B%E5%BA%8F%E5%91%98/" rel="tag"><i class="fa fa-tag"></i> 10x 程序员</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" rel="next" title="让你最快速地改善代码质量的20条编程规范">
+      让你最快速地改善代码质量的20条编程规范 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%99%E7%A2%8C%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">忙碌原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E8%A7%82%E4%BA%8B%E5%AE%9E"><span class="nav-number">1.2.</span> <span class="nav-text">客观事实</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10x%E5%B7%A5%E4%BD%9C%E6%B3%95%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">10x工作法原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E7%BB%88%E4%B8%BA%E5%A7%8B%EF%BC%9A%E9%81%87%E5%88%B0%E4%BA%8B%E6%83%85%EF%BC%8C%E5%80%92%E7%9D%80%E6%83%B3"><span class="nav-number">2.1.</span> <span class="nav-text">以终为始：遇到事情，倒着想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3"><span class="nav-number">2.2.</span> <span class="nav-text">任务分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%B8%88%E7%BA%A7%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%A7%98%E7%AC%88"><span class="nav-number">2.3.</span> <span class="nav-text">大师级程序员的工作秘笈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DoD%E7%9A%84%E4%BB%B7%E5%80%BC%EF%BC%9A%E5%9C%A8%E5%81%9A%E4%BB%BB%E4%BD%95%E4%BA%8B%E6%83%85%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%85%88%E5%AE%9A%E4%B9%89%E5%AE%8C%E6%88%90%E7%9A%84%E6%A0%87%E5%87%86"><span class="nav-number">2.4.</span> <span class="nav-text">DoD的价值：在做任何事情之前，先定义完成的标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%BE%97%E4%BD%BF%E7%94%A8-DoD%E5%91%A2%EF%BC%9F"><span class="nav-number">2.5.</span> <span class="nav-text">如何更好得使用 DoD呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%81%9A%E4%BB%BB%E4%BD%95%E9%9C%80%E6%B1%82%E6%88%96%E4%BB%BB%E5%8A%A1%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%85%88%E5%AE%9A%E5%A5%BD%E9%AA%8C%E6%94%B6%E6%A0%87%E5%87%86%E3%80%82"><span class="nav-number">2.6.</span> <span class="nav-text">在做任何需求或任务之前，先定好验收标准。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BD%E6%97%A9%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%8E%BB%E9%9B%86%E6%88%90"><span class="nav-number">2.7.</span> <span class="nav-text">尽早提交代码去集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%B2%A1%E5%BC%84%E6%B8%85%E6%A5%9A%E4%B9%8B%E5%89%8D%EF%BC%8C%E9%9C%80%E6%B1%82%E9%83%BD%E4%B8%8D%E5%81%9A"><span class="nav-number">2.8.</span> <span class="nav-text">在没弄清楚之前，需求都不做</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%88%B0%E9%9C%80%E6%B1%82%EF%BC%8C-%E8%A6%81%E5%85%88%E5%81%9A%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85"><span class="nav-number">2.9.</span> <span class="nav-text">接到需求， 要先做哪些事情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E5%81%9A%E4%BA%8B%E6%83%85%E4%B9%8B%E5%89%8D%E5%85%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E6%8E%A8%E6%BC%94"><span class="nav-number">2.10.</span> <span class="nav-text">为什么说做事情之前先要进行推演</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BA%86%E5%BE%88%E5%A4%9A%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BE%9D%E7%84%B6%E5%9C%A8%E2%80%9D%E5%9D%91%E2%80%9D%E9%87%8C%EF%BC%9F"><span class="nav-number">2.11.</span> <span class="nav-text">解决了很多技术问题，为什么依然在”坑”里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E8%81%8C%E6%96%B0%E5%85%AC%E5%8F%B8-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%BF%9B%E5%85%A5%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-number">2.12.</span> <span class="nav-text">入职新公司, 如何快速进入工作状态？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E4%B8%8A%E7%BA%A7%EF%BC%9F"><span class="nav-number">2.13.</span> <span class="nav-text">如何管理你的上级？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">刻意练习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B2%BE%E8%BF%9B%E4%B9%A6%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text">精进书单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小羊子说"
+      src="/blog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">小羊子说</p>
+  <div class="site-description" itemprop="description">主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/june5753" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;june5753" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/blog/yangjun5753@163.com" title="E-Mail → yangjun5753@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jun5753" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jun5753" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小羊子说</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">22k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">20 分钟</span>
+</div>
+
+
+<!-- 隐藏网页底部 powered By Hexo / 强力驱动 -->
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+<script src="/blog/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
