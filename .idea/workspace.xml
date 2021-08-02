@@ -2,57 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="407adbc4-adbf-4f40-8aa6-abf730a586fe" name="Default Changelist" comment="feat: 添加未追踪的文件">
-      <change afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.nojekyll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2021/07/09/10x程序员工作法 学习总结笔记/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2021/08/01/AIDL 学习笔记/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2021/07/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2021/08/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2021/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/思维方式/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/编程规范/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/algolia_logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/apple-touch-icon-next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc-nd.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc-sa.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nd.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by-sa.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-by.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/cc-zero.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/favicon-16x16-next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/favicon-32x32-next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/algolia-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/bookmark.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/local-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/motion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/next-boot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/schemes/muse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/schemes/pisces.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/anime.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/css/all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-solid-900.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/velocity/velocity.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/velocity/velocity.ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/search.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/10x-程序员/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/AIDL/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/编程规范/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/设计模式之美/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/高效方法/index.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/2021/08/02/Git 使用注意事项总结/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/search.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +62,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
