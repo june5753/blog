@@ -237,7 +237,7 @@
       </tags>
   </entry>
   <entry>
-    <title>AIDL学习笔记总结</title>
+    <title>AIDL 学习笔记总结</title>
     <url>/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="一、应用场景"><a href="#一、应用场景" class="headerlink" title="一、应用场景"></a>一、应用场景</h1><h3 id="AIDL可以解决什么问题？"><a href="#AIDL可以解决什么问题？" class="headerlink" title="AIDL可以解决什么问题？"></a>AIDL可以解决什么问题？</h3><ul>
 <li>可以实现多个应用程序共享同一个Service的功能，比如：IM服务可以提供给多个APP使用，先在推送基本都是采取这种方案</li>
@@ -408,6 +408,9 @@
 <p><a href="https://wujingchao.github.io/2016/01/04/art-of-android-development-notes-ipc/"><a href="http://www.amazon.cn/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2-%E4%BB%BB%E7%8E%89%E5%88%9A/dp/B014HV1X3K/ref=sr_1_1?ie=UTF8&qid=1451616304&sr=8-1&keywords=Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2">Android开发艺术探索</a>读书笔记: IPC机制</a></p>
 <p><a href="https://gank.io/post/5e52801241bd447e3b978092">https://gank.io/post/5e52801241bd447e3b978092</a></p>
 ]]></content>
+      <categories>
+        <category>AIDL</category>
+      </categories>
       <tags>
         <tag>AIDL</tag>
       </tags>
@@ -415,7 +418,7 @@
   <entry>
     <title>Git 使用注意事项总结</title>
     <url>/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">➜  Taurus <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">➜  Txx <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>rexx_v2<span class="number">.108</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>首次提交流程：</p>
 <ol>
@@ -424,7 +427,7 @@
 </li>
 <li><p>hook操作</p>
 <blockquote>
-<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#x6a;&#x75;&#x6e;&#x65;&#121;&#x61;&#110;&#x67;&#64;&#49;&#x37;&#x32;&#x2e;&#49;&#54;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;">&#x6a;&#x75;&#x6e;&#x65;&#121;&#x61;&#110;&#x67;&#64;&#49;&#x37;&#x32;&#x2e;&#49;&#54;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
+<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#106;&#x75;&#110;&#x65;&#x79;&#x61;&#x6e;&#x67;&#x40;&#x31;&#x37;&#50;&#x2e;&#49;&#54;&#x2e;&#x31;&#x32;&#x2e;&#x31;&#55;&#x31;">&#106;&#x75;&#110;&#x65;&#x79;&#x61;&#x6e;&#x67;&#x40;&#x31;&#x37;&#50;&#x2e;&#49;&#54;&#x2e;&#x31;&#x32;&#x2e;&#x31;&#55;&#x31;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
 </blockquote>
 </li>
 <li><p>再次提交</p>
@@ -452,7 +455,7 @@
 </li>
 </ol>
 <p>如果在IDE中使用commint –amend中的方法 会出现 日志修改无效的问题。</p>
-<p>Virgo:</p>
+<p>VirgoXX:</p>
 <p>git push origin HEAD:refs/for/sprint/s25</p>
 <h1 id="异常总结："><a href="#异常总结：" class="headerlink" title="异常总结："></a>异常总结：</h1><p>1.Git中vim修改权限： E45: 已设定选项 ‘readonly’ (请加 ! 强制执行)</p>
 <p>初始设置进行修改操作后，无法保存，git命令行输入指令：</p>
@@ -527,12 +530,12 @@
 </blockquote>
 <p>合并提交记录</p>
 <p><a href="https://segmentfault.com/a/1190000023055669">https://segmentfault.com/a/1190000023055669</a></p>
-<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review borad后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
+<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review board 后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
 <p>代码丢失处理：</p>
-<p>从 git polyGerrit中添加代码：</p>
+<p>从 git polyGerrit 中添加代码：</p>
 <blockquote>
 <p>git cherry-pick</p>
-<p> git fetch “ssh://<a href="mailto:&#x6a;&#117;&#x6e;&#101;&#x79;&#x61;&#x6e;&#103;&#x40;&#49;&#x37;&#x32;&#46;&#x31;&#x36;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;">&#x6a;&#117;&#x6e;&#101;&#x79;&#x61;&#x6e;&#103;&#x40;&#49;&#x37;&#x32;&#46;&#x31;&#x36;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
+<p> git fetch “ssh://<a href="mailto:&#x6a;&#x75;&#110;&#101;&#x79;&#x61;&#x6e;&#103;&#64;&#x31;&#x37;&#x32;&#x2e;&#x31;&#54;&#x2e;&#x31;&#x32;&#x2e;&#49;&#x37;&#49;">&#x6a;&#x75;&#110;&#101;&#x79;&#x61;&#x6e;&#103;&#64;&#x31;&#x37;&#x32;&#x2e;&#x31;&#54;&#x2e;&#x31;&#x32;&#x2e;&#49;&#x37;&#49;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
 </blockquote>
 <p>git diff</p>
 <p>解决冲突后</p>
@@ -592,6 +595,12 @@
 <p>小结：</p>
 <p><a href="https://www.jianshu.com/p/63199427ee68">https://www.jianshu.com/p/63199427ee68</a></p>
 ]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title>让你最快速地改善代码质量的20条编程规范</title>

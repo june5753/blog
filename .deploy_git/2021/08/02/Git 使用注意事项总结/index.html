@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"june5753.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","unescape":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1234567891011121314151617181920➜  Taurus git:(mqtt_test) ✗ git push origin HEAD:refs&#x2F;for&#x2F;release_v2.18.0%wip枚举对象中: 52, 完成.对象计数中: 100% (52&#x2F;52), 完成.使用 12 个线程进行压缩压缩对象中: 100% (28&#x2F;28), 完成.写入对象中: 100% (32&#x2F;3">
+  <meta name="description" content="本文总结了工作中使用 git 常用的命令及 Code Review 使用时的注意事项，不断更新中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 使用注意事项总结">
 <meta property="og:url" content="https://june5753.github.io/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Android 技术内参">
-<meta property="og:description" content="1234567891011121314151617181920➜  Taurus git:(mqtt_test) ✗ git push origin HEAD:refs&#x2F;for&#x2F;release_v2.18.0%wip枚举对象中: 52, 完成.对象计数中: 100% (52&#x2F;52), 完成.使用 12 个线程进行压缩压缩对象中: 100% (28&#x2F;28), 完成.写入对象中: 100% (32&#x2F;3">
+<meta property="og:description" content="本文总结了工作中使用 git 常用的命令及 Code Review 使用时的注意事项，不断更新中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gre4g4urqyj313e07p0up.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gre4hqi5tmj30rp07f3zm.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gre4itaztnj30ot0gu40f.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1grkbkzpnskj30ql08hdhe.jpg">
 <meta property="article:published_time" content="2021-08-02T07:34:09.000Z">
-<meta property="article:modified_time" content="2021-08-02T07:37:56.131Z">
+<meta property="article:modified_time" content="2021-08-02T08:20:11.473Z">
 <meta property="article:author" content="小羊子说">
-<meta property="article:tag" content="Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gre4g4urqyj313e07p0up.jpg">
 
@@ -211,7 +211,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-02 15:34:09 / 修改时间：15:37:56" itemprop="dateCreated datePublished" datetime="2021-08-02T15:34:09+08:00">2021-08-02</time>
+              <time title="创建时间：2021-08-02 15:34:09 / 修改时间：16:20:11" itemprop="dateCreated datePublished" datetime="2021-08-02T15:34:09+08:00">2021-08-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
             </span>
 
           
@@ -236,6 +245,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>4 分钟</span>
             </span>
+            <div class="post-description">本文总结了工作中使用 git 常用的命令及 Code Review 使用时的注意事项，不断更新中。</div>
 
         </div>
       </header>
@@ -246,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  Taurus <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  Txx <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>rexx_v2<span class="number">.108</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>首次提交流程：</p>
 <ol>
@@ -255,7 +265,7 @@
 </li>
 <li><p>hook操作</p>
 <blockquote>
-<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#x6a;&#x75;&#x6e;&#x65;&#121;&#x61;&#110;&#x67;&#64;&#49;&#x37;&#x32;&#x2e;&#49;&#54;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;">&#x6a;&#x75;&#x6e;&#x65;&#121;&#x61;&#110;&#x67;&#64;&#49;&#x37;&#x32;&#x2e;&#49;&#54;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
+<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#106;&#x75;&#110;&#x65;&#x79;&#x61;&#x6e;&#x67;&#x40;&#x31;&#x37;&#50;&#x2e;&#49;&#54;&#x2e;&#x31;&#x32;&#x2e;&#x31;&#55;&#x31;">&#106;&#x75;&#110;&#x65;&#x79;&#x61;&#x6e;&#x67;&#x40;&#x31;&#x37;&#50;&#x2e;&#49;&#54;&#x2e;&#x31;&#x32;&#x2e;&#x31;&#55;&#x31;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
 </blockquote>
 </li>
 <li><p>再次提交</p>
@@ -283,7 +293,7 @@
 </li>
 </ol>
 <p>如果在IDE中使用commint –amend中的方法 会出现 日志修改无效的问题。</p>
-<p>Virgo:</p>
+<p>VirgoXX:</p>
 <p>git push origin HEAD:refs/for/sprint/s25</p>
 <h1 id="异常总结："><a href="#异常总结：" class="headerlink" title="异常总结："></a>异常总结：</h1><p>1.Git中vim修改权限： E45: 已设定选项 ‘readonly’ (请加 ! 强制执行)</p>
 <p>初始设置进行修改操作后，无法保存，git命令行输入指令：</p>
@@ -358,12 +368,12 @@
 </blockquote>
 <p>合并提交记录</p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023055669">https://segmentfault.com/a/1190000023055669</a></p>
-<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review borad后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
+<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review board 后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
 <p>代码丢失处理：</p>
-<p>从 git polyGerrit中添加代码：</p>
+<p>从 git polyGerrit 中添加代码：</p>
 <blockquote>
 <p>git cherry-pick</p>
-<p> git fetch “ssh://<a href="mailto:&#x6a;&#117;&#x6e;&#101;&#x79;&#x61;&#x6e;&#103;&#x40;&#49;&#x37;&#x32;&#46;&#x31;&#x36;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;">&#x6a;&#117;&#x6e;&#101;&#x79;&#x61;&#x6e;&#103;&#x40;&#49;&#x37;&#x32;&#46;&#x31;&#x36;&#46;&#x31;&#50;&#46;&#x31;&#55;&#x31;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
+<p> git fetch “ssh://<a href="mailto:&#x6a;&#x75;&#110;&#101;&#x79;&#x61;&#x6e;&#103;&#64;&#x31;&#x37;&#x32;&#x2e;&#x31;&#54;&#x2e;&#x31;&#x32;&#x2e;&#49;&#x37;&#49;">&#x6a;&#x75;&#110;&#101;&#x79;&#x61;&#x6e;&#103;&#64;&#x31;&#x37;&#x32;&#x2e;&#x31;&#54;&#x2e;&#x31;&#x32;&#x2e;&#49;&#x37;&#49;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
 </blockquote>
 <p>git diff</p>
 <p>解决冲突后</p>
@@ -450,6 +460,10 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/blog/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          </div>
 
         
 
@@ -457,8 +471,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="AIDL学习笔记总结">
-      <i class="fa fa-chevron-left"></i> AIDL学习笔记总结
+    <a href="/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="AIDL 学习笔记总结">
+      <i class="fa fa-chevron-left"></i> AIDL 学习笔记总结
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -540,11 +554,11 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

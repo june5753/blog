@@ -1,14 +1,13 @@
 ---
-layout: git
 title: Git 使用注意事项总结
 date: 2021-08-02 15:34:09
-tags:
+tags: git
+categories: git
+description: 本文总结了工作中使用 git 常用的命令及 Code Review 使用时的注意事项，不断更新中。
 ---
 
-
-
 ```groovy
-➜  Taurus git:(mqtt_test) ✗ git push origin HEAD:refs/for/release_v2.18.0%wip
+➜  Txx git:(mqtt_test) ✗ git push origin HEAD:refs/for/rexx_v2.108.0%wip
 枚举对象中: 52, 完成.
 对象计数中: 100% (52/52), 完成.
 使用 12 个线程进行压缩
@@ -77,7 +76,7 @@ git push origin HEAD:refs/for/dev
 
 
 
-Virgo:
+VirgoXX:
 
 git push origin HEAD:refs/for/sprint/s25
 
@@ -232,11 +231,11 @@ https://segmentfault.com/a/1190000023055669
 
 # 冲突解决
 
-背景：当提交代码到 review borad后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。
+背景：当提交代码到 review board 后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。
 
 代码丢失处理：
 
-从 git polyGerrit中添加代码：
+从 git polyGerrit 中添加代码：
 
 > git cherry-pick
 >

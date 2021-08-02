@@ -2,18 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="407adbc4-adbf-4f40-8aa6-abf730a586fe" name="Default Changelist" comment="feat: 添加未追踪的文件">
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/AIDL/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/git/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/git/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/2021/07/09/10x程序员工作法 学习总结笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/2021/07/09/10x程序员工作法 学习总结笔记/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/2021/08/01/AIDL 学习笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/2021/08/01/AIDL 学习笔记/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.deploy_git/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/2021/08/02/Git 使用注意事项总结/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/archives/2021/07/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/archives/2021/07/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/archives/2021/08/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/archives/2021/08/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/archives/2021/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/archives/2021/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/archives/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/categories/思维方式/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/categories/思维方式/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/categories/编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/categories/编程规范/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.deploy_git/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.deploy_git/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.deploy_git/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/tags/10x-程序员/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/tags/10x-程序员/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/tags/AIDL/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/tags/AIDL/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/tags/编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/tags/编程规范/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/tags/设计模式之美/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/tags/设计模式之美/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.deploy_git/tags/高效方法/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.deploy_git/tags/高效方法/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/07/09/10x程序员工作法 学习总结笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/07/09/10x程序员工作法 学习总结笔记/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/08/01/AIDL 学习笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/08/01/AIDL 学习笔记/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/07/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2021/07/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/08/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2021/08/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2021/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/思维方式/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/思维方式/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/编程规范/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/10x-程序员/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/10x-程序员/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/AIDL/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/AIDL/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/编程规范/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/编程规范/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/设计模式之美/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/设计模式之美/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/高效方法/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/高效方法/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/10x程序员工作法 学习总结笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/10x程序员工作法 学习总结笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/AIDL 学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/AIDL 学习笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Git 使用注意事项总结.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Git 使用注意事项总结.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/让你最快速地改善代码质量的20条编程规范.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/让你最快速地改善代码质量的20条编程规范.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,7 +1,9 @@
 ---
-title: AIDL学习笔记总结
+title: AIDL 学习笔记总结
 date: 2021-08-01 23:00:44
 tags: AIDL
+categories: AIDL
+description:  AIDL 学习笔记总结。
 ---
 
 # 一、应用场景
