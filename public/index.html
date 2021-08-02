@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -175,6 +175,252 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://june5753.github.io/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="小羊子说">
+      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Android 技术内参">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Git 使用注意事项总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-02 15:34:09 / 修改时间：15:35:50" itemprop="dateCreated datePublished" datetime="2021-08-02T15:34:09+08:00">2021-08-02</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  Taurus <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>首次提交流程：</p>
+<ol>
+<li><p>提交日志commit （ cmd + K） 这里可以用IDE来提交。后面的流程用命令。</p>
+<p>正常操作即可。</p>
+</li>
+<li><p>hook操作</p>
+<blockquote>
+<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#106;&#117;&#110;&#x65;&#121;&#x61;&#x6e;&#x67;&#64;&#49;&#x37;&#50;&#x2e;&#x31;&#x36;&#46;&#49;&#50;&#46;&#x31;&#x37;&#49;">&#106;&#117;&#110;&#x65;&#121;&#x61;&#x6e;&#x67;&#64;&#49;&#x37;&#50;&#x2e;&#x31;&#x36;&#46;&#49;&#50;&#46;&#x31;&#x37;&#49;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
+</blockquote>
+</li>
+<li><p>再次提交</p>
+<blockquote>
+<p>git commit –amend</p>
+</blockquote>
+</li>
+<li><p>进入Vim操作中，添加日志 保存退出 <code>:wq</code> .</p>
+</li>
+<li><p>push 添加wip状态意味着 当次提交不会合并，在编辑中。</p>
+<blockquote>
+<p> git push origin HEAD:refs/for/release_v2.18.0%wip</p>
+</blockquote>
+</li>
+</ol>
+<p>Virgo:</p>
+<p>git push origin HEAD:refs/for/sprint/s25</p>
+<h1 id="Aries"><a href="#Aries" class="headerlink" title="Aries:"></a><strong>Aries:</strong></h1><p>git push origin HEAD:refs/for/dev</p>
+<p>注意 其他项目中的提交需要单独提交。防止提交遗漏。</p>
+<p>第二轮修改后提交流程：</p>
+<ol>
+<li><p>如果没有通过被拒绝之后，修改后再次提交</p>
+<p>git add .</p>
+<p>git commit –amend</p>
+</li>
+</ol>
+<p>如果在IDE中使用commint –amend中的方法 会出现 日志修改无效的问题。</p>
+<p>Virgo:</p>
+<p>git push origin HEAD:refs/for/sprint/s25</p>
+<h1 id="异常总结："><a href="#异常总结：" class="headerlink" title="异常总结："></a>异常总结：</h1><p>1.Git中vim修改权限： E45: 已设定选项 ‘readonly’ (请加 ! 强制执行)</p>
+<p>初始设置进行修改操作后，无法保存，git命令行输入指令：</p>
+<blockquote>
+<p>:wq!</p>
+</blockquote>
+<p>回车即可强制修改并保存。</p>
+<ol start="2">
+<li>Changed_ID  必须放到下面 否则会push失败。</li>
+</ol>
+<h1 id="Vim操作："><a href="#Vim操作：" class="headerlink" title="Vim操作："></a>Vim操作：</h1><blockquote>
+<p>保存文件退出</p>
+<p> ：w  写入不退出</p>
+<p> ：w！ 强制写入</p>
+<p> ：wq 写入退出</p>
+<p>：wq！写入强制退出</p>
+<p>ZZ　写入退出，使用shift+两次ＺＺ</p>
+<p>：q　　退出</p>
+<p>：q！强制退出</p>
+</blockquote>
+<p>小结：</p>
+<blockquote>
+<p>‘i’进入编辑模式<br>‘esc’进入命令模式<br>‘:wq’保存退出<br>‘q!’不保存强制退出</p>
+</blockquote>
+<p>参考：</p>
+<p>1.<a target="_blank" rel="noopener" href="https://blog.csdn.net/taiyangdao/article/details/71079021">Gerrit的commit-msg hook使用指南</a></p>
+<p>2.<a target="_blank" rel="noopener" href="https://blog.csdn.net/QingKong999/article/details/47040047">Git使用之撤销上次提交、审核代码不通过修改再次提交</a></p>
+<p>FAQ:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/eclipse/paho.mqtt.android/issues/212">https://github.com/eclipse/paho.mqtt.android/issues/212</a></p>
+<p>如何解决冲突？</p>
+<p>git reset –soft HEAD^</p>
+<p>提交push命令</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>$&#123;branch&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903942464225294">Gerrit常见命令及最佳实践</a></p>
+<p>git 提交了两个暂未入库的的问题</p>
+<p>必须等前一个入库后，另一个才能操作。</p>
+<p>git rebase - i 进入提交 历史修改</p>
+<p>将前缀 修改为edit 或者简写为(e)</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git status   </span><br><span class="line">交互式变基操作正在进行中；至 d14af27b</span><br><span class="line">最后一条命令已完成（<span class="number">1</span> 条命令被执行）：</span><br><span class="line">   edit <span class="number">62101</span>c48 feat(VIRGO<span class="number">-719</span>):新增通过Mqtt发送系统消息指令控制设备DEBUG模式</span><br><span class="line">接下来要执行的命令（剩余 <span class="number">1</span> 条命令）：</span><br><span class="line">   pick <span class="number">53</span>ab51e6 fix(VIRGO<span class="number">-753</span>):精简 mqtt 调试日志上传</span><br><span class="line">  （使用 <span class="string">&quot;git rebase --edit-todo&quot;</span> 来查看和编辑）</span><br><span class="line">您在执行将分支 <span class="string">&#x27;sprint/s26&#x27;</span> 变基到 <span class="string">&#x27;d14af27b&#x27;</span> 的操作时编辑提交。</span><br><span class="line">  （使用 <span class="string">&quot;git commit --amend&quot;</span> 修补当前提交）</span><br><span class="line">  （当您对您的修改满意后执行 <span class="string">&quot;git rebase --continue&quot;</span>）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>git commit - amend时</p>
+<p>出现正常的变基</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># 日期：  Sun Feb <span class="number">7</span> <span class="number">16</span>:<span class="number">55</span>:<span class="number">28</span> <span class="number">2021</span> +<span class="number">0800</span></span><br><span class="line">#</span><br><span class="line"># 交互式变基操作正在进行中；至 d14af27b </span><br><span class="line"># 最后一条命令已完成（<span class="number">1</span> 条命令被执行）： </span><br><span class="line">#    edit <span class="number">62101</span>c48 feat(VIRGO<span class="number">-719</span>):新增通过Mqtt发送系统消息指令控制</span><br></pre></td></tr></table></figure>
+
+<p>操作时当前有的分支为rebase + 提交的变基点。</p>
+<p>操作完成后 回到正常的状态,</p>
+<p>执行</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<p>此时的分支状态不再出现rebase字样。即正常的分支。</p>
+<p>新建分支交上传远程：</p>
+<blockquote>
+<p>git checkout -b “分支名”</p>
+<p>git push origin “分支名”</p>
+</blockquote>
+<p>删除远程分支 ：</p>
+<blockquote>
+<p>git push  origin –delete “分支名”</p>
+</blockquote>
+<p>删除本地分支：</p>
+<blockquote>
+<p>git branch -D  “分支名”</p>
+</blockquote>
+<p>Git 还原到某一次提交</p>
+<p>175070cf47f99df8ee0a2c6c14abe70b99ec5a85</p>
+<p>示例：</p>
+<p>找到想要还原的某一次提交：</p>
+<blockquote>
+<p>git log –oneline</p>
+<p>Git checkout xxxx .</p>
+</blockquote>
+<p>合并提交记录</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023055669">https://segmentfault.com/a/1190000023055669</a></p>
+<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review borad后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
+<p>代码丢失处理：</p>
+<p>从 git polyGerrit中添加代码：</p>
+<blockquote>
+<p>git cherry-pick</p>
+<p> git fetch “ssh://<a href="mailto:&#106;&#117;&#110;&#x65;&#x79;&#x61;&#110;&#103;&#64;&#49;&#x37;&#50;&#46;&#49;&#x36;&#x2e;&#49;&#x32;&#x2e;&#x31;&#55;&#49;">&#106;&#117;&#110;&#x65;&#x79;&#x61;&#110;&#103;&#64;&#49;&#x37;&#50;&#46;&#49;&#x36;&#x2e;&#49;&#x32;&#x2e;&#x31;&#55;&#49;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
+</blockquote>
+<p>git diff</p>
+<p>解决冲突后</p>
+<p>git add 某一个文件 如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add src/main/res/values/strings.xml   </span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick --continue  </span><br></pre></td></tr></table></figure>
+
+<p>最后 push</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin HEAD:refs/for/dev    </span><br></pre></td></tr></table></figure>
+
+
+
+<p>实战：</p>
+<p>第一步： git fetch xxx cherry-pick xxx</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4g4urqyj313e07p0up.jpg" alt="image-20210611103323886"></p>
+<p>第二步：解决冲突。</p>
+<p>第三步：根据提示，git add.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4hqi5tmj30rp07f3zm.jpg" alt="image-20210611103456364"></p>
+<p>第四步： 执行 git cherry-pick –continue时出现</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4itaztnj30ot0gu40f.jpg" alt="image-20210611103557871"></p>
+<p>最后一步： push。</p>
+<p>git push origin HEAD:refs/for/dev</p>
+<p>操作完成！</p>
+<h2 id="git-push-error"><a href="#git-push-error" class="headerlink" title="git push error:"></a>git push error:</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grkbkzpnskj30ql08hdhe.jpg" alt="image-20210616191335924"></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11972384/git-push-remote-rejected-change-closed">https://stackoverflow.com/questions/11972384/git-push-remote-rejected-change-closed</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Do <span class="built_in">this</span> to fix <span class="attr">issue:</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line">delete change id</span><br><span class="line"></span><br><span class="line">save and quit</span><br><span class="line"><span class="keyword">new</span> change id will be added to the commit. it can be verified by git log.</span><br><span class="line">push again</span><br></pre></td></tr></table></figure>
+
+<p>1.删除 change-id</p>
+<p>Change-Id: I8b4d553b3eb0771e1a1727e9c39d9d22f80de478</p>
+<ol start="2">
+<li> git commit –amend</li>
+</ol>
+<p>之后 生成了新的 change-id</p>
+<p>git 提交时 有被人插队，push 时发现 head 的指针不是指向最新的了，你需要做的就是</p>
+<ol>
+<li>git log 查看 commit-id</li>
+<li>git reset –soft commit-id</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft ee6b6757ace472d299f862b4292fa80da2bd1fe5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>本地缓存 并更新  ：git stash save ui 、git  pull –rebase</p>
+</li>
+<li><p> 将工作区间刷新：git reset –hard f8be84627b6141d716ef84f61ef6f01e463ca8c3</p>
+</li>
+<li><p>最后重新提交</p>
+<p>git stash pop、解决冲突、git add.  git commit 、git push……</p>
+</li>
+</ol>
+<p>第二种方法：</p>
+<ol>
+<li><code>git reset --soft HEAD^</code><br>撤销上一次提交,修改的内容保留<br>如果暂存区为空，则将上一次修改放入暂存区<br>如果暂存区非空，则将不改变暂存区<br>该操作不改变工作区</li>
+<li><code>git reset --hard HEAD^</code><br>工作区，暂存区，，仓库均保持为上一次提交的内容</li>
+</ol>
+<p>小结：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/63199427ee68">https://www.jianshu.com/p/63199427ee68</a></p>
+
+      
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1075,7 +1321,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1131,12 +1377,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">31k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">24 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
 </div>
 
 
