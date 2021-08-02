@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="407adbc4-adbf-4f40-8aa6-abf730a586fe" name="Default Changelist" comment="feat: 添加未追踪的文件">
+      <change afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/07/09/10x程序员工作法 学习总结笔记/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/07/09/让你最快速地改善代码质量的20条编程规范/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/08/01/AIDL 学习笔记/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/08/02/Git 使用注意事项总结/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/07/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/08/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2021/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/思维方式/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/编程规范/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/algolia_logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/apple-touch-icon-next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatar1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc-nd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc-sa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by-nd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by-sa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-by.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cc-zero.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/favicon-16x16-next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/favicon-32x32-next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/algolia-search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/bookmark.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/local-search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/motion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/next-boot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/schemes/muse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/schemes/pisces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/anime.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/font-awesome/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/velocity/velocity.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lib/velocity/velocity.ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/10x-程序员/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/AIDL/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/编程规范/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/设计模式之美/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/高效方法/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1627888173" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="source" />
+                    <option name="lastUsedInstant" value="1627885912" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectId" id="1vc2osGDdG2qc55PKVt2q0MkBzX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="407adbc4-adbf-4f40-8aa6-abf730a586fe" name="Default Changelist" comment="" />
+      <created>1626847236797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626847236797</updated>
+    </task>
+    <task id="LOCAL-00001" summary="feat: 添加未追踪的文件">
+      <created>1626848504913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626848504913</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/themes/jacman" />
+      <path value="$PROJECT_DIR$/themes/next" />
+    </ignored-roots>
+    <MESSAGE value="feat: 添加未追踪的文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加未追踪的文件" />
+  </component>
+</project>
