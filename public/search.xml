@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>10x 程序员工作法 学习总结笔记</title>
+    <url>/blog/2021/07/09/10x%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B7%A5%E4%BD%9C%E6%B3%95%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>本文总结了做为一个程序员有哪些高效的工作方式、思考方式和落实起来有用的方式和实操，请选择使用。</p>
+</blockquote>
+<p>软件行业的名著《人月神话》里提到两个重要概念：本质复杂度（Essential Complexity）和偶然复杂度（Accident Complexity）。简单来说，本质复杂度就是解决一个问题时，无论如何都要做的事，而偶然复杂度是因为做事方法不当，而导致要多做的事。</p>
+<p>所以做事需要讲究方法，各位各业都有不同的做事方法，本文总结了10x程序员的做事法则。</p>
+<p>本文笔记 根据 来自极客时间专栏上资深架构师郑晔的《10x程序员工作法》中的学习部分笔记、和其他相关资料加上个人思考的而形成的总结笔记。</p>
+<h2 id="忙碌原因"><a href="#忙碌原因" class="headerlink" title="忙碌原因"></a>忙碌原因</h2><ul>
+<li><p>本质复杂度(Essential Complexity)</p>
+<p>  问题本身复杂</p>
+</li>
+<li><p>偶然复杂度(Accident Complexity)</p>
+<p>  选用方法不当, 导致复杂度上升</p>
+</li>
+</ul>
+<h2 id="客观事实"><a href="#客观事实" class="headerlink" title="客观事实"></a>客观事实</h2><p>大部分程序员忙碌解决的问题，都不是程序问题，而是由偶然复杂度导致的问题</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>减少偶然复杂度引发的问题, 让软件开发工作有序、高效地进行; 优秀程序员的开发效率是普通程序员的 10 倍。</p>
+<p>遵循以下原则有利于减少偶然复杂度</p>
+<ul>
+<li>以始为终</li>
+<li>任务分解</li>
+<li>沟通反馈</li>
+<li>自动化</li>
+</ul>
+<h1 id="10x工作法原则"><a href="#10x工作法原则" class="headerlink" title="10x工作法原则"></a>10x工作法原则</h1><p>如何让努力不白费？</p>
+<h2 id="以终为始：遇到事情，倒着想"><a href="#以终为始：遇到事情，倒着想" class="headerlink" title="以终为始：遇到事情，倒着想"></a>以终为始：遇到事情，倒着想</h2><p>网上流传着一个帖子，亚马逊 CTO 介绍亚马逊是如何开发一项产品的，简单来说，他们采用向后工作的方法，开发一项产品的顺序为：</p>
+<ul>
+<li><p>写新闻稿；</p>
+</li>
+<li><p>写 FAQ （常见问题解答）；</p>
+</li>
+<li><p>写用户文档；</p>
+</li>
+<li><p>写代码。</p>
+</li>
+</ul>
+<p>任何事物都要经过两次创造：一次是在头脑中的创造，也就是智力上的或者第一次创造（Mental/First Creation），然后才是付诸实践，也就是实际的或第二次创造（Physical/Second Creation）。我们应该在第一次创造上多下功夫，统一集体想象，让目标更明确。</p>
+<p>“以终为始”的思维可以帮助我们更好地规划我们手头任务，也可以帮助我们发现过程中的问题。</p>
+<p>“ 以终为始”也是《高效能人士的七个习惯》中提到的一个重要习惯。这本书值得一读。</p>
+<p>史蒂芬.柯维说绝对不要以任何片面的事情为中心，应该要以原则为中心。“一个以原则为中心的人，对自己的选择胸有成竹，无论结果怎么都能专注于此，并且心安理得，内心没有羁绊。以原则为生活中心的人，总是见解不凡，思想与行为也独具一格，而坚实稳定的内在核心赐予他们高度的安全感，人生方向，智慧与力量。会让他们度过积极与充实的一生。”<br>所以找到你人生的原则，设定一个目标，以终为始。</p>
+<h2 id="任务分解"><a href="#任务分解" class="headerlink" title="任务分解"></a>任务分解</h2><ul>
+<li><p>任务分解：按部就班的前提</p>
+</li>
+<li><p>软件开发的任务分解：</p>
+<ul>
+<li>一个大问题，我们都很难给出答案，但回答小问题却是我们擅长的</li>
+<li>任务分解的粒度: 可执行。不同的可执行定义差别在于，你是否能清楚地知道这个问题该如何解决。</li>
+</ul>
+</li>
+<li><p>大师级程序员工作的秘笈</p>
+<ul>
+<li>将任务拆小，越小越好</li>
+<li>将大问题拆解成能够解决的小问题</li>
+</ul>
+</li>
+<li><p>测试也是程序员的一部分</p>
+<ul>
+<li><p>对于每个程序员来说，只有在开发阶段把代码和测试都写好，才有资格说，自己交付的是高质量的代码</p>
+</li>
+<li><p>测试驱动开发(TDD)，一种设计挑战</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>小结：面对看上去无法解决的问题，需要学会分解问题，不然无从下手。</p>
+<h2 id="大师级程序员的工作秘笈"><a href="#大师级程序员的工作秘笈" class="headerlink" title="大师级程序员的工作秘笈"></a>大师级程序员的工作秘笈</h2><p>大师级程序员每当遇到一件要做的事，把他分解成几个小任务，记录在一个清单上，然后才是动手写测试、写代码、重构这样一个小循环。等一个循环完成了，他会划掉已经做完的任务，开始下一个。一旦在解决问题的过程中遇到任务新问题，他会把要解决的问题记录在清单上，保证问题不会丢失，然后，继续回到自己正在处理的任务上。当他把一个个任务完成的时候，问题就解决完了。每个任务完成时，代码都是可以提交的。看上去简单，但是很多程序员都做不到。</p>
+<p>只有把任务分解到很小，才可能做到小步提交。而把任务分解到很小，其实证明你已经想清楚了。而大多数程序员之所以开发效率低，很多时候是没想清楚就动手了。</p>
+<p>任务分解是个好习惯，但是想要掌握它，大量的练习是必须的。</p>
+<p>作者能保持连续在github上提交代码1000天，还是挺牛逼的，这个连续提交的基础，就是我自己在练习任务分解时，不断的尝试把一件事拆细，这样，我每天都至少能保证完成一小步。当然，如果有时间了，我也会多写一点。</p>
+<p>经过这种练习之后，任务分解也就成了我的本能，不再局限于写程序上。我遇到任何需要解决的问题，脑子里的第一反应一定是，它可以怎么一步一步的完成，确定好分解之后，解决问题就是一步步做了。</p>
+<h2 id="DoD的价值：在做任何事情之前，先定义完成的标准"><a href="#DoD的价值：在做任何事情之前，先定义完成的标准" class="headerlink" title="DoD的价值：在做任何事情之前，先定义完成的标准"></a>DoD的价值：在做任何事情之前，先定义完成的标准</h2><p>DoD（Definition Of Done，完成的定义），这个概念本身并不复杂，它就是告诉我们怎样算完成了，尽量减少因为理解偏差造成的各种浪费。</p>
+<p>比如一次开发完成，表示：</p>
+<ul>
+<li>开发人员编写好功能代码</li>
+<li>编写好单元测试代码</li>
+<li>编写好集成测试代码</li>
+<li>测试可以通过</li>
+<li>代码通过了代码风格检查、测试覆盖率检查。</li>
+</ul>
+<p>一旦 DoD 确定好了，谁该做什么事、该做到什么程度就一目了然了。</p>
+<h2 id="如何更好得使用-DoD呢？"><a href="#如何更好得使用-DoD呢？" class="headerlink" title="如何更好得使用 DoD呢？"></a>如何更好得使用 DoD呢？</h2><ul>
+<li><p>DoD 是一个清单，由一个个检查项组成的，用来检查工作完成情况。</p>
+</li>
+<li><p>DoD 的检查项应该是实际可检查的，比如代码写好了，可以展示代码，单元测试代码写好了，可以进行现场测试。</p>
+</li>
+<li><p>DoD 是团队成员间彼此汇报的一种机制。有了 DoD，做事只有两种状态，即 “做完” 和 “没做完”。</p>
+</li>
+</ul>
+<h2 id="在做任何需求或任务之前，先定好验收标准。"><a href="#在做任何需求或任务之前，先定好验收标准。" class="headerlink" title="在做任何需求或任务之前，先定好验收标准。"></a>在做任何需求或任务之前，先定好验收标准。</h2><p>我们都知道，需求是软件开发的一个重要组成部分，但你可能没有仔细想过，不同的需求描述方式，可能会影响程序员对需求的理解。</p>
+<p>很多公司的软件开发模式是基于功能列表的，这个列表 “ 规定 ” 了程序员要做的功能，这种方式把一个完整的需求拆成了碎片。不到最后一刻，大部分人并没有一个完整的概念，这也就会在最后关头遇到很多意料之外的问题，结果必然是手忙脚乱。</p>
+<p>那么，这个时候验收标准变得极为重要，验收标准不仅仅描述了正常流程，也会关注到异常流程的处理。它给出了这个需求最基本的测试用例，保证了开发人员完成需求最基本的质量。一旦定义好验收标准，大量的扯皮工作就随之烟消云散了。 </p>
+<h2 id="尽早提交代码去集成"><a href="#尽早提交代码去集成" class="headerlink" title="尽早提交代码去集成"></a>尽早提交代码去集成</h2><p>持续集成指的是，频繁地将代码集成到主干。</p>
+<p>它的好处主要有两个。</p>
+<p>快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。<br>防止分支大幅偏离主干。如果不是经常集成，主干又在不断更新，会导致以后集成的难度变大，甚至难以集成。<br>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量</p>
+<p>Martin Fowler 说过，”持续集成并不能消除 Bug，而是让它们非常容易发现和改正。”</p>
+<h2 id="在没弄清楚之前，需求都不做"><a href="#在没弄清楚之前，需求都不做" class="headerlink" title="在没弄清楚之前，需求都不做"></a>在没弄清楚之前，需求都不做</h2><p>精益创业：这个名字并不是指导人们创业挣大钱的方法论。它要解决的是面向不确定性创造新事物。</p>
+<p>精益创业中的 “精益”这个词，让人们开始理解价值创造和浪费之间的关系。创造价值是每个人都能理解的，但减少浪费是很多人忽略的。所以，精益创业就是在尽可能少浪费的前提下，面向不确定性创造新事物。</p>
+<p>既然是面向不确定性创造新事物，我们唯一能做的就是 “ 试 ”。也就是说，当你有了一个新的想法时，就把想法开发成产品投入市场，然后，手机数据获取反馈，看看前面的想法是否靠谱。好想法继续加强，不靠谱的想法丢掉。</p>
+<p>既然是试，也不确定想法的有效性，最好的办法就是以最低的成本试。许多软件团队都会陷入一个非常典型的误区，不管什么需求都想做出来看看，殊不知，把软件完整做出来是最大的浪费。</p>
+<p>精益创业提供给我们的是一个做产品的思考框架。当产品经理要做一个新产品或是产品的新特性，我们就可以用精益创业的概念检验一下产品经理是否想清楚了。比如，你要做个产品特性，你要验证的东西是什么呢？要验证的目标是否有数据可以度量呢？要解决的这个问题是不是当前最重要的事情？稳了这些，我们能更好地确定产品经理提出的需求确实是经过严格思考的。</p>
+<h2 id="接到需求，-要先做哪些事情"><a href="#接到需求，-要先做哪些事情" class="headerlink" title="接到需求， 要先做哪些事情"></a>接到需求， 要先做哪些事情</h2><p>需求的拆分:用户故事</p>
+<ul>
+<li><p>问题</p>
+<p>基本上，闯入你脑海的需求描述是主题（epic），在敏捷开发中，有人称之为主用户故事（master story)<br>绝大多数问题都是由于分解的粒度太大造成的，少有因为粒度太小而出问题的<br>用户故事，它将是我们这里讨论需求管理的基本单位。</p>
+</li>
+<li><p>需求要分解<br>用户故事原则：</p>
+</li>
+</ul>
+<p>1、Independent，独立的<br>2、Negotiable，可协商的<br>3、Valuable，有价值的<br>4、Estimatable，可估算的<br>5、Small，小<br>6、Testable，可测试的</p>
+<p>需求的估算:</p>
+<p>估算的结果是相对的，不是绝对精确的，我们不必像做科研一样，只要给出一个相对估算就好，一般来说，估算的过程也是大家加深对需求理解的过程。</p>
+<p>优先级管理：做最重要的事情</p>
+<p>需求分解之后，最重要的是，排列需求的优先级。优先级的排列方式有很多，我们可以借鉴时间管理的方法，把事情按照重要和紧急的维度进行划分，得到了四个象限。我们要尽可能把精力放在重要的事情上，而不是把紧急的事情当成优先级排序的方式。</p>
+<p>确定事情的重要程度, 一种方式就是找回丢失的上下文，如果无法判断好的办法, 那就引入外部更大的上下文</p>
+<p><strong>小结</strong>：需求从产品、开发、测试需要对齐，确保理解一致，按一定的敏捷开发流程来不段迭代开发流程，也是高效的工作法则之一。</p>
+<h2 id="为什么说做事情之前先要进行推演"><a href="#为什么说做事情之前先要进行推演" class="headerlink" title="为什么说做事情之前先要进行推演"></a>为什么说做事情之前先要进行推演</h2><ul>
+<li>沙盘推演, 从军事指挥室里学来的大学问</li>
+<li>即便已经确定了自己的工作目标，我们依然要在具体动手之前，把实施步骤推演一番，完成一次头脑中的创造，也就是第一次创造或智力上的创造。这种思想在军事上称之为沙盘推演，在很多领域都有广泛地应用</li>
+<li>通向结果的路径才是更重要的</li>
+<li>在动手做一件事之前，先推演一番。</li>
+</ul>
+<h2 id="解决了很多技术问题，为什么依然在”坑”里？"><a href="#解决了很多技术问题，为什么依然在”坑”里？" class="headerlink" title="解决了很多技术问题，为什么依然在”坑”里？"></a>解决了很多技术问题，为什么依然在”坑”里？</h2><p>技术是一把利刃，程序员相信技术可以改变世界，但并不是所有问题都要用技术解决。花大力气去解决一个可能并不是问题的问题，常常是很多程序员的盲区。</p>
+<ul>
+<li><p>更大范围内寻找”终”</p>
+</li>
+<li><p>程序员总喜欢用技术去解决一切问题，但很多令人寝食难安的问题其实根本不是问题。之所以找不出更简单的解决方案，很多时候原因在于程序员被自己的思考局限住了。</p>
+</li>
+<li><p>不同角色工作真正的差异在于上下文的差异。在一个局部上下文难以解决的问题，换到另外一个上下文甚至是可以不解决的。所以说无论单点有多努力也只是局部优化，很难达到最优的效果</p>
+</li>
+<li><p>角色的差异：</p>
+<ul>
+<li>不同角色工作上真正的差异是上下文的不同</li>
+<li>虽然写的代码都一样，但你看到的是树木，人家看到的是森林，他更能从全局思考</li>
+<li>我并不是靠技术能力解决了问题，而是凭借对需求的理解把这个问题绕过去了</li>
+<li>而能想到问这样的问题，前提就是要跳出程序员角色思维，扩大自己工作的上下文</li>
+<li>当你对软件开发的全生命周期都有了认识之后，你看到的就不再是一个点了，而是一条线</li>
+</ul>
+</li>
+<li><p>工作的上下文不同，看到的维度差异很大</p>
+<ul>
+<li>单一维度的思考，在多维度思考者的眼里几乎就是漏洞百出的</li>
+<li>扩大自己工作的上下文，别把自己局限在一个“程序员”的角色上。</li>
+</ul>
+</li>
+</ul>
+<p>小结：遇到问题，多沟通，多请教，学会转换视角，转换思维，实现对问题的降维打击，以解决问题。</p>
+<h2 id="入职新公司-如何快速进入工作状态？"><a href="#入职新公司-如何快速进入工作状态？" class="headerlink" title="入职新公司, 如何快速进入工作状态？"></a>入职新公司, 如何快速进入工作状态？</h2><p>步骤：</p>
+<ul>
+<li><p>了解业务</p>
+</li>
+<li><p>技术</p>
+<ul>
+<li><p>技术栈</p>
+</li>
+<li><p>业务架构</p>
+</li>
+<li><p>内外依赖</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>团队运作</p>
+<p>需求, 产品，向谁汇报</p>
+</li>
+<li><p>内部活动</p>
+<p>站会、 回顾会议、周会、代码评审、内部分享等。</p>
+</li>
+<li><p>使用“行话”。在交流的过程中，学习一点”行话“。</p>
+<p>这会让人觉得你懂行，让你很快得到信任，尽早融入团队</p>
+</li>
+<li><p>找到关键点，迅速下手</p>
+</li>
+<li><p>由大到小， 由内而外</p>
+</li>
+</ul>
+<h2 id="如何管理你的上级？"><a href="#如何管理你的上级？" class="headerlink" title="如何管理你的上级？"></a>如何管理你的上级？</h2><ul>
+<li>领导要求的，无力反驳怎么办？</li>
+</ul>
+<p>我们要敢于管理上级。</p>
+<p>第一，管理上级的预期。这个过程，相当于我把自己看到的问题暴露给上级，让他选择。<br>第二，帮助上级丰富知识。<br>第三，说出你的想法。这其实就是我们熟悉的一个最简单的道理：会哭的孩子有奶吃。</p>
+<ul>
+<li>产品经理总拿老板说事，怎么办？</li>
+</ul>
+<p>实际上，老板要求的是方向，不是产品特性。大老板不会安排那么细的细节。所以，一个产品经理该做的事就是把老板给的方向，变成一个个可以实现的产品特性，他要分析其中的合理与不合理。</p>
+<p>不合理的部分应该是他和老板去沟通的，而不是让开发团队来实现。</p>
+<ul>
+<li>别人能做的，我们也要做</li>
+</ul>
+<p>第一，竞争对手有的产品，我们也要有。</p>
+<p>“抄”不是问题，问题是无脑地抄。</p>
+<p>所以，如果你的产品经理只想无脑抄袭，本质上，他就是在偷懒，没干好他该干的活。</p>
+<p>第二：人家能做到，说明技术上是可行的。</p>
+<p>要做什么是需求，怎么做是技术。与产品经理要确认的是，这个需求是不是合理，该不该做。技术上能否实现，这是开发团队要考虑的事情，并不是产品经理说事的理由。</p>
+<h1 id="刻意练习"><a href="#刻意练习" class="headerlink" title="刻意练习"></a>刻意练习</h1><p>最牛B的编码套路：</p>
+<p>Steve Yegge 在“<a href="https://sites.google.com/site/steveyegge2/practicing-programming">Practicing Programming</a>”（练习编程）提到：</p>
+<blockquote>
+<p>与你所相信的恰恰相反，单纯地每天埋头于工作并不能算是真正意义上的锻炼——参加会议并不能锻炼你的人际交往能力；回复邮件并不能提高你的打字水平。你必须定期留出时间，集中锻炼，这样才能把事情做得更好。</p>
+</blockquote>
+<p>每天都开车去上班，但我的驾驶水平远远不如专业车手；类似的情况，天天编程可能并不足以使你成为一名专业的程序员。那么，什么才能把一个普通人变成一名专业车手或者专业程序员呢？你需要锻炼什么呢？</p>
+<p>答案就在《科学美国人》的一篇名为“The Expert Mind”（专家思维）的文章里：</p>
+<blockquote>
+<p>爱立信提出，重要的并不是经验本身，而是“努力的学习”，也就是要不断地挑战自身能力之外的东西。一些狂热的爱好者花费了大量的时间去下棋、打高尔夫球或者玩乐器，但他们可能始终停留在业余水平上，而一个训练有素的学生却可以在相对较短的时间里超越他们，原因就在这里。值得注意的是，在提高水平方面，花费在下棋上的大量时间（即使参加各种比赛）似乎还是比不过专门的训练来得更为有效。训练的主要价值在于发现弱点，并有针对性地进行提高。</p>
+</blockquote>
+<p>“努力的学习”意味着，要常常去处理那些刚好在你能力极限上的问题，也就是那些对你来说有很大可能失败的事情。如果不经历一些失败的话，你可能就不会成长。你必须不断地挑战自我，超越自己的极限。</p>
+<p>那样的挑战有时会在工作中碰到，但也未必。将锻炼从职业工作中分离出来，这在编程领域常被人称为“编码套路”（Code Kata）。</p>
+<p>Code Kata的概念是由David Thomas提出的，他是《程序员修炼之道：从小工到专家》的作者之一。这个概念主要指的是:</p>
+<blockquote>
+<p>针对某一种特定技术或技能进行重复性的练习，从而将其熟练掌握。——译者注</p>
+</blockquote>
+<p>还有一些实践经验不在此列出，最后作者总结了最精炼的编程套路：</p>
+<p>第一：写博客 </p>
+<p>第二：积极参与著名的开源项目</p>
+<p>小结： 输出倒逼输入，是最好的学习方式之一；“Talk is cheap ,show me the code”. 刻意练习。</p>
+<h1 id="精进书单"><a href="#精进书单" class="headerlink" title="精进书单"></a>精进书单</h1><p>《程序员修炼之道：从小工到专家》</p>
+<p>《高效能人士的七个习惯》</p>
+<p>《好好学习》</p>
+<p>《好好思考》</p>
+<p>《刻意练习》</p>
+<p>……</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>学会学习、学会思考、学习用好工具, 学会复盘，学会自我迭代，学会精进，学会掌握底层思考利器。</p>
+<p>如里觉得总结对你有一点用的话，请给一个赞哦。</p>
+<p>参考：</p>
+<p><a href="http://oenhan.com/technical-experts">如何成为一位技术专家</a></p>
+<p><a href="https://blog.csdn.net/happydeer/article/details/17023229">最牛B的编码套路</a></p>
+]]></content>
+      <categories>
+        <category>思维方式</category>
+      </categories>
+      <tags>
+        <tag>高效方法</tag>
+        <tag>10x 程序员</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AIDL 学习笔记总结</title>
+    <url>/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、应用场景"><a href="#一、应用场景" class="headerlink" title="一、应用场景"></a>一、应用场景</h1><h3 id="AIDL可以解决什么问题？"><a href="#AIDL可以解决什么问题？" class="headerlink" title="AIDL可以解决什么问题？"></a>AIDL可以解决什么问题？</h3><ul>
+<li>可以实现多个应用程序共享同一个Service的功能，比如：IM服务可以提供给多个APP使用，先在推送基本都是采取这种方案</li>
+<li>可以跨进程调用服务里的方法</li>
+</ul>
+<h1 id="二-、是什么"><a href="#二-、是什么" class="headerlink" title="二 、是什么"></a>二 、是什么</h1><p>首先进程间通信（IPC，Inter-process Communication）的方式有很多，例如Bundle、文件共享、AIDL、Messenger、ContentProvider以及Socket，方法是多种多样，而我们更应该根据自己的情况去选择合适的方式，下面列举出每种方式的适用场景：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bundle</td>
+<td>简单易用</td>
+<td>只能传输Bundle支持的数据类型</td>
+<td>四大组件间的进程通信</td>
+</tr>
+<tr>
+<td>文件共享</td>
+<td>简单易用</td>
+<td>不适合高并发场景，无法及时通信</td>
+<td>无高并发访问，交换简单数据，实时性不高</td>
+</tr>
+<tr>
+<td><strong>AIDL</strong></td>
+<td><strong>功能强大，支持一对多并发通信，支持及时通信</strong></td>
+<td><strong>使用复杂，需要处理线程同步</strong></td>
+<td><strong>一对多且有远程调用需求</strong></td>
+</tr>
+<tr>
+<td>Messenger</td>
+<td>功能一般，支持一对多串行，支持实时通信</td>
+<td>不能很好处理高并发，不支持远程调用，数据只能使用Message传输</td>
+<td>低并发的一对多即时通信，无须直接返回结果，无远程调用</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>数据访问方面功能强大，支持一对多并发数据共享</td>
+<td>受约束的AIDL，主要提供数据的增删改查</td>
+<td>一对多进程间数据共享</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>功能强大，支持一对多并发实时通信</td>
+<td>实现复杂，不支持直接的远程调用</td>
+<td>网络数据交互</td>
+</tr>
+</tbody></table>
+<p><em>注：来自《Android开发艺术探究》</em></p>
+<p>AIDL出现的目的就是为了解决一对多并发及时通信了，虽然socket也支持，但其更多应用于网络数据交互，也适合多个手机，不同终端进行通信。所以在Android中，google为我们提供了AIDL来方便开发者实现该功能。</p>
+<h1 id="三、支持的数据类型"><a href="#三、支持的数据类型" class="headerlink" title="三、支持的数据类型"></a>三、支持的数据类型</h1><p>在进程间通信中，对象的引用是无法传递的，因为其内存地址都不在一个区域内，所以数据的传输都需要序列化后才行，基础数据类型自然是没问题，系统提供的ArrayList以及HashMap也实现了序列化，所以对于自定义的对象实现序列化就只能实现serializable或者parcelable接口，其中前者是java提供的，后者是Android提供的且效率更高，所以在之后的数据序列化中都只使用实现parcelable接口的方法即可，总的来说<strong>支持的数据类型包括：</strong></p>
+<ul>
+<li>基本数据类型：int、long、char、boolean、double等</li>
+<li>系统已实现类型：String、CharSequence、ArrayList、HashMap（后两个的每个元素也得被AIDL支持才行）</li>
+<li>正确实现parcelable接口的对象</li>
+<li>所有AIDL本身</li>
+</ul>
+<p><strong>定向tag:</strong></p>
+<p>Java 中的基本类型和 String ，CharSequence 的定向 tag <strong>默认且只能是 in</strong> 。</p>
+<p>对于非基础数据类型的类型，在aidl中作为参数使用时有三个标记，分别时in、out、inout，表示数据的流向：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>in</td>
+<td>表示能读取到传入的对象中的值，而修改后不会修改传入对象的内容</td>
+</tr>
+<tr>
+<td>out</td>
+<td>表示读取到传入的对象为空，修改后会把传入对象的内容改为修改的内容</td>
+</tr>
+<tr>
+<td>inout</td>
+<td>表示既能读取到对象，又能修改对象，效果就好比统一进程中对象的传递一样</td>
+</tr>
+</tbody></table>
+<p>请注意，<strong>请不要滥用定向 tag</strong> ，而是要根据需要选取合适的——要是不管三七二十一，全都一上来就用 inout ，等工程大了系统的开销就会大很多——因为排列整理参数的开销是很昂贵的。</p>
+<p>扩展阅读：<a href="https://blog.csdn.net/luoyanglizi/article/details/51958091">你真的理解AIDL中的in，out，inout么？</a></p>
+<p><strong>两种AIDL文件：</strong>在我的理解里，所有的AIDL文件大致可以分为两类。一类是用来定义parcelable对象，以供其他AIDL文件使用AIDL中非默认支持的数据类型的。一类是用来定义方法接口，以供系统使用来完成跨进程通信的。可以看到，两类文件都是在“定义”些什么，而不涉及具体的实现，这就是为什么它叫做“Android接口定义语言”。<br>注：所有的非默认支持数据类型必须通过第一类AIDL文件定义才能被使用。</p>
+<h1 id="四、如何使用"><a href="#四、如何使用" class="headerlink" title="四、如何使用"></a>四、如何使用</h1><p>根据介绍，总结为以下三部分：</p>
+<ul>
+<li>定义AIDL接口</li>
+<li>在服务端返回其Binder以及所需实现的接口</li>
+<li>在客户端拿到Binder进行调用</li>
+</ul>
+<p>流程小结：在服务端实现AIDL中定义的方法接口的具体逻辑，然后在客户端调用这些方法接口，从而达到跨进程通信的目的。</p>
+<ol>
+<li><p>定义AIDL接口</p>
+<ul>
+<li><h5 id="创建aidl目录"><a href="#创建aidl目录" class="headerlink" title="创建aidl目录"></a>创建aidl目录</h5></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IBinder messageSender = <span class="keyword">new</span> MessageSender.Stub() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(MessageModel messageModel)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            Log.e(TAG, <span class="string">&quot;messageModel: &quot;</span> + messageModel.toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerReceiveListener</span><span class="params">(MessageReceiver messageReceiver)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            listenerList.register(messageReceiver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unregisterReceiveListener</span><span class="params">(MessageReceiver messageReceiver)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            listenerList.unregister(messageReceiver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTransact</span><span class="params">(<span class="keyword">int</span> code, Parcel data, Parcel reply, <span class="keyword">int</span> flags)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 包名验证方式</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            String packageName = <span class="keyword">null</span>;</span><br><span class="line">            String[] packages = getPackageManager().getPackagesForUid(getCallingUid());</span><br><span class="line">            <span class="keyword">if</span> (packages != <span class="keyword">null</span> &amp;&amp; packages.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                packageName = packages[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (packageName == <span class="keyword">null</span> || !packageName.startsWith(<span class="string">&quot;com.example.aidl&quot;</span>)) &#123;</span><br><span class="line">                Log.d(<span class="string">&quot;onTransact&quot;</span>, <span class="string">&quot;拒绝调用：&quot;</span> + packageName);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.onTransact(code, data, reply, flags);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>实现的service为AIDL定义的接口，并在OnBind方法中进行关联。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//自定义permission方式检查权限</span></span><br><span class="line">      <span class="keyword">if</span> (checkCallingOrSelfPermission(<span class="string">&quot;com.example.aidl.permission.REMOTE_SERVICE_PERMISSION&quot;</span>) == PackageManager.PERMISSION_DENIED) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> messageSender;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展阅读：</p>
+<p><a href="https://www.jianshu.com/p/b60cde583237">Android自定义权限使用总结</a></p>
+<p>注意点：</p>
+<ul>
+<li>Android不允许两个不同的应用定义一个相同名字的权限（除非这两个应用拥有相同的签名），所以在命名的时候，需要特别注意。</li>
+<li>拥有相同自定义权限的软件必须使用同样的签名，否则后一个程序无法安装。</li>
+</ul>
+<p>所以这里是否需要自定义，需要根据业务场景来确定。</p>
+<p>A.服务端：</p>
+<ul>
+<li>创建一个<strong>aidl文件</strong>；</li>
+<li>创建一个<strong>Service</strong>，实现AIDL的接口函数并暴露AIDL接口。</li>
+</ul>
+<p>B.客户端：</p>
+<ul>
+<li>通过<strong>bindService</strong>绑定服务端的Service；</li>
+<li>绑定成功后，将服务端返回的Binder对象<strong>转化</strong>成AIDL接口所属的类型，进而调用相应的AIDL中的方法。</li>
+</ul>
+<blockquote>
+<p><strong>总结</strong>：服务端里的某个Service给和它绑定的特定客户端进程提供Binder对象，客户端通过AIDL接口的静态方法asInterface() 将Binder对象转化成AIDL接口的代理对象，通过这个代理对象就可以发起远程调用请求。</p>
+</blockquote>
+<p>思考：如果要实现双向通信，那么就需要将AIDL的接口都实现，即依赖相同的部分。</p>
+<h2 id="可能产生ANR的情形"><a href="#可能产生ANR的情形" class="headerlink" title="可能产生ANR的情形"></a>可能产生ANR的情形</h2><p>A.客户端：</p>
+<ul>
+<li>调用服务端的方法是运行在服务端的Binder线程池中，若<strong>主线程</strong>所调用的方法里执行了较<strong>耗时</strong>的任务，同时会导致客户端线程长时间阻塞，易导致客户端ANR。</li>
+<li>在**onServiceConnected()<strong>和</strong>onServiceDisconnected()**里直接调用服务端的耗时方法，易导致客户端ANR。</li>
+</ul>
+<p>B.服务端：</p>
+<ul>
+<li>服务端的方法本身就运行在服务端的<strong>Binder线程</strong>中，可在其中执行耗时操作，而<strong>无需再开启子线程</strong>。</li>
+<li><strong>回调客户端Listener的方法</strong>是运行在客户端的Binder线程中，若所调用的方法里执行了较<strong>耗时</strong>的任务，易导致服务端ANR。</li>
+</ul>
+<blockquote>
+<p>解决客户端频繁调用服务器方法导致性能极大损耗的办法：实现<strong>观察者模式</strong>。</p>
+<p>即当客户端关注的数据发生变化时，再让服务端通知客户端去做相应的业务处理。</p>
+</blockquote>
+<h2 id="解注册失败的问题"><a href="#解注册失败的问题" class="headerlink" title="解注册失败的问题"></a>解注册失败的问题</h2><ul>
+<li>原因: Binder进行对象传输实际是通过序列化和反序列化进行，即Binder会把客户端传递过来的对象<strong>重新转化</strong>并生成一个新的对象，虽然在注册和解注册的过程中使用的是同一个客户端传递的对象，但经过Binder传到服务端后会生成两个不同的对象。另外，多次跨进程传输的同一个客户端对象会在服务端生成<strong>不同</strong>的对象，但它们在底层的Binder对象是<strong>相同</strong>的。</li>
+<li>解决办法：当客户端解注册的时候，遍历服务端所有的Listener，找到和解注册Listener具有相同的Binder对象的服务端Listener，删掉即可。</li>
+</ul>
+<blockquote>
+<p>需要用到<strong>RemoteCallBackList</strong>：Android系统专门提供的用于删除跨进程listener的接口。其内部自动实现了线程同步的功能。</p>
+</blockquote>
+<h1 id="aidl传输数据的大小限制"><a href="#aidl传输数据的大小限制" class="headerlink" title="aidl传输数据的大小限制"></a>aidl传输数据的大小限制</h1><h1 id="一个Service管理多个AIDL接口"><a href="#一个Service管理多个AIDL接口" class="headerlink" title="一个Service管理多个AIDL接口"></a>一个Service管理多个AIDL接口</h1><p><a href="https://blog.csdn.net/lyl0530/article/details/81839503">https://blog.csdn.net/lyl0530/article/details/81839503</a></p>
+<p>Binder连接池，以及怎样实现一个Service管理多个ADIL接口</p>
+<h1 id="AIDL终极篇之AIDL架构设计"><a href="#AIDL终极篇之AIDL架构设计" class="headerlink" title="AIDL终极篇之AIDL架构设计"></a>AIDL终极篇之AIDL架构设计</h1><p><a href="https://blog.csdn.net/wangqiubo2010/article/details/78625846">https://blog.csdn.net/wangqiubo2010/article/details/78625846</a></p>
+<p>其他开源框架</p>
+<p><a href="https://github.com/Xiaofei-it/Hermes">https://github.com/Xiaofei-it/Hermes</a></p>
+<p>A smart, novel and easy-to-use framework for Android Inter-Process Communication (IPC). （简单易用的安卓进程间通信IPC框架）</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ol>
+<li><p>难点：</p>
+<p>服务端如何处理分发和并发</p>
+</li>
+</ol>
+<h1 id="android-–-如何使用AIDL远程服务来处理不同客户端的并发请求"><a href="#android-–-如何使用AIDL远程服务来处理不同客户端的并发请求" class="headerlink" title="android – 如何使用AIDL远程服务来处理不同客户端的并发请求"></a>android – 如何使用AIDL远程服务来处理不同客户端的并发请求</h1><p><a href="http://www.voidcn.com/article/p-zhjgplln-btp.html">http://www.voidcn.com/article/p-zhjgplln-btp.html</a></p>
+<p>参考源码：</p>
+<p><a href="https://github.com/arvinljw/AndroidArt">https://github.com/arvinljw/AndroidArt</a></p>
+<p>参考资料：</p>
+<p><a href="https://blog.csdn.net/universus/article/details/6211589">Android Binder设计与实现-设计篇</a>(强烈推荐阅读)</p>
+<p><a href="https://www.jianshu.com/p/cb8fa31a459f">Android学习感悟之进程间通信——AIDL详解</a></p>
+<p><a href="http://weishu.me/2016/01/12/binder-index-for-newer/">Binder学习指南</a></p>
+<p><a href="https://wujingchao.github.io/2016/01/04/art-of-android-development-notes-ipc/"><a href="http://www.amazon.cn/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2-%E4%BB%BB%E7%8E%89%E5%88%9A/dp/B014HV1X3K/ref=sr_1_1?ie=UTF8&qid=1451616304&sr=8-1&keywords=Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2">Android开发艺术探索</a>读书笔记: IPC机制</a></p>
+<p><a href="https://gank.io/post/5e52801241bd447e3b978092">https://gank.io/post/5e52801241bd447e3b978092</a></p>
+]]></content>
+      <categories>
+        <category>AIDL</category>
+      </categories>
+      <tags>
+        <tag>AIDL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 使用注意事项总结</title>
+    <url>/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">➜  Txx <span class="attr">git:</span>(mqtt_test) ✗ git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>rexx_v2<span class="number">.108</span><span class="number">.0</span>%wip</span><br><span class="line">枚举对象中: <span class="number">52</span>, 完成.</span><br><span class="line">对象计数中: <span class="number">100</span>% (<span class="number">52</span>/<span class="number">52</span>), 完成.</span><br><span class="line">使用 <span class="number">12</span> 个线程进行压缩</span><br><span class="line">压缩对象中: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), 完成.</span><br><span class="line">写入对象中: <span class="number">100</span>% (<span class="number">32</span><span class="regexp">/32), 16.54 KiB | 5.51 MiB/</span>s, 完成.</span><br><span class="line">总共 <span class="number">32</span>（差异 <span class="number">15</span>），复用 <span class="number">0</span>（差异 <span class="number">0</span>），包复用 <span class="number">0</span></span><br><span class="line"><span class="attr">remote:</span> Resolving <span class="attr">deltas:</span> <span class="number">100</span>% (<span class="number">15</span>/<span class="number">15</span>)</span><br><span class="line"><span class="attr">remote:</span> Processing <span class="attr">changes:</span> <span class="attr">refs:</span> <span class="number">1</span>, done    </span><br><span class="line"><span class="attr">remote:</span> commit <span class="number">4</span><span class="attr">acd093:</span> <span class="attr">ERROR:</span> missing Change-Id <span class="keyword">in</span> message footer</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line"><span class="attr">remote:</span> <span class="attr">Hint:</span> to automatically insert a Change-Id, install the <span class="attr">hook:</span></span><br><span class="line"><span class="attr">remote:</span>   gitdir=$(git rev-parse --git-dir); scp -p -P <span class="number">29418</span> juneyang@<span class="number">172.16</span><span class="number">.12</span><span class="number">.171</span>:hooks<span class="regexp">/commit-msg $&#123;gitdir&#125;/</span>hooks/</span><br><span class="line"><span class="attr">remote:</span> and then amend the <span class="attr">commit:</span></span><br><span class="line"><span class="attr">remote:</span>   git commit --amend</span><br><span class="line"><span class="attr">remote:</span> </span><br><span class="line">To <span class="attr">ssh:</span><span class="comment">//172.16.12.171:29418/Taurus.git</span></span><br><span class="line"> ! [remote rejected]   HEAD -&gt; refs<span class="regexp">/for/</span>release_v2<span class="number">.18</span><span class="number">.0</span>%wip (commit <span class="number">4</span><span class="attr">acd093:</span> missing Change-Id <span class="keyword">in</span> message footer)</span><br><span class="line"><span class="attr">error:</span> 推送一些引用到 <span class="string">&#x27;ssh://172.16.12.171:29418/Taurus.git&#x27;</span> 失败</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>首次提交流程：</p>
+<ol>
+<li><p>提交日志commit （ cmd + K） 这里可以用IDE来提交。后面的流程用命令。</p>
+<p>正常操作即可。</p>
+</li>
+<li><p>hook操作</p>
+<blockquote>
+<p>gitdir=$(git rev-parse –git-dir); scp -p -P 29418 <a href="mailto:&#106;&#x75;&#110;&#101;&#121;&#x61;&#x6e;&#103;&#64;&#x31;&#55;&#x32;&#x2e;&#x31;&#x36;&#x2e;&#49;&#x32;&#x2e;&#x31;&#x37;&#49;">&#106;&#x75;&#110;&#101;&#121;&#x61;&#x6e;&#103;&#64;&#x31;&#55;&#x32;&#x2e;&#x31;&#x36;&#x2e;&#49;&#x32;&#x2e;&#x31;&#x37;&#49;</a>:hooks/commit-msg ${gitdir}/hooks/</p>
+</blockquote>
+</li>
+<li><p>再次提交</p>
+<blockquote>
+<p>git commit –amend</p>
+</blockquote>
+</li>
+<li><p>进入Vim操作中，添加日志 保存退出 <code>:wq</code> .</p>
+</li>
+<li><p>push 添加wip状态意味着 当次提交不会合并，在编辑中。</p>
+<blockquote>
+<p> git push origin HEAD:refs/for/release_v2.18.0%wip</p>
+</blockquote>
+</li>
+</ol>
+<p>Virgo:</p>
+<p>git push origin HEAD:refs/for/sprint/s25</p>
+<h1 id="Aries"><a href="#Aries" class="headerlink" title="Aries:"></a><strong>Aries:</strong></h1><p>git push origin HEAD:refs/for/dev</p>
+<p>注意 其他项目中的提交需要单独提交。防止提交遗漏。</p>
+<p>第二轮修改后提交流程：</p>
+<ol>
+<li><p>如果没有通过被拒绝之后，修改后再次提交</p>
+<p>git add .</p>
+<p>git commit –amend</p>
+</li>
+</ol>
+<p>如果在IDE中使用commint –amend中的方法 会出现 日志修改无效的问题。</p>
+<p>VirgoXX:</p>
+<p>git push origin HEAD:refs/for/sprint/s25</p>
+<h1 id="异常总结："><a href="#异常总结：" class="headerlink" title="异常总结："></a>异常总结：</h1><p>1.Git中vim修改权限： E45: 已设定选项 ‘readonly’ (请加 ! 强制执行)</p>
+<p>初始设置进行修改操作后，无法保存，git命令行输入指令：</p>
+<blockquote>
+<p>:wq!</p>
+</blockquote>
+<p>回车即可强制修改并保存。</p>
+<ol start="2">
+<li>Changed_ID  必须放到下面 否则会push失败。</li>
+</ol>
+<h1 id="Vim操作："><a href="#Vim操作：" class="headerlink" title="Vim操作："></a>Vim操作：</h1><blockquote>
+<p>保存文件退出</p>
+<p> ：w  写入不退出</p>
+<p> ：w！ 强制写入</p>
+<p> ：wq 写入退出</p>
+<p>：wq！写入强制退出</p>
+<p>ZZ　写入退出，使用shift+两次ＺＺ</p>
+<p>：q　　退出</p>
+<p>：q！强制退出</p>
+</blockquote>
+<p>小结：</p>
+<blockquote>
+<p>‘i’进入编辑模式<br>‘esc’进入命令模式<br>‘:wq’保存退出<br>‘q!’不保存强制退出</p>
+</blockquote>
+<p>参考：</p>
+<p>1.<a href="https://blog.csdn.net/taiyangdao/article/details/71079021">Gerrit的commit-msg hook使用指南</a></p>
+<p>2.<a href="https://blog.csdn.net/QingKong999/article/details/47040047">Git使用之撤销上次提交、审核代码不通过修改再次提交</a></p>
+<p>FAQ:</p>
+<p><a href="https://github.com/eclipse/paho.mqtt.android/issues/212">https://github.com/eclipse/paho.mqtt.android/issues/212</a></p>
+<p>如何解决冲突？</p>
+<p>git reset –soft HEAD^</p>
+<p>提交push命令</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git push origin <span class="attr">HEAD:</span>refs<span class="regexp">/for/</span>$&#123;branch&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://juejin.cn/post/6844903942464225294">Gerrit常见命令及最佳实践</a></p>
+<p>git 提交了两个暂未入库的的问题</p>
+<p>必须等前一个入库后，另一个才能操作。</p>
+<p>git rebase - i 进入提交 历史修改</p>
+<p>将前缀 修改为edit 或者简写为(e)</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git status   </span><br><span class="line">交互式变基操作正在进行中；至 d14af27b</span><br><span class="line">最后一条命令已完成（<span class="number">1</span> 条命令被执行）：</span><br><span class="line">   edit <span class="number">62101</span>c48 feat(VIRGO<span class="number">-719</span>):新增通过Mqtt发送系统消息指令控制设备DEBUG模式</span><br><span class="line">接下来要执行的命令（剩余 <span class="number">1</span> 条命令）：</span><br><span class="line">   pick <span class="number">53</span>ab51e6 fix(VIRGO<span class="number">-753</span>):精简 mqtt 调试日志上传</span><br><span class="line">  （使用 <span class="string">&quot;git rebase --edit-todo&quot;</span> 来查看和编辑）</span><br><span class="line">您在执行将分支 <span class="string">&#x27;sprint/s26&#x27;</span> 变基到 <span class="string">&#x27;d14af27b&#x27;</span> 的操作时编辑提交。</span><br><span class="line">  （使用 <span class="string">&quot;git commit --amend&quot;</span> 修补当前提交）</span><br><span class="line">  （当您对您的修改满意后执行 <span class="string">&quot;git rebase --continue&quot;</span>）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>git commit - amend时</p>
+<p>出现正常的变基</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># 日期：  Sun Feb <span class="number">7</span> <span class="number">16</span>:<span class="number">55</span>:<span class="number">28</span> <span class="number">2021</span> +<span class="number">0800</span></span><br><span class="line">#</span><br><span class="line"># 交互式变基操作正在进行中；至 d14af27b </span><br><span class="line"># 最后一条命令已完成（<span class="number">1</span> 条命令被执行）： </span><br><span class="line">#    edit <span class="number">62101</span>c48 feat(VIRGO<span class="number">-719</span>):新增通过Mqtt发送系统消息指令控制</span><br></pre></td></tr></table></figure>
+
+<p>操作时当前有的分支为rebase + 提交的变基点。</p>
+<p>操作完成后 回到正常的状态,</p>
+<p>执行</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<p>此时的分支状态不再出现rebase字样。即正常的分支。</p>
+<p>新建分支交上传远程：</p>
+<blockquote>
+<p>git checkout -b “分支名”</p>
+<p>git push origin “分支名”</p>
+</blockquote>
+<p>删除远程分支 ：</p>
+<blockquote>
+<p>git push  origin –delete “分支名”</p>
+</blockquote>
+<p>删除本地分支：</p>
+<blockquote>
+<p>git branch -D  “分支名”</p>
+</blockquote>
+<p>Git 还原到某一次提交</p>
+<p>175070cf47f99df8ee0a2c6c14abe70b99ec5a85</p>
+<p>示例：</p>
+<p>找到想要还原的某一次提交：</p>
+<blockquote>
+<p>git log –oneline</p>
+<p>Git checkout xxxx .</p>
+</blockquote>
+<p>合并提交记录</p>
+<p><a href="https://segmentfault.com/a/1190000023055669">https://segmentfault.com/a/1190000023055669</a></p>
+<h1 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h1><p>背景：当提交代码到 review board 后未入库，别人的代码先入库，并且出现冲突，此时代码的操作。</p>
+<p>代码丢失处理：</p>
+<p>从 git polyGerrit 中添加代码：</p>
+<blockquote>
+<p>git cherry-pick</p>
+<p> git fetch “ssh://<a href="mailto:&#x6a;&#117;&#x6e;&#101;&#121;&#97;&#110;&#x67;&#64;&#x31;&#x37;&#50;&#x2e;&#x31;&#x36;&#x2e;&#x31;&#x32;&#46;&#49;&#55;&#x31;">&#x6a;&#117;&#x6e;&#101;&#121;&#97;&#110;&#x67;&#64;&#x31;&#x37;&#50;&#x2e;&#x31;&#x36;&#x2e;&#x31;&#x32;&#46;&#49;&#55;&#x31;</a>:29418/Gemini” refs/changes/79/6879/1 &amp;&amp; git cherry-pick FETCH_HEAD</p>
+</blockquote>
+<p>git diff</p>
+<p>解决冲突后</p>
+<p>git add 某一个文件 如：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git add src/main/res/values/strings.xml   </span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git cherry-pick --continue  </span><br></pre></td></tr></table></figure>
+
+<p>最后 push</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push origin HEAD:refs/for/dev    </span><br></pre></td></tr></table></figure>
+
+
+
+<p>实战：</p>
+<p>第一步： git fetch xxx cherry-pick xxx</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4g4urqyj313e07p0up.jpg" alt="image-20210611103323886"></p>
+<p>第二步：解决冲突。</p>
+<p>第三步：根据提示，git add.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4hqi5tmj30rp07f3zm.jpg" alt="image-20210611103456364"></p>
+<p>第四步： 执行 git cherry-pick –continue时出现</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gre4itaztnj30ot0gu40f.jpg" alt="image-20210611103557871"></p>
+<p>最后一步： push。</p>
+<p>git push origin HEAD:refs/for/dev</p>
+<p>操作完成！</p>
+<h2 id="git-push-error"><a href="#git-push-error" class="headerlink" title="git push error:"></a>git push error:</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grkbkzpnskj30ql08hdhe.jpg" alt="image-20210616191335924"></p>
+<p><a href="https://stackoverflow.com/questions/11972384/git-push-remote-rejected-change-closed">https://stackoverflow.com/questions/11972384/git-push-remote-rejected-change-closed</a></p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">Do <span class="built_in">this</span> to fix <span class="attr">issue:</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line">delete change id</span><br><span class="line"></span><br><span class="line">save and quit</span><br><span class="line"><span class="keyword">new</span> change id will be added to the commit. it can be verified by git log.</span><br><span class="line">push again</span><br></pre></td></tr></table></figure>
+
+<p>1.删除 change-id</p>
+<p>Change-Id: I8b4d553b3eb0771e1a1727e9c39d9d22f80de478</p>
+<ol start="2">
+<li> git commit –amend</li>
+</ol>
+<p>之后 生成了新的 change-id</p>
+<p>git 提交时 有被人插队，push 时发现 head 的指针不是指向最新的了，你需要做的就是</p>
+<ol>
+<li>git log 查看 commit-id</li>
+<li>git reset –soft commit-id</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git reset --soft ee6b6757ace472d299f862b4292fa80da2bd1fe5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>本地缓存 并更新  ：git stash save ui 、git  pull –rebase</p>
+</li>
+<li><p> 将工作区间刷新：git reset –hard f8be84627b6141d716ef84f61ef6f01e463ca8c3</p>
+</li>
+<li><p>最后重新提交</p>
+<p>git stash pop、解决冲突、git add.  git commit 、git push……</p>
+</li>
+</ol>
+<p>第二种方法：</p>
+<ol>
+<li><code>git reset --soft HEAD^</code><br>撤销上一次提交,修改的内容保留<br>如果暂存区为空，则将上一次修改放入暂存区<br>如果暂存区非空，则将不改变暂存区<br>该操作不改变工作区</li>
+<li><code>git reset --hard HEAD^</code><br>工作区，暂存区，，仓库均保持为上一次提交的内容</li>
+</ol>
+<p>小结：</p>
+<p><a href="https://www.jianshu.com/p/63199427ee68">https://www.jianshu.com/p/63199427ee68</a></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>当你拿到一台崭新的 Mac 电脑时，我们应该如何快速高效配置开发环境？</title>
+    <url>/blog/2021/08/04/%E7%94%B5%E8%84%91%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="安装包管理器"><a href="#安装包管理器" class="headerlink" title="安装包管理器"></a>安装包管理器</h1><h2 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h2><p>最重要的一个工具，没有之一，有了这个，后面的涉及到的工具才方便安装，必须想办法安装成功！</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</span><br></pre></td></tr></table></figure>
+<p>安装命令：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>bash -c <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果半天下载 不下来，不用等了，直接搜国内的镜像源，分分钟下载下来。</p>
+<p>直接切换，用以下方式：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>bin<span class="regexp">/ruby -e &quot;$(curl -fsSL https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>gh<span class="regexp">/ineo6/</span>homebrew-install/install)<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>可参考：</p>
+<p><a href="https://www.jianshu.com/p/f4c9cf0733ea">Homebrew是什么？以及使用</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/146001246">HomebrewCN：Homebrew的国内安装脚本，从此告别龟速更新</a>(亲测很快)</p>
+<p><a href="https://www.cnblogs.com/xibushijie/p/13335988.html">mac下国内安装Homebrew教程</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/59805070">Mac必备神器Homebrew</a></p>
+<h1 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h1><h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h2><p>取代系统默认的命令，效率大大提升。同时可以直接设置为系统默认终端。在Android Studio操作同样高效。</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">brew cask install iterm2</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://sourabhbajaj.com/mac-setup/iTerm/">https://sourabhbajaj.com/mac-setup/iTerm/</a></p>
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/19556676">终极 Shell——ZSH</a></li>
+<li><a href="https://g2ex.github.io/2018/01/21/linux-terminal-zsh-notes/">终端折腾记</a></li>
+<li><a href="https://wdxtub.com/2016/02/18/oh-my-zsh/">zsh 全程指南</a></li>
+<li><a href="https://hufangyun.com/2017/zsh-plugin/">zsh oh-my-zsh 插件推荐</a></li>
+<li><a href="https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config">Show Off your Config | powerlevel9k</a></li>
+</ul>
+<p><strong>安装插件</strong></p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">git clone <span class="attr">https:</span><span class="comment">//github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span></span><br><span class="line">  </span><br><span class="line">git clone <span class="attr">git:</span><span class="comment">//github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span></span><br><span class="line">  </span><br><span class="line"># ~/.zshrc</span><br><span class="line">plugins=(</span><br><span class="line">  git</span><br><span class="line">  autojump</span><br><span class="line">  extract</span><br><span class="line">  osx</span><br><span class="line">  z</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>此时，需要研究一下 <code>vim</code>相关的，在mac中操作少不了的。后面会提到。</p>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">https://git-scm.com/book/en/v1/Getting-Started-Installing-Git</a></p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">$ brew install git</span><br><span class="line">$ git config -e --global</span><br></pre></td></tr></table></figure>
+
+<p>生成 ssh key ,配置到 gitlab</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">color.ui=auto</span><br><span class="line">user.name=JuneYang</span><br><span class="line">user.email=JuneYang<span class="meta">@qq</span>.com</span><br><span class="line">core.editor=vim</span><br><span class="line">alias.co=checkout</span><br><span class="line">alias.ci=commit</span><br><span class="line">alias.st=status</span><br><span class="line">alias.br=branch</span><br><span class="line">alias.hist=log --pretty=<span class="attr">format:</span><span class="string">&quot;%h %ad | %s%d [%an]&quot;</span> --graph --date=<span class="keyword">short</span></span><br><span class="line">alias.changelog=log --pretty=<span class="attr">format:</span>%s</span><br><span class="line">alias.type=cat-file -t</span><br><span class="line">alias.dump=cat-file -p</span><br><span class="line">reviewboard.url=<span class="attr">http:</span><span class="comment">//xx.com/</span></span><br><span class="line">hbt.dir=<span class="regexp">~/project/</span>build_scriptxx<span class="regexp">/source/</span>BuildScript/code_analysis</span><br><span class="line">jira.user=JuneYang<span class="meta">@qq</span>.com</span><br><span class="line">jira.pwd=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参考 <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">First-Time Git Setup</a></p>
+<h1 id="Sdkman"><a href="#Sdkman" class="headerlink" title="Sdkman"></a>Sdkman</h1><p>安装</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>bash -c <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>安装 SDKMAN</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">curl -s <span class="string">&quot;https://get.sdkman.io&quot;</span> | bash</span><br></pre></td></tr></table></figure>
+
+<p>安装 Java</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">sdk install java <span class="number">8.0</span><span class="number">.265</span>.hs-adp</span><br></pre></td></tr></table></figure>
+
+<p>如果没有版本，请根据提示选择相应的版本即可。</p>
+<p>安装 Kotlin</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">sdk install kotlin</span><br></pre></td></tr></table></figure>
+
+<p>安装 groovy</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">sdk install groovy</span><br></pre></td></tr></table></figure>
+
+<p>安装 Gradle</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">sdk install gradle</span><br></pre></td></tr></table></figure>
+
+<p>安装 Maven</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">sdk install maven</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/82315812">sdkman－管理sdk神器</a></p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew tap adoptopenjdk/openjdk</span><br><span class="line">brew cask install adoptopenjdk8</span><br><span class="line">brew cask install adoptopenjdk9</span><br><span class="line">brew cask install adoptopenjdk10</span><br><span class="line">brew cask install adoptopenjdk11</span><br></pre></td></tr></table></figure>
+
+<p>目前使用 jdk8</p>
+<p><a href="https://github.com/AdoptOpenJDK/homebrew-openjdk">https://github.com/AdoptOpenJDK/homebrew-openjdk</a></p>
+<p>个别安装太慢，这个后面看看有没有其他更快安装的办法，求告知。</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">brew install python@<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>推荐使用 nvm</p>
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+<h1 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h1><ul>
+<li>百度</li>
+<li>搜狗五笔</li>
+<li>……</li>
+</ul>
+<p>根据个人喜好安装，对于追求效率的人来说，我选择的是搜狗五笔，打字时字体调到最大的字体，别再好奇的问，你的输入法怎么这么大，我只能说，你打字时在看哪里，专注打字，大就对了。</p>
+<h1 id="Utility"><a href="#Utility" class="headerlink" title="Utility"></a>Utility</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install Alfred </span><br><span class="line">#Alfred是一个让你可以丢掉鼠标的神器。Alfred 是 Mac 系统上一款专注于效率提升的著名应用，它能帮你快速打开网页、快速进行自定义搜索、查看剪贴板历史、快速查询单词等等</span><br><span class="line">brew install wget # 命令行下载工具</span><br><span class="line">brew install htop # 命令行任务管理器</span><br><span class="line">brew install ffmpeg # 多媒体工具包</span><br><span class="line">brew cask install the-unarchiver # 压缩工具</span><br><span class="line">brew cask install iina # 多媒体播放器 iina</span><br><span class="line">brew cask install spectacle # 窗口管理工具</span><br><span class="line">brew cask install sonic-visualiser # 音频分析软件</span><br><span class="line">brew cask install hex-fiend # 二进制文件查看器</span><br><span class="line">brew cask install lunar # 显示器亮度调节 https://lunar.fyi/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://developer.android.com/studio/archive">Android Studio download archives</a></li>
+</ul>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><ul>
+<li><a href="http://plugins.jetbrains.com/plugin/7380-adb-idea">http://plugins.jetbrains.com/plugin/7380-adb-idea</a></li>
+<li><a href="http://plugins.jetbrains.com/plugin/1065-checkstyle-idea">http://plugins.jetbrains.com/plugin/1065-checkstyle-idea</a></li>
+</ul>
+<h2 id="IDEA-Community"><a href="#IDEA-Community" class="headerlink" title="IDEA Community"></a>IDEA Community</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">brew cask install intellij-idea-ce</span><br></pre></td></tr></table></figure>
+
+<p>直接通过命令安装，省去到处找安装包的麻烦。</p>
+<h1 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h1><h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew cask install atom</span><br></pre></td></tr></table></figure>
+
+<h2 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew cask install visual-studio-code</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">brew install vim</span><br></pre></td></tr></table></figure>
+
+<p>补充常用操作:</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">如果是vim，则：Esc 退出编辑模式，输入以下命令： </span><br><span class="line"></span><br><span class="line">:wq  保存后退出vi，若为 :wq! 则为强制储存后退出（常用） </span><br><span class="line"></span><br><span class="line">:w    保存但不退出（常用） </span><br><span class="line"></span><br><span class="line">:w!   若文件属性为『只读』时，强制写入该档案 </span><br><span class="line"></span><br><span class="line">:q    离开 vi （常用） </span><br><span class="line"></span><br><span class="line">:q!   若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。 </span><br><span class="line"></span><br><span class="line">:e!   将档案还原到最原始的状态！ </span><br></pre></td></tr></table></figure>
+
+<h1 id="文档查看器"><a href="#文档查看器" class="headerlink" title="文档查看器"></a>文档查看器</h1><h2 id="Dash"><a href="#Dash" class="headerlink" title="Dash"></a>Dash</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># latest</span><br><span class="line">brew cask install dash</span><br><span class="line"></span><br><span class="line"># 4.6.7 with license</span><br><span class="line">brew cask install https://raw.githubusercontent.com/Homebrew/homebrew-cask/baf4f35e70c225fe1a8a60ec3b4e22604187238d/Casks/dash.rb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://kapeli.com/dash">Dash for macOS - API Documentation Browser, Snippet Manager - Kapeli</a></li>
+<li><a href="https://www.jianshu.com/p/bc90b212c0a7">Mac 软件使用之 Dash</a></li>
+<li><a href="https://zealdocs.org/">Offline documentation browser inspired by Dash</a></li>
+<li><a href="https://www.jverdeyen.be/mac/downgrade-brew-cask-application/">Downgrade brew cask application</a></li>
+</ul>
+<h2 id="DevDocs-io"><a href="#DevDocs-io" class="headerlink" title="DevDocs.io"></a><a href="http://devdocs.io/">DevDocs.io</a></h2><ul>
+<li><a href="https://github.com/egoist/devdocs-desktop">https://github.com/egoist/devdocs-desktop</a></li>
+<li><a href="https://github.com/ragingwind/devdogs">https://github.com/ragingwind/devdogs</a></li>
+</ul>
+<h2 id="Zeal"><a href="#Zeal" class="headerlink" title="Zeal"></a>Zeal</h2><ul>
+<li><a href="https://github.com/zealdocs/zeal">https://github.com/zealdocs/zeal</a></li>
+<li><a href="http://xavieryao.github.io/article/zeal">Build Zeal on macOS</a></li>
+<li><a href="https://mazhuang.org/2016/01/16/build-zeal-for-mac-osx/">Build Zeal for Mac OS X</a></li>
+</ul>
+<h1 id="反编译工具"><a href="#反编译工具" class="headerlink" title="反编译工具"></a>反编译工具</h1><h2 id="APKTOOL"><a href="#APKTOOL" class="headerlink" title="APKTOOL"></a>APKTOOL</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install apktool</span><br></pre></td></tr></table></figure>
+
+<h2 id="JADX"><a href="#JADX" class="headerlink" title="JADX"></a>JADX</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install jadx</span><br></pre></td></tr></table></figure>
+
+<h2 id="JD-GUI"><a href="#JD-GUI" class="headerlink" title="JD-GUI"></a>JD-GUI</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew cask install jd-gui</span><br></pre></td></tr></table></figure>
+
+<h1 id="密码管理"><a href="#密码管理" class="headerlink" title="密码管理"></a>密码管理</h1><h2 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew cask install lastpass</span><br><span class="line">brew install lastpass-cli</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件比较"><a href="#文件比较" class="headerlink" title="文件比较"></a>文件比较</h1><h2 id="Meld"><a href="#Meld" class="headerlink" title="Meld"></a>Meld</h2><ul>
+<li><a href="http://meldmerge.org/">http://meldmerge.org/</a></li>
+<li>Meld 下载 <a href="https://github.com/yousseb/meld/releases/">https://github.com/yousseb/meld/releases/</a></li>
+</ul>
+<h1 id="FTP-Client"><a href="#FTP-Client" class="headerlink" title="FTP Client"></a>FTP Client</h1><h2 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ brew cask install filezilla</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="http://macappstore.org/filezilla/">http://macappstore.org/filezilla/</a></li>
+<li><a href="https://filezilla-project.org/download.php?platform=osx">https://filezilla-project.org/download.php?platform=osx</a></li>
+</ul>
+<h1 id="SSH-Client"><a href="#SSH-Client" class="headerlink" title="SSH Client"></a>SSH Client</h1><h2 id="Termius"><a href="#Termius" class="headerlink" title="Termius"></a>Termius</h2><p><a href="http://www.termius.com/">http://www.termius.com/</a></p>
+<h1 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h1><ul>
+<li><a href="https://www.trankynam.com/xtrafinder/">https://www.trankynam.com/xtrafinder/</a></li>
+<li><a href="http://macappstore.org/xtrafinder/">http://macappstore.org/xtrafinder/</a></li>
+</ul>
+<h1 id="Proxy-Server"><a href="#Proxy-Server" class="headerlink" title="Proxy Server"></a>Proxy Server</h1><h2 id="mitproxy"><a href="#mitproxy" class="headerlink" title="mitproxy"></a>mitproxy</h2><h2 id="charles"><a href="#charles" class="headerlink" title="charles"></a>charles</h2><h1 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h1><p>EasyConnect</p>
+<h1 id="其它文件系统支持"><a href="#其它文件系统支持" class="headerlink" title="其它文件系统支持"></a>其它文件系统支持</h1><h2 id="Linux-Ext-4"><a href="#Linux-Ext-4" class="headerlink" title="Linux Ext-4"></a>Linux Ext-4</h2><p><a href="https://www.paragon-software.com/home/extfs-mac/">https://www.paragon-software.com/home/extfs-mac/</a></p>
+<h2 id="Windows-NTFS"><a href="#Windows-NTFS" class="headerlink" title="Windows NTFS"></a>Windows NTFS</h2><p><a href="https://www.paragon-software.com/home/ntfs-mac/">https://www.paragon-software.com/home/ntfs-mac/</a></p>
+<h1 id="其他项目相关"><a href="#其他项目相关" class="headerlink" title="其他项目相关"></a>其他项目相关</h1><h2 id="安装Repo"><a href="#安装Repo" class="headerlink" title="安装Repo"></a>安装Repo</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"># Debian/Ubuntu.</span><br><span class="line">$ sudo apt-get install repo</span><br><span class="line"></span><br><span class="line">$ mkdir -p ~/.bin</span><br><span class="line">$ PATH=<span class="string">&quot;$&#123;HOME&#125;/.bin:$&#123;PATH&#125;&quot;</span></span><br><span class="line">$ curl <span class="attr">https:</span><span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/.bin/repo</span></span><br><span class="line">$ chmod a+rx <span class="regexp">~/.bin/</span>repo</span><br></pre></td></tr></table></figure>
+
+<p>前提：apt-get需要安装好，如果没有安装好，用如下命令:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">ruby -e <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span><br><span class="line"></span><br><span class="line">brew install libxml2</span><br></pre></td></tr></table></figure>
+
+<p>如果出现错误：</p>
+<h2 id="安装apt"><a href="#安装apt" class="headerlink" title="安装apt"></a>安装apt</h2><p><a href="https://www.jianshu.com/p/7330d3b6d561">mac 安装apt</a></p>
+<p>注意解压时，如果用命令无法解压，直接双击解压即可。</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">tar -xvf fink<span class="number">-0.43</span><span class="number">.0</span>.tar.gz or tar -xvf fink<span class="number">-0.43</span><span class="number">.0</span>.tar</span><br></pre></td></tr></table></figure>
+
+<p>此处更新版本后才能执行下去。</p>
+<p><a href="https://www.finkproject.org/download/srcdist.php">https://www.finkproject.org/download/srcdist.php</a></p>
+<p>下载最新版本 <code>flink-0.45.2.tar.gz</code>解压后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd fink-0.45.2</span><br><span class="line">sudo ./bootstrap</span><br></pre></td></tr></table></figure>
+
+<p>其中的选择选择提示的默认选项即可。下载时间10分钟左右不等。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/sw/bin/pathsetup.sh</span><br><span class="line">fink selfupdate-rsync</span><br><span class="line">fink index -f</span><br></pre></td></tr></table></figure>
+
+<p>在执行上面三个命令时 竟然提示无此命令，甚至我试ls vim都不好用，吓我一跳，最终无法重启控制台后好用，虚惊一场。</p>
+<p>到此 安装完成 <code>sudo apt-get</code> 可以正常使用</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">curl <span class="attr">https:</span><span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span></span><br><span class="line">chmod a+x <span class="regexp">~/bin/</span>repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="repo的使用"><a href="#repo的使用" class="headerlink" title="repo的使用"></a>repo的使用</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">repo init -u <span class="string">&quot;xxx仓库地址&quot;</span></span><br><span class="line"></span><br><span class="line">repo sync</span><br><span class="line">repo start master --all</span><br></pre></td></tr></table></figure>
+
+<p>repo需要配置在path中</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>之后进入编辑模式</p>
+<p>第一步：</p>
+<blockquote>
+<p>vim ~/.bash_profile</p>
+</blockquote>
+<p>第二步：</p>
+<blockquote>
+<p>E-&gt;I-&gt;Enter</p>
+</blockquote>
+<p>输入：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">export PATH =~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>最后：</p>
+<blockquote>
+<p>esc-&gt; :wq 保存 然后生效。</p>
+</blockquote>
+<p>注意：有时会失效，原因未找到。关注中。。。</p>
+<p>可以 暂时这样：配置为临时环境变量(也可配置为永久的)</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">PATH=~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>之后 可直接访问.</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//repo init -u &quot;xxx&quot;</span></span><br><span class="line"> </span><br><span class="line">repo sync</span><br><span class="line">repo start master --all</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/leehs334/article/details/105101574">MAC系统下的repo环境搭建以及下载更新</a></p>
+<ul>
+<li>生成秘钥对</li>
+</ul>
+<p>ssh-keygen -t rsa -C  “<a href="mailto:&#106;&#117;&#x6e;&#101;&#121;&#x61;&#x6e;&#103;&#x40;&#120;&#x78;&#x2e;&#99;&#x6f;&#109;">&#106;&#117;&#x6e;&#101;&#121;&#x61;&#x6e;&#103;&#x40;&#120;&#x78;&#x2e;&#99;&#x6f;&#109;</a>“</p>
+<p>一路enter，不输入其他信息。为空处理。</p>
+<p>添加repo到系统目录下</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">PATH=~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>查看PATH路径</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+
+<p>之后可以直接 调用</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">repo init</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>Android Studio中导入项目：</p>
+<ol>
+<li><p>调试安装遇到的问题installation failed with message INSTALL_FAILED_SHARED_USER_INCOMPA</p>
+<blockquote>
+<p>去掉AndroidManifest.xml文件中android:sharedUserId</p>
+</blockquote>
+</li>
+<li><p>当第一个repo仓库成功后，新建第二个仓库时出现问题</p>
+<blockquote>
+<p>执行repo init时候报错“error: manifest missing or unreadable – please run init”</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>解决办法：</strong></p>
+<p>删除 当前文件下中隐藏的 <code>manifests.git</code> ，之后重新执行<code>repo init</code>。</p>
+<p>关于如何查看隐藏的文件见下文。</p>
+<h1 id="其他Mac操作相关"><a href="#其他Mac操作相关" class="headerlink" title="其他Mac操作相关"></a>其他Mac操作相关</h1><ol>
+<li><p>删除文件</p>
+<blockquote>
+<p>小米键盘：win+BackSpace</p>
+</blockquote>
+</li>
+<li><p>外接键盘右键功能</p>
+<blockquote>
+<p>Ctrl+鼠标右键</p>
+</blockquote>
+</li>
+<li><p>如何显示隐藏的文件</p>
+<blockquote>
+<p>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。</p>
+</blockquote>
+</li>
+<li><p>adb 环境配置</p>
+<p><a href="https://blog.csdn.net/weixin_38327562/article/details/71057276?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">解决Mac上adb: command not found问题</a></p>
+<p><a href="https://blog.csdn.net/qq_35684085/article/details/104743835?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242">mac zsh 配置 adb 环境变量 “zsh: command not found: adb”</a></p>
+<p>打开 iTerm 终端依次输入下面命令:</p>
+</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">echo <span class="string">&#x27;export ANDROID_HOME=/Users/$USER/Library/Android/sdk&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line">echo <span class="string">&#x27;export PATH=$&#123;PATH&#125;:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>然后保存设置：(更新设置)</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>zsh命令安装后的问题</li>
+</ol>
+<p><a href="https://www.jianshu.com/p/03bcc3e2930e">更新完 zsh 说我目录权限问题的解决</a></p>
+<ol start="6">
+<li><p>设置iTerm2为默认的term</p>
+<p>这个很简单就iTerm2-&gt;Make iTerm2 Default Term就好了.Android Studio中重启生效。</p>
+</li>
+</ol>
+<h1 id="MAC快捷键"><a href="#MAC快捷键" class="headerlink" title="MAC快捷键"></a>MAC快捷键</h1><h2 id="CheatSheet"><a href="#CheatSheet" class="headerlink" title="CheatSheet"></a>CheatSheet</h2><p>安装这个后，在相应的软件界面，长按<code>command</code>，就会出现当前界面的所有快捷键，你值得拥有。</p>
+<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><ul>
+<li>切换同一个应用的多个窗口 <code>Cmd + ~</code></li>
+<li>锁定屏幕 <code>Ctrl + Cmd + Q</code></li>
+<li>窗口预览 <code>Ctrl + Up Arrow</code></li>
+<li>任务管理器 <code>Ctrl + Alt + Esc</code></li>
+<li>截图 <code>Cmd + Shift + 4</code></li>
+</ul>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ul>
+<li>浏览器刷新 <code>F5 -&gt; Cmd + R</code></li>
+<li>光标切换到地址栏 <code>Alt + D -&gt; Cmd + L</code></li>
+<li>返回上一页 <code>BackSpace -&gt; Cmd + Left Arrow</code> / <code>Cmd + [</code></li>
+<li>滚动到底部/顶部 <code>Cmd + Down Arrow</code> / <code>Cmd + Up Arrow</code></li>
+<li><a href="https://support.google.com/chrome/answer/157179?hl=en">Chrome keyboard shortcuts</a><h2 id="启动台设置"><a href="#启动台设置" class="headerlink" title="启动台设置"></a>启动台设置</h2><a href="https://www.xia1ge.com/launchpad-hot-key.html">给Mac的启动台Launchpad设置快捷键</a></li>
+</ul>
+<p>未完待续……</p>
+<p>参考：</p>
+<ul>
+<li><p><a href="https://www.zhihu.com/question/24635640">Mac系统如何显示隐藏文件</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/6844904125977608199">Repo命令记录</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/6844904148102545416">反思｜Android源码模块化管理工具Repo分析</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/TankXiao/p/2845413.html">Mac 入门 一 基本用法</a></p>
+</li>
+<li><p><a href="https://support.apple.com/zh-cn/ht202351">将多个显示器与 Mac 配合使用</a></p>
+</li>
+<li><p><a href="https://support.apple.com/zh-cn/HT201236">Mac 键盘快捷键</a></p>
+</li>
+<li><p><a href="http://singsing.io/blog/mac/Mac-1/">你可能不知道的 Mac 技巧 - 文本操作</a></p>
+</li>
+<li><p><a href="http://singsing.io/blog/mac/Mac-2/">你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐</a></p>
+</li>
+<li><p><a href="http://singsing.io/blog/mac/Mac-3/">你可能不知道的 Mac 技巧 - macOS 的窗口、标签与工作区</a></p>
+</li>
+<li><p><a href="https://sspai.com/post/30981">从 Windows 到 OS X，新手入门解惑 | Hello Mac</a></p>
+</li>
+<li><p><a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/Apps/index.html">Mac 开发配置手册</a></p>
+</li>
+<li><p><a href="https://wsgzao.github.io/post/mac/">Mac新手入门以及常用软件推荐</a></p>
+</li>
+<li><p><a href="http://www.zorin.xin/mac/2017/11/20/mac%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%AF%87.html">mac新手指南-基础环境搭建篇</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/question/20386836">一直使用 Windows 的人如何尽快熟练使用 OS X？</a></p>
+</li>
+<li><p><a href="https://sspai.com/post/32453">你不应错过的 22 款 Mac 效率工具 App | 2015 年度盘点</a></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>高效方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让你最快速地改善代码质量的20条编程规范</title>
+    <url>/blog/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<blockquote>
+<p>根据学习根据极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。</p>
+<p>分别介绍编码规范的三个部分：命名与注释（Naming and Comments）、代码风格（Code Style）和编程技巧（Coding Tips）。</p>
+</blockquote>
+<h2 id="关于命名"><a href="#关于命名" class="headerlink" title="关于命名"></a>关于命名</h2><ul>
+<li>命名的关键是能准确达意。对于不同作用域的命名，我们可以适当地选择不同的长度。作用域小的变量（比如临时变量），可以适当地选择短一些的命名方式。除此之外，命名中也可以使用一些耳熟能详的缩写。</li>
+<li>我们可以借助类的信息来简化属性、函数的命名，利用函数的信息来简化函数参数的命名。</li>
+<li>命名要可读、可搜索。不要使用生僻的、不好读的英文单词来命名。除此之外，命名要符合项目的统一规范，不要用些反直觉的命名。</li>
+<li>接口有两种命名方式：一种是在接口中带前缀“I”；另一种是在接口的实现类中带后缀“Impl”。对于抽象类的命名，也有两种方式，一种是带上前缀“Abstract”，一种是不带前缀。这两种命名方式都可以，关键是要在项目中统一。</li>
+</ul>
+<h2 id="关于注释"><a href="#关于注释" class="headerlink" title="关于注释"></a>关于注释</h2><ul>
+<li>注释的目的就是让代码更容易看懂。只要符合这个要求的内容，你就可以将它写到注释里。总结一下，注释的内容主要包含这样三个方面：做什么、为什么、怎么做。对于一些复杂的类和接口，我们可能还需要写明“如何用”。</li>
+<li>注释本身有一定的维护成本，所以并非越多越好。类和函数一定要写注释，而且要写得尽可能全面、详细，而函数内部的注释要相对少一些，一般都是靠好的命名、提炼函数、解释性变量、总结性注释来提高代码可读性。</li>
+</ul>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><p>开发前，我一般先写注释，再写代码。比如写一个方法，我会先拆分业务逻辑，把注释给写上。后面再看注释，写代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// todo </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createOrder</span><span class="params">(RequestVo request)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// todo 校验用户登录</span></span><br><span class="line">  <span class="comment">// todo 校验商品</span></span><br><span class="line">  <span class="comment">// todo 创建订单</span></span><br><span class="line">  <span class="comment">// todo 拼装、返回结果集</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于注释：之前我的看法只要逻辑清晰命名准确达意就不用写注释了，现在回过来想这个问题，代码是需要不断维护的，即使当时你思路清晰那么过了一段时间后还能那么清晰么。人的大脑只会记住关键的信息，那么注释就是帮助我们梳理自己的想法和逻辑沉淀下来，是百利无害的事情，当别人接手也能迅速理解，降低沟通成本。如何注释才是好的注释呢？文中提到三点：做什么、为什么做、怎么做、怎么用（API）。这里最重要的事做什么，。我再补充一点，可以加下使用场景或者业务场景。</p>
+<p>关于命名：这点我基本无疑义，总结下来就是两点：简洁达意和风格统一。</p>
+<h1 id="理论五：让你最快速地改善代码质量的20条编程规范（中）"><a href="#理论五：让你最快速地改善代码质量的20条编程规范（中）" class="headerlink" title="理论五：让你最快速地改善代码质量的20条编程规范（中）"></a>理论五：让你最快速地改善代码质量的20条编程规范（中）</h1><h2 id="1-函数、类多大才合适？"><a href="#1-函数、类多大才合适？" class="headerlink" title="1 函数、类多大才合适？"></a>1 函数、类多大才合适？</h2><p>函数的代码行数不要超过一屏幕的大小，比如 50 行。类的大小限制比较难确定。</p>
+<h2 id="2-一行代码多长最合适？"><a href="#2-一行代码多长最合适？" class="headerlink" title="2.一行代码多长最合适？"></a>2.一行代码多长最合适？</h2><p>最好不要超过 IDE 显示的宽度。当然，限制也不能太小，太小会导致很多稍微长点的语句被折成两行，也会影响到代码的整洁，不利于阅读。</p>
+<h2 id="3-善用空行分割单元块"><a href="#3-善用空行分割单元块" class="headerlink" title="3. 善用空行分割单元块"></a>3. 善用空行分割单元块</h2><p>对于比较长的函数，为了让逻辑更加清晰，可以使用空行来分割各个代码块。在类内部，成员变量与函数之间、静态成员变量与普通成员变量之间、函数之间，甚至成员变量之间，都可以通过添加空行的方式，让不同模块的代码之间的界限更加明确。</p>
+<h2 id="4-四格缩进还是两格缩进？"><a href="#4-四格缩进还是两格缩进？" class="headerlink" title="4. 四格缩进还是两格缩进？"></a>4. 四格缩进还是两格缩进？</h2><p>我个人比较推荐使用两格缩进，这样可以节省空间，特别是在代码嵌套层次比较深的情况下。除此之外，值得强调的是，不管是用两格缩进还是四格缩进，一定不要用 tab 键缩进。</p>
+<h2 id="5-大括号是否要另起一行？"><a href="#5-大括号是否要另起一行？" class="headerlink" title="5. 大括号是否要另起一行？"></a>5. 大括号是否要另起一行？</h2><p>我个人还是比较推荐将大括号放到跟上一条语句同一行的风格，这样可以节省代码行数。但是，将大括号另起一行，也有它的优势，那就是，左右括号可以垂直对齐，哪些代码属于哪一个代码块，更加一目了然。</p>
+<h2 id="6-类中成员的排列顺序"><a href="#6-类中成员的排列顺序" class="headerlink" title="6. 类中成员的排列顺序"></a>6. 类中成员的排列顺序</h2><p>在 Google Java 编程规范中，依赖类按照字母序从小到大排列。类中先写成员变量后写函数。成员变量之间或函数之间，先写静态成员变量或函数，后写普通变量或函数，并且按照作用域大小依次排列。</p>
+<h1 id="关于编码技巧"><a href="#关于编码技巧" class="headerlink" title="关于编码技巧"></a>关于编码技巧</h1><h2 id="1-将复杂的逻辑提炼拆分成函数和类。"><a href="#1-将复杂的逻辑提炼拆分成函数和类。" class="headerlink" title="1. 将复杂的逻辑提炼拆分成函数和类。"></a>1. 将复杂的逻辑提炼拆分成函数和类。</h2><h2 id="2-通过拆分成多个函数或将参数封装为对象的方式，来处理参数过多的情况。"><a href="#2-通过拆分成多个函数或将参数封装为对象的方式，来处理参数过多的情况。" class="headerlink" title="2. 通过拆分成多个函数或将参数封装为对象的方式，来处理参数过多的情况。"></a>2. 通过拆分成多个函数或将参数封装为对象的方式，来处理参数过多的情况。</h2><p>​        我个人觉得，函数包含 3、4 个参数的时候还是能接受的，大于等于 5 个的时候，我们就觉得参数有点过多了，会影响到代码的可读性，使用起来也不方便。针对参数过多的情况，一般有 2 种处理方法。</p>
+<ul>
+<li><p>考虑函数是否职责单一，是否能通过拆分成多个函数的方式来减少参数。示例代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">(String username, String telephone, String email)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拆分成多个函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUserByUsername</span><span class="params">(String username)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUserByTelephone</span><span class="params">(String telephone)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUserByEmail</span><span class="params">(String email)</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>将函数的参数封装成对象。示例代码如下所示：</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postBlog</span><span class="params">(String title, String summary, String keywords, String content, String category, <span class="keyword">long</span> authorId)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将参数封装成对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Blog</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String title;</span><br><span class="line">  <span class="keyword">private</span> String summary;</span><br><span class="line">  <span class="keyword">private</span> String keywords;</span><br><span class="line">  <span class="keyword">private</span> Strint content;</span><br><span class="line">  <span class="keyword">private</span> String category;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">long</span> authorId;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postBlog</span><span class="params">(Blog blog)</span></span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="3-函数中不要使用参数来做代码执行逻辑的控制。"><a href="#3-函数中不要使用参数来做代码执行逻辑的控制。" class="headerlink" title="3. 函数中不要使用参数来做代码执行逻辑的控制。"></a>3. 函数中不要使用参数来做代码执行逻辑的控制。</h2><p>不要在函数中使用布尔类型的标识参数来控制内部逻辑，true 的时候走这块逻辑，false 的时候走另一块逻辑。这明显违背了单一职责原则和接口隔离原则。我建议将其拆成两个函数，可读性上也要更好。我举个例子来说明一下。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将其拆分成两个函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyCourse</span><span class="params">(<span class="keyword">long</span> userId, <span class="keyword">long</span> courseId)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyCourseForVip</span><span class="params">(<span class="keyword">long</span> userId, <span class="keyword">long</span> courseId)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>不过，如果函数是 private 私有函数，影响范围有限，或者拆分之后的两个函数经常同时被调用，我们可以酌情考虑保留标识参数。示例代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 拆分成两个函数的调用方式</span></span><br><span class="line"><span class="keyword">boolean</span> isVip = <span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//...省略其他逻辑...</span></span><br><span class="line"><span class="keyword">if</span> (isVip) &#123;</span><br><span class="line">  buyCourseForVip(userId, courseId);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  buyCourse(userId, courseId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保留标识参数的调用方式更加简洁</span></span><br><span class="line"><span class="keyword">boolean</span> isVip = <span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//...省略其他逻辑...</span></span><br><span class="line">buyCourse(userId, courseId, isVip);</span><br></pre></td></tr></table></figure>
+
+<p>除了布尔类型作为标识参数来控制逻辑的情况外，还有一种“根据参数是否为 null”来控制逻辑的情况。针对这种情况，我们也应该将其拆分成多个函数。拆分之后的函数职责更明确，不容易用错。具体代码示例如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Transaction&gt; <span class="title">selectTransactions</span><span class="params">(Long userId, Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (startDate != <span class="keyword">null</span> &amp;&amp; endDate != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 查询两个时间区间的transactions</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (startDate != <span class="keyword">null</span> &amp;&amp; endDate == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 查询startDate之后的所有transactions</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (startDate == <span class="keyword">null</span> &amp;&amp; endDate != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 查询endDate之前的所有transactions</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (startDate == <span class="keyword">null</span> &amp;&amp; endDate == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 查询所有的transactions</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拆分成多个public函数，更加清晰、易用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Transaction&gt; <span class="title">selectTransactionsBetween</span><span class="params">(Long userId, Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> selectTransactions(userId, startDate, endDate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Transaction&gt; <span class="title">selectTransactionsStartWith</span><span class="params">(Long userId, Date startDate)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> selectTransactions(userId, startDate, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Transaction&gt; <span class="title">selectTransactionsEndWith</span><span class="params">(Long userId, Date endDate)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> selectTransactions(userId, <span class="keyword">null</span>, endDate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Transaction&gt; <span class="title">selectAllTransactions</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> selectTransactions(userId, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Transaction&gt; <span class="title">selectTransactions</span><span class="params">(Long userId, Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-函数设计要职责单一。"><a href="#4-函数设计要职责单一。" class="headerlink" title="4. 函数设计要职责单一。"></a>4. 函数设计要职责单一。</h2><p>我们在前面讲到单一职责原则的时候，针对的是类、模块这样的应用对象。实际上，对于函数的设计来说，更要满足单一职责原则。相对于类和模块，函数的粒度比较小，代码行数少，所以在应用单一职责原则的时候，没有像应用到类或者模块那样模棱两可，能多单一就多单一。</p>
+<p>具体的代码示例如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkUserIfExisting</span><span class="params">(String telephone, String username, String email)</span>  </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (!StringUtils.isBlank(telephone)) &#123;</span><br><span class="line">    User user = userRepo.selectUserByTelephone(telephone);</span><br><span class="line">    <span class="keyword">return</span> user != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (!StringUtils.isBlank(username)) &#123;</span><br><span class="line">    User user = userRepo.selectUserByUsername(username);</span><br><span class="line">    <span class="keyword">return</span> user != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (!StringUtils.isBlank(email)) &#123;</span><br><span class="line">    User user = userRepo.selectUserByEmail(email);</span><br><span class="line">    <span class="keyword">return</span> user != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拆分成三个函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkUserIfExistingByTelephone</span><span class="params">(String telephone)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkUserIfExistingByUsername</span><span class="params">(String username)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkUserIfExistingByEmail</span><span class="params">(String email)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-移除过深的嵌套层次，方法包括：去掉多余的-if-或-else-语句，使用-continue、break、return-关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数。"><a href="#5-移除过深的嵌套层次，方法包括：去掉多余的-if-或-else-语句，使用-continue、break、return-关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数。" class="headerlink" title="5. 移除过深的嵌套层次，方法包括：去掉多余的 if 或 else 语句，使用 continue、break、return 关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数。"></a>5. 移除过深的嵌套层次，方法包括：去掉多余的 if 或 else 语句，使用 continue、break、return 关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数。</h2><p>代码嵌套层次过深往往是因为 if-else、switch-case、for 循环过度嵌套导致的。我个人建议，嵌套最好不超过两层，超过两层之后就要思考一下是否可以减少嵌套。过深的嵌套本身理解起来就比较费劲，除此之外，嵌套过深很容易因为代码多次缩进，导致嵌套内部的语句超过一行的长度而折成两行，影响代码的整洁。解决嵌套过深的方法也比较成熟，有下面 4 种常见的思路。</p>
+<ul>
+<li><p>去掉多余的 if 或 else 语句。代码示例如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 示例一</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">caculateTotalAmount</span><span class="params">(List&lt;Order&gt; orders)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (orders == <span class="keyword">null</span> || orders.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123; <span class="comment">// 此处的else可以去掉</span></span><br><span class="line">    <span class="keyword">double</span> amount = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (Order order : orders) &#123;</span><br><span class="line">      <span class="keyword">if</span> (order != <span class="keyword">null</span>) &#123;</span><br><span class="line">        amount += (order.getCount() * order.getPrice());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> amount;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例二</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">matchStrings</span><span class="params">(List&lt;String&gt; strList,String substr)</span> </span>&#123;</span><br><span class="line">  List&lt;String&gt; matchedStrings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">if</span> (strList != <span class="keyword">null</span> &amp;&amp; substr != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (String str : strList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123; <span class="comment">// 跟下面的if语句可以合并在一起</span></span><br><span class="line">        <span class="keyword">if</span> (str.contains(substr)) &#123;</span><br><span class="line">          matchedStrings.add(str);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> matchedStrings;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>调整执行顺序来减少嵌套。具体的代码示例如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 重构前的代码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">matchStrings</span><span class="params">(List&lt;String&gt; strList,String substr)</span> </span>&#123;</span><br><span class="line">  List&lt;String&gt; matchedStrings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">if</span> (strList != <span class="keyword">null</span> &amp;&amp; substr != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (String str : strList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (str.contains(substr)) &#123;</span><br><span class="line">          matchedStrings.add(str);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> matchedStrings;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重构后的代码：先执行判空逻辑，再执行正常逻辑</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">matchStrings</span><span class="params">(List&lt;String&gt; strList,String substr)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (strList == <span class="keyword">null</span> || substr == <span class="keyword">null</span>) &#123; <span class="comment">//先判空</span></span><br><span class="line">    <span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  List&lt;String&gt; matchedStrings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String str : strList) &#123;</span><br><span class="line">    <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str.contains(substr)) &#123;</span><br><span class="line">        matchedStrings.add(str);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> matchedStrings;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>将部分嵌套逻辑封装成函数调用，以此来减少嵌套。具体的代码示例如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 重构前的代码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">appendSalts</span><span class="params">(List&lt;String&gt; passwords)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (passwords == <span class="keyword">null</span> || passwords.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  List&lt;String&gt; passwordsWithSalt = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String password : passwords) &#123;</span><br><span class="line">    <span class="keyword">if</span> (password == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (password.length() &lt; <span class="number">8</span>) &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> passwordsWithSalt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重构后的代码：将部分逻辑抽成函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">appendSalts</span><span class="params">(List&lt;String&gt; passwords)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (passwords == <span class="keyword">null</span> || passwords.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  List&lt;String&gt; passwordsWithSalt = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String password : passwords) &#123;</span><br><span class="line">    <span class="keyword">if</span> (password == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    passwordsWithSalt.add(appendSalt(password));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> passwordsWithSalt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">appendSalt</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">  String passwordWithSalt = password;</span><br><span class="line">  <span class="keyword">if</span> (password.length() &lt; <span class="number">8</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> passwordWithSalt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，常用的还有通过使用多态来替代 if-else、switch-case 条件判断的方法。这个思路涉及代码结构的改动。</p>
+</li>
+</ul>
+<h2 id="6-用字面常量取代魔法数。"><a href="#6-用字面常量取代魔法数。" class="headerlink" title="6. 用字面常量取代魔法数。"></a>6. 用字面常量取代魔法数。</h2><p>常用的用解释性变量来提高代码的可读性的情况有下面 2 种.</p>
+<ul>
+<li><p>常量取代魔法数字。示例代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">CalculateCircularArea</span><span class="params">(<span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="number">3.1415</span>) * radius * radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量替代魔法数字</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Double PI = <span class="number">3.1415</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">CalculateCircularArea</span><span class="params">(<span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> PI * radius * radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用解释性变量来解释复杂表达式。示例代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (date.after(SUMMER_START) &amp;&amp; date.before(SUMMER_END)) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入解释性变量后逻辑更加清晰</span></span><br><span class="line"><span class="keyword">boolean</span> isSummer = date.after(SUMMER_START)&amp;&amp;date.before(SUMMER_END);</span><br><span class="line"><span class="keyword">if</span> (isSummer) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-用解释性变量来解释复杂表达式，以此提高代码可读性。"><a href="#7-用解释性变量来解释复杂表达式，以此提高代码可读性。" class="headerlink" title="7. 用解释性变量来解释复杂表达式，以此提高代码可读性。"></a>7. 用解释性变量来解释复杂表达式，以此提高代码可读性。</h2><p><a href="https://time.geekbang.org/column/article/188882">https://time.geekbang.org/column/article/188882</a></p>
+<h1 id="其他《阿里-JAVA-规范》"><a href="#其他《阿里-JAVA-规范》" class="headerlink" title="其他《阿里 JAVA 规范》"></a>其他《阿里 JAVA 规范》</h1><h1 id="OOP-规约："><a href="#OOP-规约：" class="headerlink" title="OOP 规约："></a>OOP 规约：</h1><h2 id="1-【强制】POJO-类中的任何布尔类型的变量，都不要加-is-前缀，否则部分框架解析会引起序列化错误。"><a href="#1-【强制】POJO-类中的任何布尔类型的变量，都不要加-is-前缀，否则部分框架解析会引起序列化错误。" class="headerlink" title="1. 【强制】POJO 类中的任何布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误。"></a>1. 【强制】POJO 类中的任何布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误。</h2><blockquote>
+<p>说明：在本文 MySQL 规约中的建表约定第一条，表达是与否的变量采用 is_xxx 的命名方式，所以，需要</p>
+<p>在<resultMap>设置从 is_xxx 到 xxx 的映射关系。</p>
+<p>反例：定义为基本数据类型 Boolean isDeleted 的属性，它的方法也是 isDeleted()，框架在反向解析的时</p>
+<p>候，“误以为”对应的属性名称是 deleted，导致属性获取不到，进而抛出异常。</p>
+</blockquote>
+<h2 id="2-【推荐】在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。"><a href="#2-【推荐】在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。" class="headerlink" title="2. 【推荐】在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。"></a>2. 【推荐】在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。</h2><p>正例：startTime / workQueue / nameList / TERMINATED_THREAD_COUNT</p>
+<p>反例：startedAt / QueueOfWork / listName / COUNT_TERMINATED_THREAD</p>
+<h2 id="3-【强制】注释的双斜线与注释内容之间有且仅有一个空格。"><a href="#3-【强制】注释的双斜线与注释内容之间有且仅有一个空格。" class="headerlink" title="3. 【强制】注释的双斜线与注释内容之间有且仅有一个空格。"></a>3. 【强制】注释的双斜线与注释内容之间有且仅有一个空格。</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">正例：</span><br><span class="line"><span class="comment">// 这是示例注释，请注意在双斜线之后有一个空格</span></span><br><span class="line">String commentString = <span class="keyword">new</span> String();</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-【强制】-POJO-类必须写-toString-方法。"><a href="#4-【强制】-POJO-类必须写-toString-方法。" class="headerlink" title="4.【强制】 POJO 类必须写 toString 方法。"></a>4.【强制】 POJO 类必须写 toString 方法。</h2><p>使用 IDE 中的工具：source&gt; generate toString时，如果继承了另一个 POJO 类，注意在前面加一下 super.toString。</p>
+<p>说明：在方法执行抛出异常时，可以直接调用 POJO 的 toString()方法打印其属性值，便于排查问题。</p>
+<h2 id="5-【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在-init-方法中。"><a href="#5-【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在-init-方法中。" class="headerlink" title="5. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在 init 方法中。"></a>5. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在 init 方法中。</h2><h2 id="6-【强制】定义-DO-DTO-VO-等-POJO-类时，不要设定任何属性默认值。"><a href="#6-【强制】定义-DO-DTO-VO-等-POJO-类时，不要设定任何属性默认值。" class="headerlink" title="6. 【强制】定义 DO/DTO/VO 等 POJO 类时，不要设定任何属性默认值。"></a>6. 【强制】定义 DO/DTO/VO 等 POJO 类时，不要设定任何属性默认值。</h2><p>反例：POJO 类的 createTime 默认值为 new Date()，但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</p>
+<h2 id="7-【推荐】final-可以声明类、成员变量、方法、以及本地变量，下列情况使用-final-关键字："><a href="#7-【推荐】final-可以声明类、成员变量、方法、以及本地变量，下列情况使用-final-关键字：" class="headerlink" title="7. 【推荐】final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字："></a>7. 【推荐】final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字：</h2><p>1） 不允许被继承的类，如：String 类。</p>
+<p>2） 不允许修改引用的域对象，如：POJO 类的域变量。 </p>
+<p>3） 不允许被覆写的方法，如：POJO 类的 setter 方法。</p>
+<p>4） 不允许运行过程中重新赋值的局部变量。 </p>
+<p>5） 避免上下文重复使用一个变量，使用 final 关键字可以强制重新定义一个变量，方便更好地进行重构。</p>
+<h2 id="8-【推荐】类成员与方法访问控制从严："><a href="#8-【推荐】类成员与方法访问控制从严：" class="headerlink" title="8. 【推荐】类成员与方法访问控制从严："></a>8. 【推荐】类成员与方法访问控制从严：</h2><p>1） 如果不允许外部直接通过 new 来创建对象，那么构造方法必须是 private。 </p>
+<p>2） 工具类不允许有 public 或 default 构造方法。</p>
+<p>3） 类非 static 成员变量并且与子类共享，必须是 protected。 </p>
+<p>4） 类非 static 成员变量并且仅在本类使用，必须是 private。</p>
+<p>5） 类 static 成员变量如果仅在本类使用，必须是 private。 </p>
+<p>6） 若是 static 成员变量，考虑是否为 final。 </p>
+<p>7） 类成员方法只供类内部调用，必须是 private。 </p>
+<p>8） 类成员方法只对继承类公开，那么限制为 protected。</p>
+<p>说明：任何类、方法、参数、变量，严控访问范围。过于宽泛的访问范围，不利于模块解耦。</p>
+<p>思考：如果是一个 private 的方法，想删除就删除，可是一个 public 的 service 成员方法或成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大，无限制的到处跑，那么你会担心的。</p>
+<h1 id="日期时间："><a href="#日期时间：" class="headerlink" title="日期时间："></a>日期时间：</h1><h2 id="1-【强制】日期格式化时，传入-pattern-中表示年份统一使用小写的-y。"><a href="#1-【强制】日期格式化时，传入-pattern-中表示年份统一使用小写的-y。" class="headerlink" title="1. 【强制】日期格式化时，传入 pattern 中表示年份统一使用小写的 y。"></a>1. 【强制】日期格式化时，传入 pattern 中表示年份统一使用小写的 y。</h2><p>说明：日期格式化时，yyyy 表示当天所在的年，而大写的 YYYY 代表是 week in which year（JDK7 之后引入的概念），意思是当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，返回的 YYYY 就是下一年。</p>
+<p>正例：表示日期和时间的格式如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-【强制】在日期格式中分清楚大写的-M-和小写的-m，大写的-H-和小写的-h-分别指代的意义。"><a href="#2-【强制】在日期格式中分清楚大写的-M-和小写的-m，大写的-H-和小写的-h-分别指代的意义。" class="headerlink" title="2. 【强制】在日期格式中分清楚大写的 M 和小写的 m，大写的 H 和小写的 h 分别指代的意义。"></a>2. 【强制】在日期格式中分清楚大写的 M 和小写的 m，大写的 H 和小写的 h 分别指代的意义。</h2><p>说明：日期格式中的这两对字母表意如下：</p>
+<p>1） 表示月份是大写的 M； </p>
+<p>2） 表示分钟则是小写的 m； </p>
+<p>3） 24 小时制的是大写的 H； </p>
+<p>4） 12 小时制的则是小写的 h。</p>
+<h2 id="3-【推荐】使用枚举值来指代月份。如果使用数字，注意-Date，Calendar-等日期相关类的月份-month-取值在-0-11-之间。"><a href="#3-【推荐】使用枚举值来指代月份。如果使用数字，注意-Date，Calendar-等日期相关类的月份-month-取值在-0-11-之间。" class="headerlink" title="3. 【推荐】使用枚举值来指代月份。如果使用数字，注意 Date，Calendar 等日期相关类的月份 month 取值在 0-11 之间。"></a>3. 【推荐】使用枚举值来指代月份。如果使用数字，注意 Date，Calendar 等日期相关类的月份 month 取值在 0-11 之间。</h2><p>说明：参考 JDK 原生注释，Month value is 0-based. e.g., 0 for January.</p>
+<p>正例： Calendar.JANUARY，Calendar.FEBRUARY，Calendar.MARCH 等来指代相应月份来进行传参或比较。</p>
+<h1 id="集合处理："><a href="#集合处理：" class="headerlink" title="集合处理："></a>集合处理：</h1><h2 id="1-【强制】关于-hashCode-和-equals-的处理，遵循如下规则："><a href="#1-【强制】关于-hashCode-和-equals-的处理，遵循如下规则：" class="headerlink" title="1.【强制】关于 hashCode 和 equals 的处理，遵循如下规则："></a>1.【强制】关于 hashCode 和 equals 的处理，遵循如下规则：</h2><p>1） 只要覆写 equals，就必须覆写 hashCode。 </p>
+<p>2） 因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须覆写这两种方法。</p>
+<p>3） <strong>如果自定义对象作为 Map 的键，那么必须覆写 hashCode 和 equals。</strong></p>
+<p>说明：String 因为覆写了 hashCode 和 equals 方法，所以可以愉快地将 String 对象作为 key 来使用。</p>
+<h2 id="2-【强制】判断所有集合内部的元素是否为空，使用-isEmpty-方法，而不是-size-0-的方式。"><a href="#2-【强制】判断所有集合内部的元素是否为空，使用-isEmpty-方法，而不是-size-0-的方式。" class="headerlink" title="2.【强制】判断所有集合内部的元素是否为空，使用 isEmpty()方法，而不是 size()==0 的方式。"></a>2.【强制】判断所有集合内部的元素是否为空，使用 isEmpty()方法，而不是 size()==0 的方式。</h2><p>说明：在某些集合中，前者的时间复杂度为 O(1)，而且可读性更好。</p>
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(map.isEmpty()) &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;no element in this map.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-【强制】在使用-Collection-接口任何实现类的-addAll-方法时，都要对输入的集合参数进行NPE-判断。"><a href="#3-【强制】在使用-Collection-接口任何实现类的-addAll-方法时，都要对输入的集合参数进行NPE-判断。" class="headerlink" title="3.【强制】在使用 Collection 接口任何实现类的 addAll()方法时，都要对输入的集合参数进行NPE 判断。"></a>3.【强制】在使用 Collection 接口任何实现类的 addAll()方法时，都要对输入的集合参数进行NPE 判断。</h2><p>说明：在 ArrayList#addAll 方法的第一行代码即 Object[] a = c.toArray(); 其中 c 为输入集合参数，如果为 null，则直接抛出异常。</p>
+<h2 id="4-【强制】不要在-foreach-循环里进行元素的-remove-add-操作。remove-元素请使用-Iterator方式，如果并发操作，需要对-Iterator-对象加锁。"><a href="#4-【强制】不要在-foreach-循环里进行元素的-remove-add-操作。remove-元素请使用-Iterator方式，如果并发操作，需要对-Iterator-对象加锁。" class="headerlink" title="4.【强制】不要在 foreach 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁。"></a>4.【强制】不要在 foreach 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁。</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">正例：</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">list.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line"></span><br><span class="line">list.add(<span class="string">&quot;2&quot;</span>);</span><br><span class="line"></span><br><span class="line">Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">String item = iterator.next();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (删除元素的条件) &#123;</span><br><span class="line"></span><br><span class="line">iterator.remove();</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">反例：</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String item : list) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="string">&quot;1&quot;</span>.equals(item)) &#123;</span><br><span class="line"></span><br><span class="line">list.remove(item);</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：以上代码的执行结果肯定会出乎大家的意料，那么试一下把“1”换成“2”，会是同样的结果吗？</p>
+<h2 id="5-【强制】在-JDK7-版本及以上，Comparator-实现类要满足如下三个条件，不然-Arrays-sort，Collections-sort-会抛-IllegalArgumentException-异常。"><a href="#5-【强制】在-JDK7-版本及以上，Comparator-实现类要满足如下三个条件，不然-Arrays-sort，Collections-sort-会抛-IllegalArgumentException-异常。" class="headerlink" title="5. 【强制】在 JDK7 版本及以上，Comparator 实现类要满足如下三个条件，不然 Arrays.sort，Collections.sort 会抛 IllegalArgumentException 异常。"></a>5. 【强制】在 JDK7 版本及以上，Comparator 实现类要满足如下三个条件，不然 Arrays.sort，Collections.sort 会抛 IllegalArgumentException 异常。</h2><p>说明：三个条件如下 </p>
+<p>1） x，y 的比较结果和 y，x 的比较结果相反。</p>
+<p>2） x &gt; y，y &gt; z，则 x &gt; z。 </p>
+<p>3） x = y，则 x，z 比较结果和 y，z 比较结果相同。</p>
+<p>反例：下例中没有处理相等的情况，交换两个对象判断结果并不互反，不符合第一个条件，在实际使用中</p>
+<p>可能会出现异常。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> o1.getId() &gt; o2.getId() ? <span class="number">1</span> : -<span class="number">1</span>; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-【推荐】使用-entrySet-遍历-Map-类集合-KV，而不是-keySet-方式进行遍历。"><a href="#6-【推荐】使用-entrySet-遍历-Map-类集合-KV，而不是-keySet-方式进行遍历。" class="headerlink" title="6. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。"></a>6. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。</h2><p>说明：keySet 其实是遍历了 2 次，一次是转为 Iterator 对象，另一次是从 hashMap 中取出 key 所对应的</p>
+<p>value。而 entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效率更高。如果是 JDK8，使用</p>
+<p>Map.forEach 方法。</p>
+<p>正例：values()返回的是 V 值集合，是一个 list 集合对象；keySet()返回的是 K 值集合，是一个 Set 集合对</p>
+<p>象；entrySet()返回的是 K-V 值组合集合。</p>
+<ol start="7">
+<li><h2 id="【推荐】高度注意-Map-类集合-K-V-能不能存储-null-值的情况，如下表格："><a href="#【推荐】高度注意-Map-类集合-K-V-能不能存储-null-值的情况，如下表格：" class="headerlink" title="【推荐】高度注意 Map 类集合 K/V 能不能存储 null 值的情况，如下表格："></a>【推荐】高度注意 Map 类集合 K/V 能不能存储 null 值的情况，如下表格：</h2></li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpzb9eujt3j30me07uq41.jpg" alt="image-20210428114518033"></p>
+<p>反例：由于 HashMap 的干扰，很多人认为 ConcurrentHashMap 是可以置入 null 值，而事实上，存储 null 值时会抛出 NPE 异常。</p>
+<h1 id="前后端规约："><a href="#前后端规约：" class="headerlink" title="前后端规约："></a>前后端规约：</h1><h2 id="1-【强制】前后端交互的-API，需要明确协议、域名、路径、请求方法、请求内容、状态码、响应体。"><a href="#1-【强制】前后端交互的-API，需要明确协议、域名、路径、请求方法、请求内容、状态码、响应体。" class="headerlink" title="1. 【强制】前后端交互的 API，需要明确协议、域名、路径、请求方法、请求内容、状态码、响应体。"></a>1. 【强制】前后端交互的 API，需要明确协议、域名、路径、请求方法、请求内容、状态码、响应体。</h2><p>说明：</p>
+<p>1） 协议：生产环境必须使用 HTTPS。 </p>
+<p>2） 路径：每一个 API 需对应一个路径，表示 API 具体的请求地址：</p>
+<p>​        a） 代表一种资源，只能为名词，推荐使用复数，不能为动词，请求方法已经表达动作意义。</p>
+<p>​        b） URL 路径不能使用大写，单词如果需要分隔，统一使用下划线。</p>
+<p>​        c） 路径禁止携带表示请求内容类型的后缀，比如”.json”,”.xml”，通过 accept 头表达即可。</p>
+<p>3） 请求方法：对具体操作的定义，常见的请求方法如下：</p>
+<p>​        a） GET：从服务器取出资源。</p>
+<p>​        b） POST：在服务器新建一个资源。</p>
+<p>​        c） PUT：在服务器更新资源。</p>
+<p>​        d） DELETE：从服务器删除资源。</p>
+<p>4） 请求内容：URL 带的参数必须无敏感信息或符合安全要求；body 里带参数时必须设置 Content-Type。 </p>
+<p>5） 响应体：响应体 body 可放置多种数据类型，由 Content-Type 头来确定。</p>
+<h2 id="2-【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组-或空集合-。"><a href="#2-【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组-或空集合-。" class="headerlink" title="2.【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组[]或空集合{}。"></a>2.【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组[]或空集合{}。</h2><p>说明：此条约定有利于数据层面上的协作更加高效，减少前端很多琐碎的 null 判断。</p>
+<h2 id="3-【强制】服务端发生错误时，返回给前端的响应信息必须包含-HTTP-状态码，errorCode、errorMessage、用户提示信息四个部分。"><a href="#3-【强制】服务端发生错误时，返回给前端的响应信息必须包含-HTTP-状态码，errorCode、errorMessage、用户提示信息四个部分。" class="headerlink" title="3. 【强制】服务端发生错误时，返回给前端的响应信息必须包含 HTTP 状态码，errorCode、errorMessage、用户提示信息四个部分。"></a>3. 【强制】服务端发生错误时，返回给前端的响应信息必须包含 HTTP 状态码，errorCode、errorMessage、用户提示信息四个部分。</h2><p>说明：四个部分的涉众对象分别是浏览器、前端开发、错误排查人员、用户。其中输出给用户的提示信息要求：简短清晰、提示友好，引导用户进行下一步操作或解释错误原因，提示信息可以包括错误原因、上下文环境、推荐操作等。 errorCode：参考<strong>附表 3</strong>。errorMessage：简要描述后端出错原因，便于错误排查人员快速定位问题，注意不要包含敏感数据信息。</p>
+<p>正例：常见的 HTTP 状态码如下</p>
+<p>1） 200 OK: 表明该请求被成功地完成，所请求的资源发送到客户端。</p>
+<p>2） 401 Unauthorized: 请求要求身份验证，常见对于需要登录而用户未登录的情况。</p>
+<p>3） 403 Forbidden：服务器拒绝请求，常见于机密信息或复制其它登录用户链接访问服务器的情况。</p>
+<p>4） 404 Not Found: 服务器无法取得所请求的网页，请求资源不存在。</p>
+<p>5） 500 Internal Server Error: 服务器内部错误。</p>
+<h2 id="4-【强制】对于需要使用超大整数的场景，服务端一律使用-String-字符串类型返回，禁止使用Long-类型。"><a href="#4-【强制】对于需要使用超大整数的场景，服务端一律使用-String-字符串类型返回，禁止使用Long-类型。" class="headerlink" title="4. 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用Long 类型。"></a>4. 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用Long 类型。</h2><p><strong>说明</strong>：Java 服务端如果直接返回 Long 整型数据给前端，JS 会自动转换为 Number 类型（注：此类型为双精度浮点数，表示原理与取值范围等同于 Java 中的 Double）。Long 类型能表示的最大值是 2 的 63 次方-1，在取值范围之内，超过 2 的 53 次 (9007199254740992)的数值转化为 JS 的 Number 时，有些数值会有精度损失。扩展说明，在 Long 取值范围内，任何 2 的指数次整数都是绝对不会存在精度损失的，所以说精度损失是一个概率问题。若浮点数尾数位与指数位空间不限，则可以精确表示任何整数，但很不幸，双精度浮点数的尾数位只有 52 位。</p>
+<p><strong>反例</strong>：通常在订单号或交易号大于等于 16 位，大概率会出现前后端单据不一致的情况，比如，”orderId”: 362909601374617692，前端拿到的值却是: 362909601374617660。</p>
+<h1 id="异常处理："><a href="#异常处理：" class="headerlink" title="异常处理："></a>异常处理：</h1><h2 id="1-【推荐】方法的返回值可以为-null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回-null-值。"><a href="#1-【推荐】方法的返回值可以为-null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回-null-值。" class="headerlink" title="1.【推荐】方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回 null 值。"></a>1.【推荐】方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回 null 值。</h2><p>说明：本手册明确防止 NPE 是调用者的责任。即使被调用方法返回空集合或者空对象，对调用者来说，也并非高枕无忧，必须考虑到远程调用失败、序列化失败、运行时异常等场景返回 null 的情况。</p>
+<h2 id="2-【推荐】防止-NPE，是程序员的基本修养，注意-NPE-产生的场景："><a href="#2-【推荐】防止-NPE，是程序员的基本修养，注意-NPE-产生的场景：" class="headerlink" title="2. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景："></a>2. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：</h2><p>1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。</p>
+<p>反例：public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。 </p>
+<p>2） 数据库的查询结果可能为 null。 </p>
+<p>3） 集合里的元素即使 isNotEmpty，取出的数据元素也可能为 null。 </p>
+<p>4） 远程调用返回对象时，一律要求进行空指针判断，防止 NPE。 </p>
+<p>5） 对于 Session 中获取的数据，建议进行 NPE 检查，避免空指针。</p>
+<p>6） 级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。</p>
+<p>正例：使用 JDK8 的 Optional 类来防止 NPE 问题。</p>
+<h2 id="3-【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。"><a href="#3-【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。" class="headerlink" title="3. 【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。"></a>3. 【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。</h2><h2 id="4-【参考】对于公司外的-http-api-开放接口必须使用-errorCode；而应用内部推荐异常抛出；跨应用间-RPC-调用优先考虑使用-Result-方式，封装-isSuccess-方法、errorCode、errorMessage；而应用内部直接抛出异常即可。"><a href="#4-【参考】对于公司外的-http-api-开放接口必须使用-errorCode；而应用内部推荐异常抛出；跨应用间-RPC-调用优先考虑使用-Result-方式，封装-isSuccess-方法、errorCode、errorMessage；而应用内部直接抛出异常即可。" class="headerlink" title="4. 【参考】对于公司外的 http/api 开放接口必须使用 errorCode；而应用内部推荐异常抛出；跨应用间 RPC 调用优先考虑使用 Result 方式，封装 isSuccess()方法、errorCode、errorMessage；而应用内部直接抛出异常即可。"></a>4. 【参考】对于公司外的 http/api 开放接口必须使用 errorCode；而应用内部推荐异常抛出；跨应用间 RPC 调用优先考虑使用 Result 方式，封装 isSuccess()方法、errorCode、errorMessage；而应用内部直接抛出异常即可。</h2><p>说明：关于 RPC 方法返回方式使用 Result 方式的理由：</p>
+<p>1）使用抛异常返回方式，调用方如果没有捕获到就会产生运行时错误。</p>
+<p>2）如果不加栈信息，只是 new 自定义异常，加入自己的理解的 error message，对于调用端解决问题的帮助不会太多。如果加了栈信息，在频繁调用出错的情况下，数据序列化和传输的性能损耗也是问题。</p>
+<h1 id="日志规约："><a href="#日志规约：" class="headerlink" title="日志规约："></a>日志规约：</h1><h2 id="1-【强制】在日志输出时，字符串变量之间的拼接使用占位符的方式。"><a href="#1-【强制】在日志输出时，字符串变量之间的拼接使用占位符的方式。" class="headerlink" title="1.【强制】在日志输出时，字符串变量之间的拼接使用占位符的方式。"></a>1.【强制】在日志输出时，字符串变量之间的拼接使用占位符的方式。</h2><p>说明：因为 String 字符串的拼接会使用 StringBuilder 的 append()方式，有一定的性能损耗。使用占位符仅是替换动作，可以有效提升性能。</p>
+<p>正例：logger.debug(“Processing trade with id: {} and symbol: {}”, id, symbol);</p>
+<h2 id="2-【推荐】尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。"><a href="#2-【推荐】尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。" class="headerlink" title="2.【推荐】尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。"></a>2.【推荐】尽量用英文来描述日志错误信息，如果日志中的错误信息用英文描述不清楚的话使用中文描述即可，否则容易产生歧义。</h2><p>说明：国际化团队或海外部署的服务器由于字符集问题，使用全英文来注释和描述日志错误信息。</p>
+<h1 id="设计规约："><a href="#设计规约：" class="headerlink" title="设计规约："></a>设计规约：</h1><h2 id="1-【强制】存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。"><a href="#1-【强制】存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。" class="headerlink" title="1.【强制】存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。"></a>1.【强制】存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。</h2><p>说明：有缺陷的底层数据结构容易导致系统风险上升，可扩展性下降，重构成本也会因历史数据迁移和系统平滑过渡而陡然增加，所以，存储方案和数据结构需要认真地进行设计和评审，生产环境提交执行后，需要进行 double check。</p>
+<p>正例：评审内容包括存储介质选型、表结构设计能否满足技术方案、存取性能和存储空间能否满足业务发展、表或字段之间的辩证关系、字段名称、字段类型、索引等；数据结构变更（如在原有表中新增字段）也需要进行评审通过后上线。</p>
+<h2 id="2-【强制】如果系统中某个功能的调用链路上的涉及对象超过-3-个，使用时序图来表达并且明确各调用环节的输入与输出。"><a href="#2-【强制】如果系统中某个功能的调用链路上的涉及对象超过-3-个，使用时序图来表达并且明确各调用环节的输入与输出。" class="headerlink" title="2.【强制】如果系统中某个功能的调用链路上的涉及对象超过 3 个，使用时序图来表达并且明确各调用环节的输入与输出。"></a>2.【强制】如果系统中某个功能的调用链路上的涉及对象超过 3 个，使用时序图来表达并且明确各调用环节的输入与输出。</h2><p>说明：时序图反映了一系列对象间的交互与协作关系，清晰立体地反映系统的调用纵深链路。</p>
+<h2 id="3-【推荐】类在设计与实现时要符合单一原则。"><a href="#3-【推荐】类在设计与实现时要符合单一原则。" class="headerlink" title="3.【推荐】类在设计与实现时要符合单一原则。"></a>3.【推荐】类在设计与实现时要符合单一原则。</h2><p>说明：单一原则最易理解却是最难实现的一条规则，随着系统演进，很多时候，忘记了类设计的初衷。</p>
+<h2 id="4-【推荐】谨慎使用继承的方式来进行扩展，优先使用聚合-组合的方式来实现。"><a href="#4-【推荐】谨慎使用继承的方式来进行扩展，优先使用聚合-组合的方式来实现。" class="headerlink" title="4.【推荐】谨慎使用继承的方式来进行扩展，优先使用聚合/组合的方式来实现。"></a>4.【推荐】谨慎使用继承的方式来进行扩展，优先使用聚合/组合的方式来实现。</h2><p>说明：不得已使用继承的话，必须符合里氏代换原则，此原则说父类能够出现的地方子类一定能够出现，比如，“把钱交出来”，钱的子类美元、欧元、人民币等都可以出现。</p>
+<h2 id="5-【推荐】系统设计阶段，根据依赖倒置原则，尽量依赖抽象类与接口，有利于扩展与维护。"><a href="#5-【推荐】系统设计阶段，根据依赖倒置原则，尽量依赖抽象类与接口，有利于扩展与维护。" class="headerlink" title="5.【推荐】系统设计阶段，根据依赖倒置原则，尽量依赖抽象类与接口，有利于扩展与维护。"></a>5.【推荐】系统设计阶段，根据依赖倒置原则，尽量依赖抽象类与接口，有利于扩展与维护。</h2><p>说明：低层次模块依赖于高层次模块的抽象，方便系统间的解耦。</p>
+<h2 id="6-【推荐】系统设计阶段，注意对扩展开放，对修改闭合。"><a href="#6-【推荐】系统设计阶段，注意对扩展开放，对修改闭合。" class="headerlink" title="6.【推荐】系统设计阶段，注意对扩展开放，对修改闭合。"></a>6.【推荐】系统设计阶段，注意对扩展开放，对修改闭合。</h2><p>说明：极端情况下，交付的代码是不可修改的，同一业务域内的需求变化，通过模块或类的扩展来实现。</p>
+<h2 id="7-【推荐】系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，在系统中不出现重复代码的情况，即-DRY-原则（Don’t-Repeat-Yourself）。"><a href="#7-【推荐】系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，在系统中不出现重复代码的情况，即-DRY-原则（Don’t-Repeat-Yourself）。" class="headerlink" title="7. 【推荐】系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，在系统中不出现重复代码的情况，即 DRY 原则（Don’t Repeat Yourself）。"></a>7. 【推荐】系统设计阶段，共性业务或公共行为抽取出来公共模块、公共配置、公共类、公共方法等，在系统中不出现重复代码的情况，即 DRY 原则（Don’t Repeat Yourself）。</h2><p>说明：随着代码的重复次数不断增加，维护成本指数级上升。随意复制和粘贴代码，必然会导致代码的重复，在维护代码时，需要修改所有的副本，容易遗漏。必要时抽取共性方法，或者抽象公共类，甚至是组件化。</p>
+<p>正例：一个类中有多个 public 方法，都需要进行数行相同的参数校验操作，这个时候请抽取：</p>
+<p>private boolean checkParam(DTO dto) {…} </p>
+<h2 id="8-【推荐】避免如下误解：敏捷开发-讲故事-编码-发布。"><a href="#8-【推荐】避免如下误解：敏捷开发-讲故事-编码-发布。" class="headerlink" title="8.【推荐】避免如下误解：敏捷开发 = 讲故事 + 编码 + 发布。"></a>8.【推荐】避免如下误解：敏捷开发 = 讲故事 + 编码 + 发布。</h2><p>说明：敏捷开发是快速交付迭代可用的系统，省略多余的设计方案，摒弃传统的审批流程，但核心关键点上的必要设计和文档沉淀是需要的。</p>
+<p>反例：某团队为了业务快速发展，敏捷成了产品经理催进度的借口，系统中均是勉强能运行但像面条一样的代码，可维护性和可扩展性极差，一年之后，不得不进行大规模重构，得不偿失。</p>
+<h2 id="9-【参考】设计文档的作用是明确需求、理顺逻辑、后期维护，次要目的用于指导编码。"><a href="#9-【参考】设计文档的作用是明确需求、理顺逻辑、后期维护，次要目的用于指导编码。" class="headerlink" title="9.【参考】设计文档的作用是明确需求、理顺逻辑、后期维护，次要目的用于指导编码。"></a>9.【参考】设计文档的作用是明确需求、理顺逻辑、后期维护，次要目的用于指导编码。</h2><p>说明：避免为了设计而设计，系统设计文档有助于后期的系统维护和重构，所以设计结果需要进行分类归档保存。</p>
+<h2 id="10-【参考】可扩展性的本质是找到系统的变化点，并隔离变化点。"><a href="#10-【参考】可扩展性的本质是找到系统的变化点，并隔离变化点。" class="headerlink" title="10.【参考】可扩展性的本质是找到系统的变化点，并隔离变化点。"></a>10.【参考】可扩展性的本质是找到系统的变化点，并隔离变化点。</h2><p>说明：世间众多设计模式其实就是一种设计模式即隔离变化点的模式。</p>
+<p>正例：极致扩展性的标志，就是需求的新增，不会在原有代码交付物上进行任何形式的修改。</p>
+<h2 id="11-【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。"><a href="#11-【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。" class="headerlink" title="11.【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。"></a>11.【参考】代码即文档的观点是错误的，清晰的代码只是文档的某个片断，而不是全部。</h2><p>说明：代码的深度调用，模块层面上的依赖关系网，业务场景逻辑，非功能性需求等问题是需要相应的文档来完整地呈现的。</p>
+]]></content>
+      <categories>
+        <category>编程规范</category>
+      </categories>
+      <tags>
+        <tag>编程规范</tag>
+        <tag>设计模式之美</tag>
+      </tags>
+  </entry>
+</search>

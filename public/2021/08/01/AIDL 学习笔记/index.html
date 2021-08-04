@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"june5753.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","unescape":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="AIDL 学习笔记总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIDL 学习笔记总结">
+<meta property="og:url" content="https://june5753.github.io/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Android 技术内参">
+<meta property="og:description" content="AIDL 学习笔记总结。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-01T15:00:44.000Z">
+<meta property="article:modified_time" content="2021-08-04T06:18:40.073Z">
+<meta property="article:author" content="小羊子说">
+<meta property="article:tag" content="AIDL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://june5753.github.io/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AIDL 学习笔记总结 | Android 技术内参</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Android 技术内参</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个专注于技术分享的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://june5753.github.io/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="小羊子说">
+      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Android 技术内参">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AIDL 学习笔记总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-01 23:00:44" itemprop="dateCreated datePublished" datetime="2021-08-01T23:00:44+08:00">2021-08-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-04 14:18:40" itemprop="dateModified" datetime="2021-08-04T14:18:40+08:00">2021-08-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/AIDL/" itemprop="url" rel="index"><span itemprop="name">AIDL</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+            <div class="post-description">AIDL 学习笔记总结。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、应用场景"><a href="#一、应用场景" class="headerlink" title="一、应用场景"></a>一、应用场景</h1><h3 id="AIDL可以解决什么问题？"><a href="#AIDL可以解决什么问题？" class="headerlink" title="AIDL可以解决什么问题？"></a>AIDL可以解决什么问题？</h3><ul>
+<li>可以实现多个应用程序共享同一个Service的功能，比如：IM服务可以提供给多个APP使用，先在推送基本都是采取这种方案</li>
+<li>可以跨进程调用服务里的方法</li>
+</ul>
+<h1 id="二-、是什么"><a href="#二-、是什么" class="headerlink" title="二 、是什么"></a>二 、是什么</h1><p>首先进程间通信（IPC，Inter-process Communication）的方式有很多，例如Bundle、文件共享、AIDL、Messenger、ContentProvider以及Socket，方法是多种多样，而我们更应该根据自己的情况去选择合适的方式，下面列举出每种方式的适用场景：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bundle</td>
+<td>简单易用</td>
+<td>只能传输Bundle支持的数据类型</td>
+<td>四大组件间的进程通信</td>
+</tr>
+<tr>
+<td>文件共享</td>
+<td>简单易用</td>
+<td>不适合高并发场景，无法及时通信</td>
+<td>无高并发访问，交换简单数据，实时性不高</td>
+</tr>
+<tr>
+<td><strong>AIDL</strong></td>
+<td><strong>功能强大，支持一对多并发通信，支持及时通信</strong></td>
+<td><strong>使用复杂，需要处理线程同步</strong></td>
+<td><strong>一对多且有远程调用需求</strong></td>
+</tr>
+<tr>
+<td>Messenger</td>
+<td>功能一般，支持一对多串行，支持实时通信</td>
+<td>不能很好处理高并发，不支持远程调用，数据只能使用Message传输</td>
+<td>低并发的一对多即时通信，无须直接返回结果，无远程调用</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>数据访问方面功能强大，支持一对多并发数据共享</td>
+<td>受约束的AIDL，主要提供数据的增删改查</td>
+<td>一对多进程间数据共享</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>功能强大，支持一对多并发实时通信</td>
+<td>实现复杂，不支持直接的远程调用</td>
+<td>网络数据交互</td>
+</tr>
+</tbody></table>
+<p><em>注：来自《Android开发艺术探究》</em></p>
+<p>AIDL出现的目的就是为了解决一对多并发及时通信了，虽然socket也支持，但其更多应用于网络数据交互，也适合多个手机，不同终端进行通信。所以在Android中，google为我们提供了AIDL来方便开发者实现该功能。</p>
+<h1 id="三、支持的数据类型"><a href="#三、支持的数据类型" class="headerlink" title="三、支持的数据类型"></a>三、支持的数据类型</h1><p>在进程间通信中，对象的引用是无法传递的，因为其内存地址都不在一个区域内，所以数据的传输都需要序列化后才行，基础数据类型自然是没问题，系统提供的ArrayList以及HashMap也实现了序列化，所以对于自定义的对象实现序列化就只能实现serializable或者parcelable接口，其中前者是java提供的，后者是Android提供的且效率更高，所以在之后的数据序列化中都只使用实现parcelable接口的方法即可，总的来说<strong>支持的数据类型包括：</strong></p>
+<ul>
+<li>基本数据类型：int、long、char、boolean、double等</li>
+<li>系统已实现类型：String、CharSequence、ArrayList、HashMap（后两个的每个元素也得被AIDL支持才行）</li>
+<li>正确实现parcelable接口的对象</li>
+<li>所有AIDL本身</li>
+</ul>
+<p><strong>定向tag:</strong></p>
+<p>Java 中的基本类型和 String ，CharSequence 的定向 tag <strong>默认且只能是 in</strong> 。</p>
+<p>对于非基础数据类型的类型，在aidl中作为参数使用时有三个标记，分别时in、out、inout，表示数据的流向：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>in</td>
+<td>表示能读取到传入的对象中的值，而修改后不会修改传入对象的内容</td>
+</tr>
+<tr>
+<td>out</td>
+<td>表示读取到传入的对象为空，修改后会把传入对象的内容改为修改的内容</td>
+</tr>
+<tr>
+<td>inout</td>
+<td>表示既能读取到对象，又能修改对象，效果就好比统一进程中对象的传递一样</td>
+</tr>
+</tbody></table>
+<p>请注意，<strong>请不要滥用定向 tag</strong> ，而是要根据需要选取合适的——要是不管三七二十一，全都一上来就用 inout ，等工程大了系统的开销就会大很多——因为排列整理参数的开销是很昂贵的。</p>
+<p>扩展阅读：<a target="_blank" rel="noopener" href="https://blog.csdn.net/luoyanglizi/article/details/51958091">你真的理解AIDL中的in，out，inout么？</a></p>
+<p><strong>两种AIDL文件：</strong>在我的理解里，所有的AIDL文件大致可以分为两类。一类是用来定义parcelable对象，以供其他AIDL文件使用AIDL中非默认支持的数据类型的。一类是用来定义方法接口，以供系统使用来完成跨进程通信的。可以看到，两类文件都是在“定义”些什么，而不涉及具体的实现，这就是为什么它叫做“Android接口定义语言”。<br>注：所有的非默认支持数据类型必须通过第一类AIDL文件定义才能被使用。</p>
+<h1 id="四、如何使用"><a href="#四、如何使用" class="headerlink" title="四、如何使用"></a>四、如何使用</h1><p>根据介绍，总结为以下三部分：</p>
+<ul>
+<li>定义AIDL接口</li>
+<li>在服务端返回其Binder以及所需实现的接口</li>
+<li>在客户端拿到Binder进行调用</li>
+</ul>
+<p>流程小结：在服务端实现AIDL中定义的方法接口的具体逻辑，然后在客户端调用这些方法接口，从而达到跨进程通信的目的。</p>
+<ol>
+<li><p>定义AIDL接口</p>
+<ul>
+<li><h5 id="创建aidl目录"><a href="#创建aidl目录" class="headerlink" title="创建aidl目录"></a>创建aidl目录</h5></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">IBinder messageSender = <span class="keyword">new</span> MessageSender.Stub() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(MessageModel messageModel)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            Log.e(TAG, <span class="string">&quot;messageModel: &quot;</span> + messageModel.toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerReceiveListener</span><span class="params">(MessageReceiver messageReceiver)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            listenerList.register(messageReceiver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unregisterReceiveListener</span><span class="params">(MessageReceiver messageReceiver)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            listenerList.unregister(messageReceiver);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTransact</span><span class="params">(<span class="keyword">int</span> code, Parcel data, Parcel reply, <span class="keyword">int</span> flags)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * 包名验证方式</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            String packageName = <span class="keyword">null</span>;</span><br><span class="line">            String[] packages = getPackageManager().getPackagesForUid(getCallingUid());</span><br><span class="line">            <span class="keyword">if</span> (packages != <span class="keyword">null</span> &amp;&amp; packages.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                packageName = packages[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (packageName == <span class="keyword">null</span> || !packageName.startsWith(<span class="string">&quot;com.example.aidl&quot;</span>)) &#123;</span><br><span class="line">                Log.d(<span class="string">&quot;onTransact&quot;</span>, <span class="string">&quot;拒绝调用：&quot;</span> + packageName);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.onTransact(code, data, reply, flags);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>实现的service为AIDL定义的接口，并在OnBind方法中进行关联。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//自定义permission方式检查权限</span></span><br><span class="line">      <span class="keyword">if</span> (checkCallingOrSelfPermission(<span class="string">&quot;com.example.aidl.permission.REMOTE_SERVICE_PERMISSION&quot;</span>) == PackageManager.PERMISSION_DENIED) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> messageSender;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展阅读：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b60cde583237">Android自定义权限使用总结</a></p>
+<p>注意点：</p>
+<ul>
+<li>Android不允许两个不同的应用定义一个相同名字的权限（除非这两个应用拥有相同的签名），所以在命名的时候，需要特别注意。</li>
+<li>拥有相同自定义权限的软件必须使用同样的签名，否则后一个程序无法安装。</li>
+</ul>
+<p>所以这里是否需要自定义，需要根据业务场景来确定。</p>
+<p>A.服务端：</p>
+<ul>
+<li>创建一个<strong>aidl文件</strong>；</li>
+<li>创建一个<strong>Service</strong>，实现AIDL的接口函数并暴露AIDL接口。</li>
+</ul>
+<p>B.客户端：</p>
+<ul>
+<li>通过<strong>bindService</strong>绑定服务端的Service；</li>
+<li>绑定成功后，将服务端返回的Binder对象<strong>转化</strong>成AIDL接口所属的类型，进而调用相应的AIDL中的方法。</li>
+</ul>
+<blockquote>
+<p><strong>总结</strong>：服务端里的某个Service给和它绑定的特定客户端进程提供Binder对象，客户端通过AIDL接口的静态方法asInterface() 将Binder对象转化成AIDL接口的代理对象，通过这个代理对象就可以发起远程调用请求。</p>
+</blockquote>
+<p>思考：如果要实现双向通信，那么就需要将AIDL的接口都实现，即依赖相同的部分。</p>
+<h2 id="可能产生ANR的情形"><a href="#可能产生ANR的情形" class="headerlink" title="可能产生ANR的情形"></a>可能产生ANR的情形</h2><p>A.客户端：</p>
+<ul>
+<li>调用服务端的方法是运行在服务端的Binder线程池中，若<strong>主线程</strong>所调用的方法里执行了较<strong>耗时</strong>的任务，同时会导致客户端线程长时间阻塞，易导致客户端ANR。</li>
+<li>在**onServiceConnected()<strong>和</strong>onServiceDisconnected()**里直接调用服务端的耗时方法，易导致客户端ANR。</li>
+</ul>
+<p>B.服务端：</p>
+<ul>
+<li>服务端的方法本身就运行在服务端的<strong>Binder线程</strong>中，可在其中执行耗时操作，而<strong>无需再开启子线程</strong>。</li>
+<li><strong>回调客户端Listener的方法</strong>是运行在客户端的Binder线程中，若所调用的方法里执行了较<strong>耗时</strong>的任务，易导致服务端ANR。</li>
+</ul>
+<blockquote>
+<p>解决客户端频繁调用服务器方法导致性能极大损耗的办法：实现<strong>观察者模式</strong>。</p>
+<p>即当客户端关注的数据发生变化时，再让服务端通知客户端去做相应的业务处理。</p>
+</blockquote>
+<h2 id="解注册失败的问题"><a href="#解注册失败的问题" class="headerlink" title="解注册失败的问题"></a>解注册失败的问题</h2><ul>
+<li>原因: Binder进行对象传输实际是通过序列化和反序列化进行，即Binder会把客户端传递过来的对象<strong>重新转化</strong>并生成一个新的对象，虽然在注册和解注册的过程中使用的是同一个客户端传递的对象，但经过Binder传到服务端后会生成两个不同的对象。另外，多次跨进程传输的同一个客户端对象会在服务端生成<strong>不同</strong>的对象，但它们在底层的Binder对象是<strong>相同</strong>的。</li>
+<li>解决办法：当客户端解注册的时候，遍历服务端所有的Listener，找到和解注册Listener具有相同的Binder对象的服务端Listener，删掉即可。</li>
+</ul>
+<blockquote>
+<p>需要用到<strong>RemoteCallBackList</strong>：Android系统专门提供的用于删除跨进程listener的接口。其内部自动实现了线程同步的功能。</p>
+</blockquote>
+<h1 id="aidl传输数据的大小限制"><a href="#aidl传输数据的大小限制" class="headerlink" title="aidl传输数据的大小限制"></a>aidl传输数据的大小限制</h1><h1 id="一个Service管理多个AIDL接口"><a href="#一个Service管理多个AIDL接口" class="headerlink" title="一个Service管理多个AIDL接口"></a>一个Service管理多个AIDL接口</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyl0530/article/details/81839503">https://blog.csdn.net/lyl0530/article/details/81839503</a></p>
+<p>Binder连接池，以及怎样实现一个Service管理多个ADIL接口</p>
+<h1 id="AIDL终极篇之AIDL架构设计"><a href="#AIDL终极篇之AIDL架构设计" class="headerlink" title="AIDL终极篇之AIDL架构设计"></a>AIDL终极篇之AIDL架构设计</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangqiubo2010/article/details/78625846">https://blog.csdn.net/wangqiubo2010/article/details/78625846</a></p>
+<p>其他开源框架</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Xiaofei-it/Hermes">https://github.com/Xiaofei-it/Hermes</a></p>
+<p>A smart, novel and easy-to-use framework for Android Inter-Process Communication (IPC). （简单易用的安卓进程间通信IPC框架）</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ol>
+<li><p>难点：</p>
+<p>服务端如何处理分发和并发</p>
+</li>
+</ol>
+<h1 id="android-–-如何使用AIDL远程服务来处理不同客户端的并发请求"><a href="#android-–-如何使用AIDL远程服务来处理不同客户端的并发请求" class="headerlink" title="android – 如何使用AIDL远程服务来处理不同客户端的并发请求"></a>android – 如何使用AIDL远程服务来处理不同客户端的并发请求</h1><p><a target="_blank" rel="noopener" href="http://www.voidcn.com/article/p-zhjgplln-btp.html">http://www.voidcn.com/article/p-zhjgplln-btp.html</a></p>
+<p>参考源码：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/arvinljw/AndroidArt">https://github.com/arvinljw/AndroidArt</a></p>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/universus/article/details/6211589">Android Binder设计与实现-设计篇</a>(强烈推荐阅读)</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cb8fa31a459f">Android学习感悟之进程间通信——AIDL详解</a></p>
+<p><a target="_blank" rel="noopener" href="http://weishu.me/2016/01/12/binder-index-for-newer/">Binder学习指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://wujingchao.github.io/2016/01/04/art-of-android-development-notes-ipc/"><a target="_blank" rel="noopener" href="http://www.amazon.cn/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2-%E4%BB%BB%E7%8E%89%E5%88%9A/dp/B014HV1X3K/ref=sr_1_1?ie=UTF8&qid=1451616304&sr=8-1&keywords=Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2">Android开发艺术探索</a>读书笔记: IPC机制</a></p>
+<p><a target="_blank" rel="noopener" href="https://gank.io/post/5e52801241bd447e3b978092">https://gank.io/post/5e52801241bd447e3b978092</a></p>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束---感谢您的阅读-------------</div>
+    
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小羊子说
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://june5753.github.io/blog/2021/08/01/AIDL%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="AIDL 学习笔记总结">https://june5753.github.io/blog/2021/08/01/AIDL 学习笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/blog/tags/AIDL/" rel="tag"><i class="fa fa-tag"></i> AIDL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" rel="prev" title="让你最快速地改善代码质量的20条编程规范">
+      <i class="fa fa-chevron-left"></i> 让你最快速地改善代码质量的20条编程规范
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/" rel="next" title="Git 使用注意事项总结">
+      Git 使用注意事项总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">一、应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AIDL%E5%8F%AF%E4%BB%A5%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">1.0.1.</span> <span class="nav-text">AIDL可以解决什么问题？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">二 、是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三、支持的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">四、如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAaidl%E7%9B%AE%E5%BD%95"><span class="nav-number">4.0.0.0.1.</span> <span class="nav-text">创建aidl目录</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9FANR%E7%9A%84%E6%83%85%E5%BD%A2"><span class="nav-number">4.1.</span> <span class="nav-text">可能产生ANR的情形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%A8%E5%86%8C%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">解注册失败的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aidl%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">aidl传输数据的大小限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AAService%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAAIDL%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.</span> <span class="nav-text">一个Service管理多个AIDL接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AIDL%E7%BB%88%E6%9E%81%E7%AF%87%E4%B9%8BAIDL%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">7.</span> <span class="nav-text">AIDL终极篇之AIDL架构设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">8.</span> <span class="nav-text">FAQ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android-%E2%80%93-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8AIDL%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%A4%84%E7%90%86%E4%B8%8D%E5%90%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%B9%B6%E5%8F%91%E8%AF%B7%E6%B1%82"><span class="nav-number">9.</span> <span class="nav-text">android – 如何使用AIDL远程服务来处理不同客户端的并发请求</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小羊子说"
+      src="/blog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">小羊子说</p>
+  <div class="site-description" itemprop="description">主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/june5753" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;june5753" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/blog/yangjun5753@163.com" title="E-Mail → yangjun5753@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jun5753" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jun5753" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小羊子说</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">38k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">35 分钟</span>
+</div>
+
+
+<!-- 隐藏网页底部 powered By Hexo / 强力驱动 -->
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+<script src="/blog/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
