@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"june5753.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","unescape":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="当你拿到一台崭新的mac电脑做为工作开发电脑时，需要从0搭建开发环境。本文记录了工作中如何在Mac电脑上快速配置环境，同时安利一些高效的开发工具和搭建指南。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电脑时，我们应该如何快速高效配置开发环境？">
+<meta property="og:url" content="https://june5753.github.io/blog/2021/08/04/%E7%94%B5%E8%84%91%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%9F/index.html">
+<meta property="og:site_name" content="Android 技术内参">
+<meta property="og:description" content="当你拿到一台崭新的mac电脑做为工作开发电脑时，需要从0搭建开发环境。本文记录了工作中如何在Mac电脑上快速配置环境，同时安利一些高效的开发工具和搭建指南。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-04T06:01:21.000Z">
+<meta property="article:modified_time" content="2021-08-04T06:04:11.760Z">
+<meta property="article:author" content="小羊子说">
+<meta property="article:tag" content="Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://june5753.github.io/blog/2021/08/04/%E7%94%B5%E8%84%91%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>电脑时，我们应该如何快速高效配置开发环境？ | Android 技术内参</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Android 技术内参</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个专注于技术分享的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://june5753.github.io/blog/2021/08/04/%E7%94%B5%E8%84%91%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="小羊子说">
+      <meta itemprop="description" content="主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Android 技术内参">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          电脑时，我们应该如何快速高效配置开发环境？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-04 14:01:21 / 修改时间：14:04:11" itemprop="dateCreated datePublished" datetime="2021-08-04T14:01:21+08:00">2021-08-04</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+            <div class="post-description">当你拿到一台崭新的mac电脑做为工作开发电脑时，需要从0搭建开发环境。本文记录了工作中如何在Mac电脑上快速配置环境，同时安利一些高效的开发工具和搭建指南。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="安装包管理器"><a href="#安装包管理器" class="headerlink" title="安装包管理器"></a>安装包管理器</h1><h2 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h2><p>最重要的一个工具，没有之一，有了这个，后面的涉及到的工具才方便安装，必须想办法安装成功！</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</span><br></pre></td></tr></table></figure>
+<p>安装命令：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>bash -c <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果半天下载 不下来，不用等了，直接搜国内的镜像源，分分钟下载下来。</p>
+<p>直接切换，用以下方式：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>bin<span class="regexp">/ruby -e &quot;$(curl -fsSL https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>gh<span class="regexp">/ineo6/</span>homebrew-install/install)<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>可参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f4c9cf0733ea">Homebrew是什么？以及使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146001246">HomebrewCN：Homebrew的国内安装脚本，从此告别龟速更新</a>(亲测很快)</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xibushijie/p/13335988.html">mac下国内安装Homebrew教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59805070">Mac必备神器Homebrew</a></p>
+<h1 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h1><h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h2><p>取代系统默认的命令，效率大大提升。同时可以直接设置为系统默认终端。在Android Studio操作同样高效。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install iterm2</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://sourabhbajaj.com/mac-setup/iTerm/">https://sourabhbajaj.com/mac-setup/iTerm/</a></p>
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/19556676">终极 Shell——ZSH</a></li>
+<li><a target="_blank" rel="noopener" href="https://g2ex.github.io/2018/01/21/linux-terminal-zsh-notes/">终端折腾记</a></li>
+<li><a target="_blank" rel="noopener" href="https://wdxtub.com/2016/02/18/oh-my-zsh/">zsh 全程指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://hufangyun.com/2017/zsh-plugin/">zsh oh-my-zsh 插件推荐</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config">Show Off your Config | powerlevel9k</a></li>
+</ul>
+<p><strong>安装插件</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="attr">https:</span><span class="comment">//github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span></span><br><span class="line">  </span><br><span class="line">git clone <span class="attr">git:</span><span class="comment">//github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span></span><br><span class="line">  </span><br><span class="line"># ~/.zshrc</span><br><span class="line">plugins=(</span><br><span class="line">  git</span><br><span class="line">  autojump</span><br><span class="line">  extract</span><br><span class="line">  osx</span><br><span class="line">  z</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>此时，需要研究一下 <code>vim</code>相关的，在mac中操作少不了的。后面会提到。</p>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">https://git-scm.com/book/en/v1/Getting-Started-Installing-Git</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br><span class="line">$ git config -e --global</span><br></pre></td></tr></table></figure>
+
+<p>生成 ssh key ,配置到 gitlab</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">color.ui=auto</span><br><span class="line">user.name=JuneYang</span><br><span class="line">user.email=JuneYang<span class="meta">@qq</span>.com</span><br><span class="line">core.editor=vim</span><br><span class="line">alias.co=checkout</span><br><span class="line">alias.ci=commit</span><br><span class="line">alias.st=status</span><br><span class="line">alias.br=branch</span><br><span class="line">alias.hist=log --pretty=<span class="attr">format:</span><span class="string">&quot;%h %ad | %s%d [%an]&quot;</span> --graph --date=<span class="keyword">short</span></span><br><span class="line">alias.changelog=log --pretty=<span class="attr">format:</span>%s</span><br><span class="line">alias.type=cat-file -t</span><br><span class="line">alias.dump=cat-file -p</span><br><span class="line">reviewboard.url=<span class="attr">http:</span><span class="comment">//xx.com/</span></span><br><span class="line">hbt.dir=<span class="regexp">~/project/</span>build_scriptxx<span class="regexp">/source/</span>BuildScript/code_analysis</span><br><span class="line">jira.user=JuneYang<span class="meta">@qq</span>.com</span><br><span class="line">jira.pwd=xxx</span><br></pre></td></tr></table></figure>
+
+<p>参考 <a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">First-Time Git Setup</a></p>
+<h1 id="Sdkman"><a href="#Sdkman" class="headerlink" title="Sdkman"></a>Sdkman</h1><p>安装</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>bash -c <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>安装 SDKMAN</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s <span class="string">&quot;https://get.sdkman.io&quot;</span> | bash</span><br></pre></td></tr></table></figure>
+
+<p>安装 Java</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install java <span class="number">8.0</span><span class="number">.265</span>.hs-adp</span><br></pre></td></tr></table></figure>
+
+<p>如果没有版本，请根据提示选择相应的版本即可。</p>
+<p>安装 Kotlin</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install kotlin</span><br></pre></td></tr></table></figure>
+
+<p>安装 groovy</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install groovy</span><br></pre></td></tr></table></figure>
+
+<p>安装 Gradle</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install gradle</span><br></pre></td></tr></table></figure>
+
+<p>安装 Maven</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install maven</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82315812">sdkman－管理sdk神器</a></p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew tap adoptopenjdk/openjdk</span><br><span class="line">brew cask install adoptopenjdk8</span><br><span class="line">brew cask install adoptopenjdk9</span><br><span class="line">brew cask install adoptopenjdk10</span><br><span class="line">brew cask install adoptopenjdk11</span><br></pre></td></tr></table></figure>
+
+<p>目前使用 jdk8</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/homebrew-openjdk">https://github.com/AdoptOpenJDK/homebrew-openjdk</a></p>
+<p>个别安装太慢，这个后面看看有没有其他更快安装的办法，求告知。</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python@<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>推荐使用 nvm</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+<h1 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h1><ul>
+<li>百度</li>
+<li>搜狗五笔</li>
+<li>……</li>
+</ul>
+<p>根据个人喜好安装，对于追求效率的人来说，我选择的是搜狗五笔，打字时字体调到最大的字体，别再好奇的问，你的输入法怎么这么大，我只能说，你打字时在看哪里，专注打字，大就对了。</p>
+<h1 id="Utility"><a href="#Utility" class="headerlink" title="Utility"></a>Utility</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">brew install Alfred </span><br><span class="line">#Alfred是一个让你可以丢掉鼠标的神器。Alfred 是 Mac 系统上一款专注于效率提升的著名应用，它能帮你快速打开网页、快速进行自定义搜索、查看剪贴板历史、快速查询单词等等</span><br><span class="line">brew install wget # 命令行下载工具</span><br><span class="line">brew install htop # 命令行任务管理器</span><br><span class="line">brew install ffmpeg # 多媒体工具包</span><br><span class="line">brew cask install the-unarchiver # 压缩工具</span><br><span class="line">brew cask install iina # 多媒体播放器 iina</span><br><span class="line">brew cask install spectacle # 窗口管理工具</span><br><span class="line">brew cask install sonic-visualiser # 音频分析软件</span><br><span class="line">brew cask install hex-fiend # 二进制文件查看器</span><br><span class="line">brew cask install lunar # 显示器亮度调节 https://lunar.fyi/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install android-studio</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/archive">Android Studio download archives</a></li>
+</ul>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://plugins.jetbrains.com/plugin/7380-adb-idea">http://plugins.jetbrains.com/plugin/7380-adb-idea</a></li>
+<li><a target="_blank" rel="noopener" href="http://plugins.jetbrains.com/plugin/1065-checkstyle-idea">http://plugins.jetbrains.com/plugin/1065-checkstyle-idea</a></li>
+</ul>
+<h2 id="IDEA-Community"><a href="#IDEA-Community" class="headerlink" title="IDEA Community"></a>IDEA Community</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intellij-idea-ce</span><br></pre></td></tr></table></figure>
+
+<p>直接通过命令安装，省去到处找安装包的麻烦。</p>
+<h1 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h1><h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install atom</span><br></pre></td></tr></table></figure>
+
+<h2 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install visual-studio-code</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vim</span><br></pre></td></tr></table></figure>
+
+<p>补充常用操作:</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">如果是vim，则：Esc 退出编辑模式，输入以下命令： </span><br><span class="line"></span><br><span class="line">:wq  保存后退出vi，若为 :wq! 则为强制储存后退出（常用） </span><br><span class="line"></span><br><span class="line">:w    保存但不退出（常用） </span><br><span class="line"></span><br><span class="line">:w!   若文件属性为『只读』时，强制写入该档案 </span><br><span class="line"></span><br><span class="line">:q    离开 vi （常用） </span><br><span class="line"></span><br><span class="line">:q!   若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。 </span><br><span class="line"></span><br><span class="line">:e!   将档案还原到最原始的状态！ </span><br></pre></td></tr></table></figure>
+
+<h1 id="文档查看器"><a href="#文档查看器" class="headerlink" title="文档查看器"></a>文档查看器</h1><h2 id="Dash"><a href="#Dash" class="headerlink" title="Dash"></a>Dash</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># latest</span><br><span class="line">brew cask install dash</span><br><span class="line"></span><br><span class="line"># 4.6.7 with license</span><br><span class="line">brew cask install https://raw.githubusercontent.com/Homebrew/homebrew-cask/baf4f35e70c225fe1a8a60ec3b4e22604187238d/Casks/dash.rb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kapeli.com/dash">Dash for macOS - API Documentation Browser, Snippet Manager - Kapeli</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bc90b212c0a7">Mac 软件使用之 Dash</a></li>
+<li><a target="_blank" rel="noopener" href="https://zealdocs.org/">Offline documentation browser inspired by Dash</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jverdeyen.be/mac/downgrade-brew-cask-application/">Downgrade brew cask application</a></li>
+</ul>
+<h2 id="DevDocs-io"><a href="#DevDocs-io" class="headerlink" title="DevDocs.io"></a><a target="_blank" rel="noopener" href="http://devdocs.io/">DevDocs.io</a></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/egoist/devdocs-desktop">https://github.com/egoist/devdocs-desktop</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ragingwind/devdogs">https://github.com/ragingwind/devdogs</a></li>
+</ul>
+<h2 id="Zeal"><a href="#Zeal" class="headerlink" title="Zeal"></a>Zeal</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zealdocs/zeal">https://github.com/zealdocs/zeal</a></li>
+<li><a target="_blank" rel="noopener" href="http://xavieryao.github.io/article/zeal">Build Zeal on macOS</a></li>
+<li><a target="_blank" rel="noopener" href="https://mazhuang.org/2016/01/16/build-zeal-for-mac-osx/">Build Zeal for Mac OS X</a></li>
+</ul>
+<h1 id="反编译工具"><a href="#反编译工具" class="headerlink" title="反编译工具"></a>反编译工具</h1><h2 id="APKTOOL"><a href="#APKTOOL" class="headerlink" title="APKTOOL"></a>APKTOOL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install apktool</span><br></pre></td></tr></table></figure>
+
+<h2 id="JADX"><a href="#JADX" class="headerlink" title="JADX"></a>JADX</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jadx</span><br></pre></td></tr></table></figure>
+
+<h2 id="JD-GUI"><a href="#JD-GUI" class="headerlink" title="JD-GUI"></a>JD-GUI</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install jd-gui</span><br></pre></td></tr></table></figure>
+
+<h1 id="密码管理"><a href="#密码管理" class="headerlink" title="密码管理"></a>密码管理</h1><h2 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install lastpass</span><br><span class="line">brew install lastpass-cli</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件比较"><a href="#文件比较" class="headerlink" title="文件比较"></a>文件比较</h1><h2 id="Meld"><a href="#Meld" class="headerlink" title="Meld"></a>Meld</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://meldmerge.org/">http://meldmerge.org/</a></li>
+<li>Meld 下载 <a target="_blank" rel="noopener" href="https://github.com/yousseb/meld/releases/">https://github.com/yousseb/meld/releases/</a></li>
+</ul>
+<h1 id="FTP-Client"><a href="#FTP-Client" class="headerlink" title="FTP Client"></a>FTP Client</h1><h2 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install filezilla</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://macappstore.org/filezilla/">http://macappstore.org/filezilla/</a></li>
+<li><a target="_blank" rel="noopener" href="https://filezilla-project.org/download.php?platform=osx">https://filezilla-project.org/download.php?platform=osx</a></li>
+</ul>
+<h1 id="SSH-Client"><a href="#SSH-Client" class="headerlink" title="SSH Client"></a>SSH Client</h1><h2 id="Termius"><a href="#Termius" class="headerlink" title="Termius"></a>Termius</h2><p><a target="_blank" rel="noopener" href="http://www.termius.com/">http://www.termius.com/</a></p>
+<h1 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.trankynam.com/xtrafinder/">https://www.trankynam.com/xtrafinder/</a></li>
+<li><a target="_blank" rel="noopener" href="http://macappstore.org/xtrafinder/">http://macappstore.org/xtrafinder/</a></li>
+</ul>
+<h1 id="Proxy-Server"><a href="#Proxy-Server" class="headerlink" title="Proxy Server"></a>Proxy Server</h1><h2 id="mitproxy"><a href="#mitproxy" class="headerlink" title="mitproxy"></a>mitproxy</h2><h2 id="charles"><a href="#charles" class="headerlink" title="charles"></a>charles</h2><h1 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h1><p>EasyConnect</p>
+<h1 id="其它文件系统支持"><a href="#其它文件系统支持" class="headerlink" title="其它文件系统支持"></a>其它文件系统支持</h1><h2 id="Linux-Ext-4"><a href="#Linux-Ext-4" class="headerlink" title="Linux Ext-4"></a>Linux Ext-4</h2><p><a target="_blank" rel="noopener" href="https://www.paragon-software.com/home/extfs-mac/">https://www.paragon-software.com/home/extfs-mac/</a></p>
+<h2 id="Windows-NTFS"><a href="#Windows-NTFS" class="headerlink" title="Windows NTFS"></a>Windows NTFS</h2><p><a target="_blank" rel="noopener" href="https://www.paragon-software.com/home/ntfs-mac/">https://www.paragon-software.com/home/ntfs-mac/</a></p>
+<h1 id="其他项目相关"><a href="#其他项目相关" class="headerlink" title="其他项目相关"></a>其他项目相关</h1><h2 id="安装Repo"><a href="#安装Repo" class="headerlink" title="安装Repo"></a>安装Repo</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Debian/Ubuntu.</span><br><span class="line">$ sudo apt-get install repo</span><br><span class="line"></span><br><span class="line">$ mkdir -p ~/.bin</span><br><span class="line">$ PATH=<span class="string">&quot;$&#123;HOME&#125;/.bin:$&#123;PATH&#125;&quot;</span></span><br><span class="line">$ curl <span class="attr">https:</span><span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/.bin/repo</span></span><br><span class="line">$ chmod a+rx <span class="regexp">~/.bin/</span>repo</span><br></pre></td></tr></table></figure>
+
+<p>前提：apt-get需要安装好，如果没有安装好，用如下命令:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span><br><span class="line"></span><br><span class="line">brew install libxml2</span><br></pre></td></tr></table></figure>
+
+<p>如果出现错误：</p>
+<h2 id="安装apt"><a href="#安装apt" class="headerlink" title="安装apt"></a>安装apt</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7330d3b6d561">mac 安装apt</a></p>
+<p>注意解压时，如果用命令无法解压，直接双击解压即可。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf fink<span class="number">-0.43</span><span class="number">.0</span>.tar.gz or tar -xvf fink<span class="number">-0.43</span><span class="number">.0</span>.tar</span><br></pre></td></tr></table></figure>
+
+<p>此处更新版本后才能执行下去。</p>
+<p><a target="_blank" rel="noopener" href="https://www.finkproject.org/download/srcdist.php">https://www.finkproject.org/download/srcdist.php</a></p>
+<p>下载最新版本 <code>flink-0.45.2.tar.gz</code>解压后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fink-0.45.2</span><br><span class="line">sudo ./bootstrap</span><br></pre></td></tr></table></figure>
+
+<p>其中的选择选择提示的默认选项即可。下载时间10分钟左右不等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sw/bin/pathsetup.sh</span><br><span class="line">fink selfupdate-rsync</span><br><span class="line">fink index -f</span><br></pre></td></tr></table></figure>
+
+<p>在执行上面三个命令时 竟然提示无此命令，甚至我试ls vim都不好用，吓我一跳，最终无法重启控制台后好用，虚惊一场。</p>
+<p>到此 安装完成 <code>sudo apt-get</code> 可以正常使用</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="attr">https:</span><span class="comment">//storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span></span><br><span class="line">chmod a+x <span class="regexp">~/bin/</span>repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="repo的使用"><a href="#repo的使用" class="headerlink" title="repo的使用"></a>repo的使用</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repo init -u <span class="string">&quot;xxx仓库地址&quot;</span></span><br><span class="line"></span><br><span class="line">repo sync</span><br><span class="line">repo start master --all</span><br></pre></td></tr></table></figure>
+
+<p>repo需要配置在path中</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>之后进入编辑模式</p>
+<p>第一步：</p>
+<blockquote>
+<p>vim ~/.bash_profile</p>
+</blockquote>
+<p>第二步：</p>
+<blockquote>
+<p>E-&gt;I-&gt;Enter</p>
+</blockquote>
+<p>输入：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>最后：</p>
+<blockquote>
+<p>esc-&gt; :wq 保存 然后生效。</p>
+</blockquote>
+<p>注意：有时会失效，原因未找到。关注中。。。</p>
+<p>可以 暂时这样：配置为临时环境变量(也可配置为永久的)</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>之后 可直接访问.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//repo init -u &quot;xxx&quot;</span></span><br><span class="line"> </span><br><span class="line">repo sync</span><br><span class="line">repo start master --all</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/leehs334/article/details/105101574">MAC系统下的repo环境搭建以及下载更新</a></p>
+<ul>
+<li>生成秘钥对</li>
+</ul>
+<p>ssh-keygen -t rsa -C  “<a href="mailto:&#x6a;&#x75;&#x6e;&#x65;&#x79;&#97;&#x6e;&#103;&#64;&#120;&#120;&#x2e;&#x63;&#x6f;&#109;">&#x6a;&#x75;&#x6e;&#x65;&#x79;&#97;&#x6e;&#103;&#64;&#120;&#120;&#x2e;&#x63;&#x6f;&#109;</a>“</p>
+<p>一路enter，不输入其他信息。为空处理。</p>
+<p>添加repo到系统目录下</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=~/<span class="attr">bin:</span>$PATH</span><br></pre></td></tr></table></figure>
+
+<p>查看PATH路径</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+
+<p>之后可以直接 调用</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>Android Studio中导入项目：</p>
+<ol>
+<li><p>调试安装遇到的问题installation failed with message INSTALL_FAILED_SHARED_USER_INCOMPA</p>
+<blockquote>
+<p>去掉AndroidManifest.xml文件中android:sharedUserId</p>
+</blockquote>
+</li>
+<li><p>当第一个repo仓库成功后，新建第二个仓库时出现问题</p>
+<blockquote>
+<p>执行repo init时候报错“error: manifest missing or unreadable – please run init”</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>解决办法：</strong></p>
+<p>删除 当前文件下中隐藏的 <code>manifests.git</code> ，之后重新执行<code>repo init</code>。</p>
+<p>关于如何查看隐藏的文件见下文。</p>
+<h1 id="其他Mac操作相关"><a href="#其他Mac操作相关" class="headerlink" title="其他Mac操作相关"></a>其他Mac操作相关</h1><ol>
+<li><p>删除文件</p>
+<blockquote>
+<p>小米键盘：win+BackSpace</p>
+</blockquote>
+</li>
+<li><p>外接键盘右键功能</p>
+<blockquote>
+<p>Ctrl+鼠标右键</p>
+</blockquote>
+</li>
+<li><p>如何显示隐藏的文件</p>
+<blockquote>
+<p>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；<br>finder下使用Command+Shift+G 可以前往任何文件夹，包括隐藏文件夹。</p>
+</blockquote>
+</li>
+<li><p>adb 环境配置</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38327562/article/details/71057276?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">解决Mac上adb: command not found问题</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35684085/article/details/104743835?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242">mac zsh 配置 adb 环境变量 “zsh: command not found: adb”</a></p>
+<p>打开 iTerm 终端依次输入下面命令:</p>
+</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&#x27;export ANDROID_HOME=/Users/$USER/Library/Android/sdk&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line">echo <span class="string">&#x27;export PATH=$&#123;PATH&#125;:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>然后保存设置：(更新设置)</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>zsh命令安装后的问题</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/03bcc3e2930e">更新完 zsh 说我目录权限问题的解决</a></p>
+<ol start="6">
+<li><p>设置iTerm2为默认的term</p>
+<p>这个很简单就iTerm2-&gt;Make iTerm2 Default Term就好了.Android Studio中重启生效。</p>
+</li>
+</ol>
+<h1 id="MAC快捷键"><a href="#MAC快捷键" class="headerlink" title="MAC快捷键"></a>MAC快捷键</h1><h2 id="CheatSheet"><a href="#CheatSheet" class="headerlink" title="CheatSheet"></a>CheatSheet</h2><p>安装这个后，在相应的软件界面，长按<code>command</code>，就会出现当前界面的所有快捷键，你值得拥有。</p>
+<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><ul>
+<li>切换同一个应用的多个窗口 <code>Cmd + ~</code></li>
+<li>锁定屏幕 <code>Ctrl + Cmd + Q</code></li>
+<li>窗口预览 <code>Ctrl + Up Arrow</code></li>
+<li>任务管理器 <code>Ctrl + Alt + Esc</code></li>
+<li>截图 <code>Cmd + Shift + 4</code></li>
+</ul>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ul>
+<li>浏览器刷新 <code>F5 -&gt; Cmd + R</code></li>
+<li>光标切换到地址栏 <code>Alt + D -&gt; Cmd + L</code></li>
+<li>返回上一页 <code>BackSpace -&gt; Cmd + Left Arrow</code> / <code>Cmd + [</code></li>
+<li>滚动到底部/顶部 <code>Cmd + Down Arrow</code> / <code>Cmd + Up Arrow</code></li>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/chrome/answer/157179?hl=en">Chrome keyboard shortcuts</a><h2 id="启动台设置"><a href="#启动台设置" class="headerlink" title="启动台设置"></a>启动台设置</h2><a target="_blank" rel="noopener" href="https://www.xia1ge.com/launchpad-hot-key.html">给Mac的启动台Launchpad设置快捷键</a></li>
+</ul>
+<p>未完待续……</p>
+<p>参考：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24635640">Mac系统如何显示隐藏文件</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904125977608199">Repo命令记录</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904148102545416">反思｜Android源码模块化管理工具Repo分析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/TankXiao/p/2845413.html">Mac 入门 一 基本用法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/ht202351">将多个显示器与 Mac 配合使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201236">Mac 键盘快捷键</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://singsing.io/blog/mac/Mac-1/">你可能不知道的 Mac 技巧 - 文本操作</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://singsing.io/blog/mac/Mac-2/">你可能不知道的 Mac 技巧 - 截图，Gif 制作及 App 推荐</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://singsing.io/blog/mac/Mac-3/">你可能不知道的 Mac 技巧 - macOS 的窗口、标签与工作区</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sspai.com/post/30981">从 Windows 到 OS X，新手入门解惑 | Hello Mac</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/Apps/index.html">Mac 开发配置手册</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wsgzao.github.io/post/mac/">Mac新手入门以及常用软件推荐</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.zorin.xin/mac/2017/11/20/mac%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%AF%87.html">mac新手指南-基础环境搭建篇</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20386836">一直使用 Windows 的人如何尽快熟练使用 OS X？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sspai.com/post/32453">你不应错过的 22 款 Mac 效率工具 App | 2015 年度盘点</a></p>
+</li>
+</ul>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束---感谢您的阅读-------------</div>
+    
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小羊子说
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://june5753.github.io/blog/2021/08/04/%E7%94%B5%E8%84%91%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%9F/" title="电脑时，我们应该如何快速高效配置开发环境？">https://june5753.github.io/blog/2021/08/04/电脑时，我们应该如何快速高效配置开发环境？/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/08/02/Git%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E6%80%BB%E7%BB%93/" rel="prev" title="Git 使用注意事项总结">
+      <i class="fa fa-chevron-left"></i> Git 使用注意事项总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">安装包管理器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HomeBrew"><span class="nav-number">1.1.</span> <span class="nav-text">HomeBrew</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%88%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">终端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iTerm2"><span class="nav-number">2.1.</span> <span class="nav-text">iTerm2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh"><span class="nav-number">2.2.</span> <span class="nav-text">zsh</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">3.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sdkman"><span class="nav-number">4.</span> <span class="nav-text">Sdkman</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">4.1.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">4.2.</span> <span class="nav-text">Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nodejs"><span class="nav-number">5.</span> <span class="nav-text">nodejs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">输入法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Utility"><span class="nav-number">7.</span> <span class="nav-text">Utility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">8.</span> <span class="nav-text">IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Studio"><span class="nav-number">8.1.</span> <span class="nav-text">Android Studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugins"><span class="nav-number">8.2.</span> <span class="nav-text">Plugins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA-Community"><span class="nav-number">8.3.</span> <span class="nav-text">IDEA Community</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Atom"><span class="nav-number">9.1.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VS-Code"><span class="nav-number">9.2.</span> <span class="nav-text">VS Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim"><span class="nav-number">9.3.</span> <span class="nav-text">Vim</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E6%9F%A5%E7%9C%8B%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">文档查看器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dash"><span class="nav-number">10.1.</span> <span class="nav-text">Dash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevDocs-io"><span class="nav-number">10.2.</span> <span class="nav-text">DevDocs.io</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zeal"><span class="nav-number">10.3.</span> <span class="nav-text">Zeal</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="nav-number">11.</span> <span class="nav-text">反编译工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APKTOOL"><span class="nav-number">11.1.</span> <span class="nav-text">APKTOOL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JADX"><span class="nav-number">11.2.</span> <span class="nav-text">JADX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JD-GUI"><span class="nav-number">11.3.</span> <span class="nav-text">JD-GUI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86"><span class="nav-number">12.</span> <span class="nav-text">密码管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LastPass"><span class="nav-number">12.1.</span> <span class="nav-text">LastPass</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%AF%94%E8%BE%83"><span class="nav-number">13.</span> <span class="nav-text">文件比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Meld"><span class="nav-number">13.1.</span> <span class="nav-text">Meld</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FTP-Client"><span class="nav-number">14.</span> <span class="nav-text">FTP Client</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FileZilla"><span class="nav-number">14.1.</span> <span class="nav-text">FileZilla</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH-Client"><span class="nav-number">15.</span> <span class="nav-text">SSH Client</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Termius"><span class="nav-number">15.1.</span> <span class="nav-text">Termius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#File-Manager"><span class="nav-number">16.</span> <span class="nav-text">File Manager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proxy-Server"><span class="nav-number">17.</span> <span class="nav-text">Proxy Server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mitproxy"><span class="nav-number">17.1.</span> <span class="nav-text">mitproxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charles"><span class="nav-number">17.2.</span> <span class="nav-text">charles</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VPN"><span class="nav-number">18.</span> <span class="nav-text">VPN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81"><span class="nav-number">19.</span> <span class="nav-text">其它文件系统支持</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-Ext-4"><span class="nav-number">19.1.</span> <span class="nav-text">Linux Ext-4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-NTFS"><span class="nav-number">19.2.</span> <span class="nav-text">Windows NTFS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3"><span class="nav-number">20.</span> <span class="nav-text">其他项目相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Repo"><span class="nav-number">20.1.</span> <span class="nav-text">安装Repo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85apt"><span class="nav-number">20.2.</span> <span class="nav-text">安装apt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repo%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">20.3.</span> <span class="nav-text">repo的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95"><span class="nav-number">20.4.</span> <span class="nav-text">问题记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96Mac%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3"><span class="nav-number">21.</span> <span class="nav-text">其他Mac操作相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">22.</span> <span class="nav-text">MAC快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CheatSheet"><span class="nav-number">22.1.</span> <span class="nav-text">CheatSheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F"><span class="nav-number">22.2.</span> <span class="nav-text">系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">22.3.</span> <span class="nav-text">浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%8F%B0%E8%AE%BE%E7%BD%AE"><span class="nav-number">22.4.</span> <span class="nav-text">启动台设置</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小羊子说"
+      src="/blog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">小羊子说</p>
+  <div class="site-description" itemprop="description">主要涉猎方向有 Java、 Android、设计模式、算法与数据结构、读书笔记、思维认知等领域</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/june5753" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;june5753" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/blog/yangjun5753@163.com" title="E-Mail → yangjun5753@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jun5753" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jun5753" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小羊子说</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">38k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">35 分钟</span>
+</div>
+
+
+<!-- 隐藏网页底部 powered By Hexo / 强力驱动 -->
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+<script src="/blog/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
