@@ -1128,11 +1128,10 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>Android中的项目中的最新技术点总结</title>
     <url>/blog/2022/07/31/Androd%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><blockquote>
-<p>解读一个新项目时，对一些零散的技术点做了一个简单的梳理，本文总结了开发中用到的一些知识点。</p>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><blockquote>
+<p>解读一个新项目时，对一些零散的技术点做了一个简单的梳理，本文总结了项目开发中用到的一些知识点。</p>
 </blockquote>
 <h1 id="1-取集合的一部分"><a href="#1-取集合的一部分" class="headerlink" title="1. 取集合的一部分"></a>1. 取集合的一部分</h1><p><a href="https://www.kotlincn.net/docs/reference/collection-parts.html">https://www.kotlincn.net/docs/reference/collection-parts.html</a></p>
 <h2 id="Windowed"><a href="#Windowed" class="headerlink" title="Windowed"></a>Windowed</h2><p>以检索给定大小的集合元素中所有可能区间。 获取它们的函数称为 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/windowed.html"><code>windowed()</code></a>：它返回一个元素区间列表，比如通过给定大小的滑动窗口查看集合，则会看到该区间。 与 <code>chunked()</code> 不同，<code>windowed()</code> 返回从<em>每个</em>集合元素开始的元素区间（<em>窗口</em>）。 所有窗口都作为单个 <code>List</code> 的元素返回。</p>
@@ -1609,5 +1608,11 @@
 <h1 id="26-关于时间格式的处理"><a href="#26-关于时间格式的处理" class="headerlink" title="26.关于时间格式的处理"></a>26.关于时间格式的处理</h1><p><a href="https://blog.csdn.net/shenyuanqing/article/details/47703951">https://blog.csdn.net/shenyuanqing/article/details/47703951</a></p>
 <h1 id="27-编写地道的-Kotlin-代码"><a href="#27-编写地道的-Kotlin-代码" class="headerlink" title="27.编写地道的 Kotlin 代码"></a>27.编写地道的 Kotlin 代码</h1><p><a href="https://droidyue.com/blog/2019/05/19/do-and-dont-in-kotlin/">https://droidyue.com/blog/2019/05/19/do-and-dont-in-kotlin/</a></p>
 ]]></content>
+      <categories>
+        <category>技术点</category>
+      </categories>
+      <tags>
+        <tag>技术点</tag>
+      </tags>
   </entry>
 </search>
