@@ -606,7 +606,7 @@
     <title>让你最快速地改善代码质量的20条编程规范</title>
     <url>/blog/2021/07/09/%E8%AE%A9%E4%BD%A0%E6%9C%80%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%94%B9%E5%96%84%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E7%9A%8420%E6%9D%A1%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<blockquote>
-<p>根据学习部分极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。</p>
+<p>根据学习根据极客时间 《设计模式之美》专栏 （王争 前Google工程师）和《阿里 java 规范》整理总结。</p>
 <p>分别介绍编码规范的三个部分：命名与注释（Naming and Comments）、代码风格（Code Style）和编程技巧（Coding Tips）。</p>
 </blockquote>
 <h2 id="关于命名"><a href="#关于命名" class="headerlink" title="关于命名"></a>关于命名</h2><ul>
@@ -1126,5 +1126,488 @@
       <tags>
         <tag>高效方法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/blog/2022/07/31/Androd%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><blockquote>
+<p>解读一个新项目时，对一些零散的技术点做了一个简单的梳理，本文总结了开发中用到的一些知识点。</p>
+</blockquote>
+<h1 id="1-取集合的一部分"><a href="#1-取集合的一部分" class="headerlink" title="1. 取集合的一部分"></a>1. 取集合的一部分</h1><p><a href="https://www.kotlincn.net/docs/reference/collection-parts.html">https://www.kotlincn.net/docs/reference/collection-parts.html</a></p>
+<h2 id="Windowed"><a href="#Windowed" class="headerlink" title="Windowed"></a>Windowed</h2><p>以检索给定大小的集合元素中所有可能区间。 获取它们的函数称为 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/windowed.html"><code>windowed()</code></a>：它返回一个元素区间列表，比如通过给定大小的滑动窗口查看集合，则会看到该区间。 与 <code>chunked()</code> 不同，<code>windowed()</code> 返回从<em>每个</em>集合元素开始的元素区间（<em>窗口</em>）。 所有窗口都作为单个 <code>List</code> 的元素返回。</p>
+<p><code>CourseFragment</code>中的用法</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">lass Adapter(<span class="keyword">val</span> scene: String) : RecyclerView.Adapter&lt;RecyclerView.ViewHolder&gt;() &#123;</span><br><span class="line">        <span class="keyword">var</span> items: MutableList&lt;MutableList&lt;LauncherCourseInfo&gt;&gt; = mutableListOf()</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">setData</span><span class="params">(list: <span class="type">MutableList</span>&lt;<span class="type">LauncherCourseInfo</span>&gt;?)</span></span> &#123;</span><br><span class="line">            items.clear()</span><br><span class="line">            list?.apply &#123;</span><br><span class="line">                items.addAll(</span><br><span class="line">                    <span class="keyword">this</span>.windowed(ITEM_COUNT, ITEM_COUNT, <span class="literal">true</span>)</span><br><span class="line">                        <span class="keyword">as</span> MutableList&lt;MutableList&lt;LauncherCourseInfo&gt;&gt;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Kotlin系列之-in-运算符"><a href="#2-Kotlin系列之-in-运算符" class="headerlink" title="2. Kotlin系列之 in 运算符"></a>2. Kotlin系列之 in 运算符</h1><p><a href="https://bingjian.blog.csdn.net/article/details/79090877">https://bingjian.blog.csdn.net/article/details/79090877</a></p>
+<p><code>in</code><a href="https://so.csdn.net/so/search?q=%E8%BF%90%E7%AE%97%E7%AC%A6&spm=1001.2101.3001.7020">运算符</a>常常用来检查一个值是否在某个区间内。它还有对应的逆运算<code>!in</code>用来检查某个值不在某一个区间内。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">recog</span><span class="params">(c: <span class="type">Char</span>)</span></span> = <span class="keyword">when</span>(c)&#123;</span><br><span class="line">    <span class="keyword">in</span> <span class="string">&#x27;0&#x27;</span>..<span class="string">&#x27;9&#x27;</span> -&gt; <span class="string">&quot;It&#x27;s a digit&quot;</span></span><br><span class="line">    <span class="keyword">in</span> <span class="string">&#x27;a&#x27;</span>..<span class="string">&#x27;z&#x27;</span>, <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span> -&gt; <span class="string">&quot;It&#x27;s a letter&quot;</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="string">&quot;don&#x27;t know...&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="copy函数"><a href="#copy函数" class="headerlink" title="copy函数"></a>copy函数</h2><p>当要复制一个对象，只改变一些属性，但其余不变，copy()就是为此而生。</p>
+<p><strong><code>copy()</code> 函数完成的是浅拷贝</strong></p>
+<p><strong>浅拷贝</strong>只复制对象应用，即指向对象的指针，而不复制对象本身，新旧对象共享同一块内存。</p>
+<p><strong>深拷贝</strong>会另外创建一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象。</p>
+<p><a href="https://blog.csdn.net/poorkick/article/details/119984976">https://blog.csdn.net/poorkick/article/details/119984976</a></p>
+<h2 id="Kotlin-实现数据类-data-深拷贝"><a href="#Kotlin-实现数据类-data-深拷贝" class="headerlink" title="Kotlin | 实现数据类(data)深拷贝"></a>Kotlin | 实现数据类(data)深拷贝</h2><p>浅拷贝指的是如果要拷贝A对象，则会重新创建一个B对象，并将其内部变量全部赋值给B对象，所以我们称之为浅拷贝。<br>深拷贝指的是：拷贝后，如果B对象中存在引用对象，此时更改这个引用对象不会影响到原有A对象中的引用对象，因为它两所操作的内存并不是同一块内存。而浅拷贝则相反，当你操作B对象中的某个引用对象时，就会影响到A对象。对于基本类型，深拷贝与浅拷贝都是直接赋值，并没有什么区别。<br>————————————————<br>原文链接：<a href="https://blog.csdn.net/petterp/article/details/103859178">https://blog.csdn.net/petterp/article/details/103859178</a></p>
+<h1 id="3-利用注解改进代码检查"><a href="#3-利用注解改进代码检查" class="headerlink" title="3.利用注解改进代码检查"></a>3.利用注解改进代码检查</h1><p><a href="https://developer.android.com/studio/write/annotations?hl=zh-cn">https://developer.android.com/studio/write/annotations?hl=zh-cn</a></p>
+<ul>
+<li><h2 id="null-性注解"><a href="#null-性注解" class="headerlink" title="null 性注解"></a>null 性注解</h2></li>
+</ul>
+<p>​                只有在每次使用方法时都应明确检查返回值是否为 null 的情况下，才应对方法的返回值使用 <code>@Nullable</code>。</p>
+<p>​            <code>@Nullable</code> 注解用于指明可以为 null 的变量、参数或返回值，</p>
+<p>​         而 <code>@NonNull</code> 则用于指明不可以为 null 的变量、参数或返回值。</p>
+<ul>
+<li><h2 id="资源注解"><a href="#资源注解" class="headerlink" title="资源注解"></a>资源注解</h2></li>
+</ul>
+<p>添加 <code>@StringRes</code> 注解，以检查资源参数是否包含 <code>R.string</code> 引用，如下所示：    </p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">setTitle</span><span class="params">(<span class="meta">@StringRes</span> resId: <span class="type">Int</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>其他资源类型的注解（例如 <code>@DrawableRes</code>、<code>@DimenRes</code>、<code>@ColorRes</code> 和 <code>@InterpolatorRes</code>）可以使用相同的注解格式添加，并在代码检查期间运行</p>
+<ul>
+<li><h2 id="线程注解"><a href="#线程注解" class="headerlink" title="线程注解"></a>线程注解</h2></li>
+</ul>
+<p>如果某个类中的所有方法具有相同的线程要求，您可以为该类添加一个线程注解，以验证该类中的所有方法是否从同一类型的线程调用。</p>
+<p>线程注解的一个常见用途是验证 <a href="https://developer.android.com/reference/android/os/AsyncTask?hl=zh-cn">AsyncTask</a> 类中的方法替换，因为此类会执行后台操作，并且仅在界面线程上发布结果。</p>
+<ul>
+<li>值约束注解</li>
+</ul>
+<p>使用 <code>@IntRange</code>、<code>@FloatRange</code> 和 <code>@Size</code> 注解可以验证所传递参数的值。<code>@IntRange</code> 和 <code>@FloatRange</code> 在应用到用户可能会弄错范围的参数时最为有用。</p>
+<p><code>@IntRange</code> 注解可以验证整型或长整型参数值是否在指定范围内。以下示例可以确保 <code>alpha</code> 参数包含 0 到 255 之间的整数值：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">setAlpha</span><span class="params">(<span class="meta">@IntRange(from = 0, to = 255)</span> alpha: <span class="type">Int</span>)</span></span> &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>权限注解</li>
+</ul>
+<p>使用 <code>@RequiresPermission</code> 注解可以验证方法调用方的权限。要检查有效权限列表中是否存在某个权限，请使用 <code>anyOf</code> 属性。</p>
+<ul>
+<li><h2 id="返回值注解"><a href="#返回值注解" class="headerlink" title="返回值注解"></a>返回值注解</h2></li>
+</ul>
+<p>使用 <code>@CheckResult</code> 注解可验证是否实际使用了方法的结果或返回值。不应使用 <code>@CheckResult</code> 为每个非 void 方法添加注解，而应添加注解来阐明可能令人不解的方法的结果。</p>
+<ul>
+<li><h2 id="CallSuper-注解"><a href="#CallSuper-注解" class="headerlink" title="CallSuper 注解"></a>CallSuper 注解</h2><p>使用 <code>@CallSuper</code> 注解可验证替换方法是否会调用该方法的超类实现。以下示例为 <code>onCreate()</code> 方法添加了注解，以确保所有替换方法实现都会调用 <code>super.onCreate()</code>：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CallSuper</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="Typedef-注解（进一步了解）"><a href="#Typedef-注解（进一步了解）" class="headerlink" title="Typedef 注解（进一步了解）"></a>Typedef 注解（进一步了解）</h2><p>使用 <code>@IntDef</code> 和 <code>@StringDef</code> 注解，您可以创建整数集和字符串集的枚举注解来验证其他类型的代码引用。Typedef 注解可以确保特定参数、返回值或字段引用一组特定的常量。这些注解还会启用代码补全功能，以自动提供允许的常量。</p>
+<p>Typedef 注解使用 <code>@interface</code> 来声明新的枚举注解类型。<code>@IntDef</code> 和 <code>@StringDef</code> 注解以及 <code>@Retention</code> 可以对新注解添加注解，是定义枚举类型所必需的。<code>@Retention(RetentionPolicy.SOURCE)</code> 注解可告诉编译器不要将枚举注解数据存储在 <code>.class</code> 文件中。</p>
+<p>以下示例展示了创建某个注解的具体步骤，该注解可以确保作为方法参数传递的值引用某个已定义的常量：</p>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> android.support.<span class="keyword">annotation</span>.IntDef</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// Define the list of accepted constants and declare the NavigationMode annotation</span></span><br><span class="line"><span class="meta">@Retention(AnnotationRetention.SOURCE)</span></span><br><span class="line"><span class="meta">@IntDef(NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS)</span></span><br><span class="line"><span class="keyword">annotation</span> <span class="class"><span class="keyword">class</span> <span class="title">NavigationMode</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Declare the constants</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> NAVIGATION_MODE_STANDARD = <span class="number">0</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> NAVIGATION_MODE_LIST = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> NAVIGATION_MODE_TABS = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionBar</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decorate the target methods with the annotation</span></span><br><span class="line">    <span class="comment">// Attach the annotation</span></span><br><span class="line">    <span class="meta">@get:NavigationMode</span></span><br><span class="line">    <span class="meta">@setparam:NavigationMode</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">var</span> navigationMode: <span class="built_in">Int</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h2 id="Keep-注解"><a href="#Keep-注解" class="headerlink" title="Keep 注解"></a>Keep 注解</h2><p>使用 <code>@Keep</code> 注解可以确保以下情况：如果在构建时缩减代码大小，将不会移除带有该注解的类或方法。该注解通常添加到通过反射访问的方法和类，以防止编译器将代码视为未使用。</p>
+</li>
+</ul>
+<h1 id="4-后备属性"><a href="#4-后备属性" class="headerlink" title="4. 后备属性"></a>4. 后备属性</h1><p>所谓后备属性，其实是对<code>后备字段</code>的一个变种，它实际上也是隐含试的对属性值的初始化声明，避免了空指针。</p>
+<p>我们根据一个官网的例子，进行说明：</p>
+<p>示例1：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> _table: Map&lt;String, <span class="built_in">Int</span>&gt;? = <span class="literal">null</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">val</span> table: Map&lt;String, <span class="built_in">Int</span>&gt;</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (_table == <span class="literal">null</span>) &#123;</span><br><span class="line">            _table = HashMap() <span class="comment">// 初始化</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ?: 操作符，如果_table不为空则返回，反之则抛出AssertionError异常</span></span><br><span class="line">        <span class="keyword">return</span> _table ?: <span class="keyword">throw</span> AssertionError(<span class="string">&quot;Set to null by another thread&quot;</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中我们可以看出：<code>_table</code>属性是私有的，我们不能直接的访问它。故而提供了一个公有的后备属性（<code>table</code>）去初始化我们的<code>_table</code>属性。</p>
+<p>通俗的讲，这和在Java中定义Bean属性的方式一样。因为访问私有的属性的getter和setter函数，会被编译器优化成直接反问其实际字段。因此不会引入函数调用开销。</p>
+<p><a href="https://www.cnblogs.com/Jetictors/p/9293170.html">https://www.cnblogs.com/Jetictors/p/9293170.html</a></p>
+<p><a href="https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?hl=zh_cn#4">https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?hl=zh_cn#4</a></p>
+<p>示例2：</p>
+<p>使用后备属性，可以从 getter 返回确切对象之外的某些其他内容。</p>
+<p>我们已经学过，Kotlin 框架会为每个属性生成 getter 和 setter。</p>
+<p>对于 getter 和 setter 方法，您可以替换其中一个方法或同时替换两个方法，并提供您自己的自定义行为。为了实现后备属性，您需要替换 getter 方法以返回只读版本的数据。后备属性示例：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Declare private mutable variable that can only be modified</span></span><br><span class="line"><span class="comment">// within the class it is declared.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> _count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Declare another public immutable field and override its getter method.</span></span><br><span class="line"><span class="comment">// Return the private property&#x27;s value in the getter method.</span></span><br><span class="line"><span class="comment">// When count is accessed, the get() function is called and</span></span><br><span class="line"><span class="comment">// the value of _count is returned.</span></span><br><span class="line"><span class="keyword">val</span> count: <span class="built_in">Int</span></span><br><span class="line">   <span class="keyword">get</span>() = _count</span><br></pre></td></tr></table></figure>
+
+<p>举例而言，在您的应用中，您需要应用数据仅对 <code>ViewModel</code> 可见：</p>
+<p>在 <code>ViewModel</code> 类之内：</p>
+<ul>
+<li><code>_count</code> 属性设为 <code>private</code> 且可变。因此，只能在 <code>ViewModel</code> 类中对其进行访问和修改。惯例是为 <code>private</code> 属性添加下划线前缀。</li>
+</ul>
+<p>在 <code>ViewModel</code> 类之外：</p>
+<ul>
+<li>Kotlin 中的默认可见性修饰符为 <code>public</code>，因此 <code>count</code> 是公共属性，可从界面控制器等其他类对其进行访问。由于只有 <code>get()</code> 方法会被替换，所以此属性不可变且为只读状态。当外部类访问此属性时，它会返回 <code>_count</code> 的值且其值无法修改。这可以防止外部类擅自对 <code>ViewModel</code> 内的应用数据进行不安全的更改，但允许外部调用方安全地访问该应用数据的值.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> _currentScrambledWord = <span class="string">&quot;test&quot;</span></span><br><span class="line"><span class="keyword">val</span> currentScrambledWord: String</span><br><span class="line">   <span class="keyword">get</span>() = _currentScrambledWord</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-Hilt"><a href="#5-Hilt" class="headerlink" title="5. Hilt"></a>5. Hilt</h1><p><a href="https://developer.android.com/codelabs/android-hilt?hl=zh-cn#0">https://developer.android.com/codelabs/android-hilt?hl=zh-cn#0</a></p>
+<p>Virgo中的用法：</p>
+<ol>
+<li>RepositoryModule</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Module</span></span><br><span class="line"><span class="meta">@InstallIn(SingletonComponent::class)</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">RepositoryModule</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Binds</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">courseRepository</span><span class="params">(impl: <span class="type">CourseRepositoryImpl</span>)</span></span>: CourseRepository</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li></li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CourseRepository</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开始课程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">startCourse</span><span class="params">(immediateTraining: <span class="type">ImmediateTraining</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 上过的课</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getAttendedCourse</span><span class="params">()</span></span>: List&lt;LauncherCourseInfo&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 收藏的课</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getFavoriteCourse</span><span class="params">()</span></span>: List&lt;LauncherCourseInfo&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>实现接口，在实现中调用网络请求接口</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Singleton</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseRepositoryImpl</span> <span class="meta">@Inject</span> <span class="keyword">constructor</span></span>() : CourseRepository &#123;</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">val</span> dataRepository = DataRepository.getInstance()</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">override</span> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getAttendedCourse</span><span class="params">()</span></span>: List&lt;LauncherCourseInfo&gt; = suspendCancellableCoroutine &#123;</span><br><span class="line">        dataRepository.getAttendedCourseInfo(</span><br><span class="line">            <span class="keyword">object</span> : VirgoApiDisposableObserver&lt;List&lt;LauncherCourseInfo&gt;&gt;() &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onError</span><span class="params">(errorCode: <span class="type">String</span>?, errorMsg: <span class="type">String</span>?)</span></span> &#123;</span><br><span class="line">                    <span class="keyword">super</span>.onError(errorCode, errorMsg)</span><br><span class="line">                    <span class="keyword">if</span> (it.isActive) &#123;</span><br><span class="line">                        it.resumeWithException(BusinessException(errorCode, errorMsg))</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">(result: <span class="type">List</span>&lt;<span class="type">LauncherCourseInfo</span>&gt;?)</span></span> &#123;</span><br><span class="line">                    <span class="keyword">super</span>.onSuccess(result)</span><br><span class="line">                    <span class="keyword">if</span> (it.isActive) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (result == <span class="literal">null</span>) &#123;</span><br><span class="line">                            it.resumeWithException(NullPointerException(<span class="string">&quot;result is null&quot;</span>))</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            it.resume(result)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在viewmodel中获取数据</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@HiltViewModel</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FitnessViewModel</span> <span class="meta">@Inject</span> <span class="keyword">constructor</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> application: Application,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> courseRepository: CourseRepository,</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">val</span> _uiState = MutableStateFlow(UiState())</span><br><span class="line">    <span class="keyword">val</span> uiState: StateFlow&lt;UiState&gt; = _uiState</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        LogUtil.d(TAG, <span class="string">&quot;init&quot;</span>)</span><br><span class="line">        collect()</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">     <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">collect</span><span class="params">()</span></span> &#123;</span><br><span class="line">       <span class="comment">// 获取上过的课</span></span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">val</span> attendedCourse = courseRepository.getAttendedCourse()</span><br><span class="line">                _uiState.update &#123; current -&gt;</span><br><span class="line">                    current.copy(attendedCourse = attendedCourse)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e: CancellationException) &#123;</span><br><span class="line">                <span class="keyword">throw</span> e</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">                LogUtil.w(TAG, e.stackTraceToString())</span><br><span class="line">                _uiState.update &#123; current -&gt;</span><br><span class="line">                    current.copy(attendedCourse = <span class="literal">null</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="6-使用ViewTreeLifecycleOwner获取Lifecycle"><a href="#6-使用ViewTreeLifecycleOwner获取Lifecycle" class="headerlink" title="6. 使用ViewTreeLifecycleOwner获取Lifecycle"></a>6. 使用ViewTreeLifecycleOwner获取Lifecycle</h1><p><a href="https://blog.csdn.net/vitaviva/article/details/105006686">https://blog.csdn.net/vitaviva/article/details/105006686</a></p>
+<p>ViewTreeLifecycleOwner是Lifecycle KTX中提供的View的一个扩展方法，可以快速地获取一个最近的<a href="https://so.csdn.net/so/search?q=Fragment&spm=1001.2101.3001.7020">Fragment</a>或者Activity的LifecycleOwner。</p>
+<h1 id="7-repeatOnLifecycle"><a href="#7-repeatOnLifecycle" class="headerlink" title="7. repeatOnLifecycle"></a>7. repeatOnLifecycle</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&idx=1&mid=2247494116&scene=21&sn=6bd12ff9d62eb2a71fa74060afcac996#wechat_redirect">使用更为安全的方式收集 Android UI 数据流</a></p>
+<p>在 Android 开发中，请使用 LifecycleOwner.addRepeatingJob、suspend Lifecycle.repeatOnLifecycle 或 Flow.flowWithLifecycle 从 UI 层安全地收集数据流。</p>
+<h1 id="8-Android-上的-Kotlin-数据流"><a href="#8-Android-上的-Kotlin-数据流" class="headerlink" title="8.Android 上的 Kotlin 数据流"></a>8.Android 上的 Kotlin 数据流</h1><p><a href="https://developer.android.google.cn/kotlin/flow">https://developer.android.google.cn/kotlin/flow</a></p>
+<p>数据流以协程为基础构建，可提供多个值。从概念上来讲，数据流是可通过异步方式进行计算处理的一组数据序列。所发出值的类型必须相同。例如，<code>Flow&lt;Int&gt;</code> 是发出整数值的数据流。</p>
+<p>数据流与生成一组序列值的 <code>Iterator</code> 非常相似，但它使用挂起函数通过异步方式生成和使用值。这就是说，例如，数据流可安全地发出网络请求以生成下一个值，而不会阻塞主线程。</p>
+<ul>
+<li><h2 id="创建数据流"><a href="#创建数据流" class="headerlink" title="创建数据流"></a>创建数据流</h2><p><code>flow</code> 构建器函数会创建一个新数据流，您可使用 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow-collector/emit.html"><code>emit</code></a> 函数手动将新值发送到数据流中。</p>
+</li>
+<li><h2 id="修改数据流"><a href="#修改数据流" class="headerlink" title="修改数据流"></a>修改数据流</h2><p>存储库层将使用中间运算符 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html"><code>map</code></a> 来转换将在 <code>View</code> 上显示的数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> favoriteLatestNews: Flow&lt;List&lt;ArticleHeadline&gt;&gt; =</span><br><span class="line">     newsRemoteDataSource.latestNews</span><br><span class="line">         <span class="comment">// Intermediate operation to filter the list of favorite topics</span></span><br><span class="line">         .map &#123; news -&gt; news.filter &#123; userData.isFavoriteTopic(it) &#125; &#125;</span><br><span class="line">         <span class="comment">// Intermediate operation to save the latest news in the cache</span></span><br><span class="line">         .onEach &#123; news -&gt; saveInCache(news) &#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="从数据流中进行收集"><a href="#从数据流中进行收集" class="headerlink" title="从数据流中进行收集"></a>从数据流中进行收集</h2><p>使用终端运算符可触发数据流开始监听值。如需获取数据流中的所有发出值，请使用 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/collect.html"><code>collect</code></a></p>
+<p>由于 <code>collect</code> 是挂起函数，因此需要在协程中执行。它接受 lambda 作为在每个新值上调用的参数。由于它是挂起函数，调用 <code>collect</code> 的协程可能会挂起，直到该数据流关闭。</p>
+<p>继续之前的示例，下面将展示一个简单的 <code>ViewModel</code> 实现，展示其如何使用存储库层中的数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> newsRepository: NewsRepository</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            <span class="comment">// Trigger the flow and consume its elements using collect</span></span><br><span class="line">            newsRepository.favoriteLatestNews.collect &#123; favoriteNews -&gt;</span><br><span class="line">                <span class="comment">// Update View with the latest favorite news</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>数据流收集可能会由于以下原因而停止：</p>
+<ul>
+<li>如上例所示，协程收集被取消。此操作也会让底层提供方停止活动。</li>
+<li>提供方完成发出数据项。在这种情况下，数据流将关闭，调用 <code>collect</code> 的协程则继续执行。</li>
+</ul>
+<p>除非使用其他中间运算符指定流，否则数据流始终为冷数据并延迟执行。这意味着，每次在数据流上调用终端运算符时，都会执行提供方代码。在前面的示例中，拥有多个数据流收集器会导致数据源以不同的固定时间间隔多次获取最新资讯。如需在多个使用方同时收集时优化并共享数据流，请使用 <a href="https://developer.android.google.cn/kotlin/flow/stateflow-and-sharedflow#sharein"><code>shareIn</code></a> 运算符。</p>
+<ul>
+<li><h2 id="数据流捕获异常"><a href="#数据流捕获异常" class="headerlink" title="数据流捕获异常"></a>数据流捕获异常</h2></li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> newsRepository: NewsRepository</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            newsRepository.favoriteLatestNews</span><br><span class="line">                <span class="comment">// Intermediate catch operator. If an exception is thrown,</span></span><br><span class="line">                <span class="comment">// catch and update the UI</span></span><br><span class="line">                .<span class="keyword">catch</span> &#123; exception -&gt; notifyError(exception) &#125;</span><br><span class="line">                .collect &#123; favoriteNews -&gt;</span><br><span class="line">                    <span class="comment">// Update View with the latest favorite news</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>提供方的数据实现可来自第三方库。这意味着它可能会引发异常情况。如需处理这些异常，请使用 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/catch.html"><code>catch</code></a> 中间运算符。</p>
+<ul>
+<li><h2 id="在不同-CoroutineContext-中执行"><a href="#在不同-CoroutineContext-中执行" class="headerlink" title="在不同 CoroutineContext 中执行"></a>在不同 CoroutineContext 中执行</h2></li>
+</ul>
+<p>默认情况下，<code>flow</code> 构建器的提供方会通过从中收集的协程的 <code>CoroutineContext</code> 执行，并且如前所述，它无法从不同 <code>CoroutineContext</code> 对值执行 <code>emit</code> 操作。在某些情况下，可能不需要此行为。例如，在本主题所用示例中，存储库层不应在 <code>viewModelScope</code> 所使用的 <code>Dispatchers.Main</code> 上执行操作。</p>
+<p>如需更改数据流的 <code>CoroutineContext</code>，请使用中间运算符 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/flow-on.html"><code>flowOn</code></a>。<code>flowOn</code> 会更改上游数据流的 <code>CoroutineContext</code>，这表示会在 <code>flowOn</code> 之前（或之上）应用提供方以及任何中间运算符。下游数据流（晚于 <code>flowOn</code> 的中间运算符和使用方）不会受到影响，并会在 <code>CoroutineContext</code> 上执行以从数据流执行 <code>collect</code> 操作。如果有多个 <code>flowOn</code> 运算符，每个运算符都会更改当前位置的上游数据流。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsRepository</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> newsRemoteDataSource: NewsRemoteDataSource,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> userData: UserData,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> defaultDispatcher: CoroutineDispatcher</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">val</span> favoriteLatestNews: Flow&lt;List&lt;ArticleHeadline&gt;&gt; =</span><br><span class="line">        newsRemoteDataSource.latestNews</span><br><span class="line">            .map &#123; news -&gt; <span class="comment">// Executes on the default dispatcher</span></span><br><span class="line">                news.filter &#123; userData.isFavoriteTopic(it) &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .onEach &#123; news -&gt; <span class="comment">// Executes on the default dispatcher</span></span><br><span class="line">                saveInCache(news)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// flowOn affects the upstream flow ↑</span></span><br><span class="line">            .flowOn(defaultDispatcher)</span><br><span class="line">            <span class="comment">// the downstream flow ↓ is not affected</span></span><br><span class="line">            .<span class="keyword">catch</span> &#123; exception -&gt; <span class="comment">// Executes in the consumer&#x27;s context</span></span><br><span class="line">                emit(lastCachedNews())</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>借助此代码，<code>onEach</code> 和 <code>map</code> 运算符使用 <code>defaultDispatcher</code>，其中<code>catch</code> 运算符和使用方在 <code>viewModelScope</code> 所使用的 <code>Dispatchers.Main</code> 上执行。</p>
+<p>随着数据源层执行 I/O 操作，您应该使用针对 I/O 操作进行优化的调度程序：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsRemoteDataSource</span></span>(</span><br><span class="line">    ...,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> ioDispatcher: CoroutineDispatcher</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">val</span> latestNews: Flow&lt;List&lt;ArticleHeadline&gt;&gt; = flow &#123;</span><br><span class="line">        <span class="comment">// Executes on the IO dispatcher</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">        .flowOn(ioDispatcher)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Jetpack-库中的数据流"><a href="#Jetpack-库中的数据流" class="headerlink" title="Jetpack 库中的数据流"></a>Jetpack 库中的数据流</h2><p>许多 Jetpack 库已集成数据流，并且在 Android 第三方库中非常受欢迎。数据流非常适合实时数据更新和无限数据流。</p>
+<p>您可以使用 <a href="https://medium.com/androiddevelopers/room-flow-273acffe5b57">Flow with Room</a> 接收有关数据库更改的通知。在使用<a href="https://developer.android.google.cn/training/data-storage/room/accessing-data">数据访问对象 (DAO)</a> 时，返回 <code>Flow</code> 类型以获取实时更新。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Dao</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleDao</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Query(<span class="meta-string">&quot;SELECT * FROM Example&quot;</span>)</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">getExamples</span><span class="params">()</span></span>: Flow&lt;List&lt;Example&gt;&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每当 <code>Example</code> 数据表发生更改时，系统都会发出包含数据库新数据项的新列表。</p>
+<h2 id="将基于回调的-API-转换为数据流"><a href="#将基于回调的-API-转换为数据流" class="headerlink" title="将基于回调的 API 转换为数据流"></a>将基于回调的 API 转换为数据流</h2><p><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html"><code>callbackFlow</code></a> 是一个数据流构建器，允许您将基于回调的 API 转换为数据流。例如，<a href="https://firebase.google.cn/docs/firestore/quickstart#kotlin+ktx">Firebase Firestore</a> Android API 会使用回调。如需将这些 API 转换为数据流并监听 Firestore 数据库的更新，您可使用以下代码：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FirestoreUserEventsDataSource</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> firestore: FirebaseFirestore</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="comment">// Method to get user events from the Firestore database</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getUserEvents</span><span class="params">()</span></span>: Flow&lt;UserEvents&gt; = callbackFlow &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Reference to use in Firestore</span></span><br><span class="line">        <span class="keyword">var</span> eventsCollection: CollectionReference? = <span class="literal">null</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            eventsCollection = FirebaseFirestore.getInstance()</span><br><span class="line">                .collection(<span class="string">&quot;collection&quot;</span>)</span><br><span class="line">                .document(<span class="string">&quot;app&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Throwable) &#123;</span><br><span class="line">            <span class="comment">// If Firebase cannot be initialized, close the stream of data</span></span><br><span class="line">            <span class="comment">// flow consumers will stop collecting and the coroutine will resume</span></span><br><span class="line">            close(e)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Registers callback to firestore, which will be called on new events</span></span><br><span class="line">        <span class="keyword">val</span> subscription = eventsCollection?.addSnapshotListener &#123; snapshot, _ -&gt;</span><br><span class="line">            <span class="keyword">if</span> (snapshot == <span class="literal">null</span>) &#123; <span class="keyword">return</span><span class="symbol">@addSnapshotListener</span> &#125;</span><br><span class="line">            <span class="comment">// Sends events to the flow! Consumers will get the new events</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                offer(snapshot.getEvents())</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e: Throwable) &#123;</span><br><span class="line">                <span class="comment">// Event couldn&#x27;t be sent to the flow</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// The callback inside awaitClose will be executed when the flow is</span></span><br><span class="line">        <span class="comment">// either closed or cancelled.</span></span><br><span class="line">        <span class="comment">// In this case, remove the callback from Firestore</span></span><br><span class="line">        awaitClose &#123; subscription?.remove() &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与 <code>flow</code> 构建器不同，<code>callbackFlow</code> 允许通过 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.channels/-send-channel/send.html"><code>send</code></a> 函数从不同 <code>CoroutineContext</code> 发出值，或者通过 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.channels/-send-channel/offer.html"><code>offer</code></a> 函数在协程外发出值。</p>
+<p>在协程内部，<code>callbackFlow</code> 会使用<a href="https://kotlinlang.org/docs/reference/coroutines/channels.html">通道</a>，它在概念上与阻塞<a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">队列</a>非常相似。通道都有容量配置，限定了可缓冲元素数的上限。在 <code>callbackFlow</code> 中所创建通道的默认容量为 64 个元素。当您尝试向完整通道添加新元素时，<code>send</code> 会将数据提供方挂起，直到新元素有空间为止，而 <code>offer</code> 不会将相关元素添加到通道中，并会立即返回 <code>false</code>。</p>
+<h1 id="9-破解-Kotlin-协程-11-Flow-篇"><a href="#9-破解-Kotlin-协程-11-Flow-篇" class="headerlink" title="9.破解 Kotlin 协程(11) - Flow 篇"></a>9.破解 Kotlin 协程(11) - Flow 篇</h1><p><a href="https://zhuanlan.zhihu.com/p/114295411">https://zhuanlan.zhihu.com/p/114295411</a></p>
+<blockquote>
+<p><code>Flow</code> 就是 Kotlin 协程与响应式编程模型结合的产物，你会发现它与 RxJava 非常像，二者之间也有相互转换的 API，使用起来非常方便。</p>
+</blockquote>
+<ul>
+<li>冷数据流</li>
+</ul>
+<p>一个 Flow 创建出来之后，不消费则不生产，多次消费则多次生产，生产和消费总是相对应的。</p>
+<p>所谓冷数据流，就是只有消费时才会生产的数据流，这一点与 <code>Channel</code> 正对应：<code>Channel</code> 的发送端并不依赖于接收端。</p>
+<h3 id="末端操作符"><a href="#末端操作符" class="headerlink" title="末端操作符"></a>末端操作符</h3><p>前面的例子当中，我们用 <code>collect</code> 消费 Flow 的数据。<code>collect</code> 是最基本的末端操作符，功能与 RxJava 的 <code>subscribe</code> 类似。除了 <code>collect</code> 之外，还有其他常见的末端操作符，大体分为两类：</p>
+<ol>
+<li>集合类型转换操作，包括 <code>toList</code>、<code>toSet</code> 等。</li>
+<li>聚合操作，包括将 Flow 规约到单值的 <code>reduce</code>、<code>fold</code> 等操作，以及获得单个元素的操作包括 <code>single</code>、<code>singleOrNull</code>、<code>first</code> 等。</li>
+</ol>
+<p>实际上，识别是否为末端操作符，还有一个简单方法，由于 Flow 的消费端一定需要运行在协程当中，因此末端操作符都是挂起函数。</p>
+<h3 id="Flow-的取消"><a href="#Flow-的取消" class="headerlink" title="Flow 的取消"></a>Flow 的取消</h3><p>想要取消 Flow 只需要取消它所在的协程即可。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">job.cancelAndJoin()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Flow-的背压"><a href="#Flow-的背压" class="headerlink" title="Flow 的背压"></a>Flow 的背压</h3><p>只要是响应式编程，就一定会有背压问题，我们先来看看背压究竟是什么。</p>
+<p>背压问题在生产者的生产速率高于消费者的处理速率的情况下出现。为了保证数据不丢失，我们也会考虑添加缓存来缓解问题：</p>
+<ul>
+<li>也可以为 <code>buffer</code> 指定一个容量。不过，如果我们只是单纯地添加缓存，而不是从根本上解决问题就始终会造成数据积压。</li>
+<li>使用 conflate 解决背压问题</li>
+<li><code>collectLatest</code>。顾名思义，只处理最新的数据，这看上去似乎与 <code>conflate</code> 没有区别，其实区别大了：它并不会直接用新数据覆盖老数据，而是每一个都会被处理，只不过如果前一个还没被处理完后一个就来了的话，处理前一个数据的逻辑就会被取消。</li>
+</ul>
+<h1 id="10-StateFlow-和-SharedFlow"><a href="#10-StateFlow-和-SharedFlow" class="headerlink" title="10.StateFlow 和 SharedFlow"></a>10.StateFlow 和 SharedFlow</h1><p><code>StateFlow</code> 和 <code>SharedFlow</code> 是 <a href="https://developer.android.google.cn/kotlin/flow">Flow API</a>，允许数据流以最优方式发出状态更新并向多个使用方发出值。</p>
+<p>在 Android 中，<code>StateFlow</code> 非常适合需要让可变状态保持可观察的类。</p>
+<p>按照 <a href="https://developer.android.google.cn/kotlin/flow">Kotlin 数据流</a>中的示例，可以从 <code>LatestNewsViewModel</code> 公开 <code>StateFlow</code>，以便 <code>View</code> 能够监听界面状态更新，并自行使屏幕状态在配置更改后继续有效。</p>
+<p>如需将任何数据流转换为 <code>StateFlow</code>，请使用 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html"><code>stateIn</code></a> 中间运算符。</p>
+<h3 id="StateFlow、Flow-和-LiveData"><a href="#StateFlow、Flow-和-LiveData" class="headerlink" title="StateFlow、Flow 和 LiveData"></a>StateFlow、Flow 和 LiveData</h3><p><code>StateFlow</code> 和 <a href="https://developer.android.google.cn/topic/libraries/architecture/livedata"><code>LiveData</code></a> 具有相似之处。两者都是可观察的数据容器类，并且在应用架构中使用时，两者都遵循相似模式。</p>
+<p>但请注意，<code>StateFlow</code> 和 <a href="https://developer.android.google.cn/topic/libraries/architecture/livedata"><code>LiveData</code></a> 的行为确实有所不同：</p>
+<ul>
+<li><p><code>StateFlow</code> 需要将初始状态传递给构造函数，而 <code>LiveData</code> 不需要。</p>
+</li>
+<li><p>当 View 进入 <code>STOPPED</code> 状态时，<code>LiveData.observe()</code> 会自动取消注册使用方，而从 <code>StateFlow</code> 或任何其他数据流收集数据的操作并不会自动停止。如需实现相同的行为，您需要从 <code>Lifecycle.repeatOnLifecycle</code> 块</p>
+<p>收集数据流。</p>
+</li>
+</ul>
+<p><a href="https://juejin.cn/post/7007602776502960165">不做跟风党，LiveData，StateFlow，SharedFlow 使用场景对比</a></p>
+<h1 id="11-FragmentContainerView的用法"><a href="#11-FragmentContainerView的用法" class="headerlink" title="11.FragmentContainerView的用法"></a>11.FragmentContainerView的用法</h1><p>  使用navigation,navigation会自动管理fragment,您只要向navigation.xml添加fragment即可,避免使用代码容易出现的错漏;<br>当要传递动态参数值时,在代码调用setGraph,注意setGraph的参数是传递给navigation.xml文件中app:startDestination这个Fragment;<br>要切换Fragment时,使用下面的代码切换：</p>
+<ul>
+<li>Activity中切换</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);</span><br><span class="line">NavController navController = navHostFragment.getNavController();</span><br><span class="line">Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">bundle.putString(key,val); </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*	注意</span></span><br><span class="line"><span class="comment">*	R.id.fragmentTrees是在navigation.xml中定义的fragment id</span></span><br><span class="line"><span class="comment">*	bundle此时传递给R.id.fragmentTrees</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">navController.navigate(R.id.fragmentTrees,bundle);  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>Fragment中切换<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">avController navController = Navigation.findNavController(requireActivity(), R.id.fragmentContainerView);</span><br><span class="line">navController.navigate(R.id.Fragment, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="12-Android-上的-Kotlin-协程"><a href="#12-Android-上的-Kotlin-协程" class="headerlink" title="12.Android 上的 Kotlin 协程"></a>12.Android 上的 Kotlin 协程</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>为什么需要协程？</p>
+<ul>
+<li><p>java 中 回调嵌套（回调地狱）</p>
+<p>getToken-&gt;Login-&gt;…… </p>
+</li>
+<li><p>RxJava</p>
+<p>compose 切换切换、flatMap、回调变成流式调用，也能解决回调问题，不过操作符使用有点困难。</p>
+<p>我们需要进一步了解响应式的思想。</p>
+</li>
+<li><p>让异步执行的代码写得和同步一样， 更加符合人类的思维方式。</p>
+<p>其实效率并无多大的提升。</p>
+<p>协程可以使用阻塞的方式写出非阻塞式的代码，解决并发中常见的回调地狱，这是其最大的优点。</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3y6frbavuj21ew0msq90.jpg" alt="image-20220707105729332"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3y6jvwemgj21lx0u0af1.jpg" alt="image-20220707110129006"></p>
+<p>并发和并行的概念<br>首先从并发（ Concurrency ）与并行（ Parallelism ）说起。</p>
+<p>并发是指在某个时间段内，多任务交替处理的能力。所谓不患寡而患不均，每个 CPU 不可能只顾着执行某个进程，让其他进程一直处于等待状态。所以， CPU 把可执行时间均匀地分成若干份，每个进程执行一段时间后，记录当前的工作状态，释放相关的执行资源并进入等待状态，让其他进程抢占 CPU 资源。</p>
+<p>并行是指同时处理多任务的能力。目前， CPU 已经发展为多核，可以同时执行多个互不依赖的指令及执行块。</p>
+<p>并发与并行两个概念非常容易混淆，它们的核心区别在于进程是否同时执行。</p>
+<p>以 KTV 唱歌为例，并行指的是有多少人可以使用话筒同时唱歌，并发指的是同一个话筒被多个人轮流使用。<br>————————————————<br><a href="https://blog.csdn.net/jun5753/article/details/122718938">https://blog.csdn.net/jun5753/article/details/122718938</a></p>
+<p><a href="https://blog.csdn.net/jun5753/article/details/103168268">谈谈我对 Kotlin 中协程的理解</a></p>
+<h2 id="协程的基本使用"><a href="#协程的基本使用" class="headerlink" title="协程的基本使用"></a>协程的基本使用</h2><ul>
+<li><p>kotlin中的启动模式</p>
+<p><a href="https://juejin.cn/post/7021020346354499598">https://juejin.cn/post/7021020346354499598</a></p>
+</li>
+<li><p>job.join()的使用</p>
+</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>获取一个协程作用域用于创建协程</li>
+<li>通过协程作用域.launch方法启动新的协程任务<ol>
+<li>启动时可以指定执行线程</li>
+<li>内部通过withContext()方法实现切换线程</li>
+</ol>
+</li>
+<li>在onDestroy生命周期方法之中要手动取消</li>
+</ol>
+<h3 id="协程作用域"><a href="#协程作用域" class="headerlink" title="协程作用域"></a>协程作用域</h3><ul>
+<li><p>MainScope是协程默认提供的作用域，但是还有其他作用域更为方便</p>
+</li>
+<li><p>可使用lifecycleScope或者viewModelScope，这两种作用域会自动取消</p>
+</li>
+<li><p>在UI组件中使用 LifecycleOwner.lifecycleScope， 在ViewModel中使用ViewModel.viewModelScope。</p>
+</li>
+</ul>
+<h3 id="Scope是什么-有什么用？"><a href="#Scope是什么-有什么用？" class="headerlink" title="Scope是什么?有什么用？"></a>Scope是什么?有什么用？</h3><p>当<code>launch</code>, <code>async</code>或<code>runBlocking</code>开启新协程的时候, 它们自动创建相应的scope. 所有的这些方法都有一个带receiver的lambda参数, 默认的receiver类型是<code>CoroutineScope</code>.</p>
+<p>Scope在实际应用中解决什么问题呢? </p>
+<p>如果我们的应用中, 有一个对象是有自己的生命周期的, 但是这个对象又不是协程, 比如Android应用中的Activity, 其中启动了一些协程来做异步操作, 更新数据等, 当Activity被销毁的时候需要取消所有的协程, 来避免内存泄漏. 我们就可以利用<code>CoroutineScope</code>来做这件事: 创建一个<code>CoroutineScope</code>对象和activity的生命周期绑定, 或者让activity实现<code>CoroutineScope</code>接口.</p>
+<p>所以, scope的主要作用就是记录所有的协程, 并且可以取消它们。</p>
+<h2 id="CoroutineScope"><a href="#CoroutineScope" class="headerlink" title="CoroutineScope"></a>CoroutineScope</h2><p><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/"><code>CoroutineScope</code></a> 会跟踪它使用 <code>launch</code> 或 <code>async</code> 创建的所有协程。您可以随时调用 <code>scope.cancel()</code> 以取消正在进行的工作（即正在运行的协程）。在 Android 中，某些 KTX 库为某些生命周期类提供自己的 <code>CoroutineScope</code>。例如，<code>ViewModel</code> 有 <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary?hl=zh-cn#(androidx.lifecycle.ViewModel).viewModelScope:kotlinx.coroutines.CoroutineScope"><code>viewModelScope</code></a>，<code>Lifecycle</code> 有 <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary?hl=zh-cn#lifecyclescope"><code>lifecycleScope</code></a>。不过，与调度程序不同，<code>CoroutineScope</code> 不运行协程。</p>
+<p><a href="https://www.cnblogs.com/mengdd/p/kotlin-coroutines-basics.html">https://www.cnblogs.com/mengdd/p/kotlin-coroutines-basics.html</a></p>
+<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p><a href="https://juejin.cn/post/6889038472955805710">在 View 上使用挂起函数</a></p>
+<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>在 自定义 view 中的选择作用域时 如果用</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">findViewTreeLifecycleOwner()?.lifecycleScope?.launch &#123;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>【官方文档】将 Kotlin 协程与生命周期感知型组件一起使用：</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn">https://developer.android.com/topic/libraries/architecture/coroutines?hl=zh-cn</a></p>
+<p><a href="https://juejin.cn/post/6996629819806973982">一文带你理解Kotlin协程本质核心</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>协程是一种<strong>并发</strong>设计模式，您可以在 Android 平台上使用它来简化异步执行的代码。</p>
+<p>协程是我们在 Android 上进行异步编程的推荐解决方案。值得关注的特点包括：</p>
+<ul>
+<li><strong>轻量</strong>：您可以在单个线程上运行多个协程，因为协程支持<a href="https://kotlinlang.org/docs/reference/coroutines/basics.html">挂起</a>，不会使正在运行协程的线程阻塞。挂起比阻塞节省内存，且支持多个并行操作。</li>
+<li><strong>内存泄漏更少</strong>：使用<a href="https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency">结构化并发</a>机制在一个作用域内执行多项操作。</li>
+<li><strong>内置取消支持</strong>：<a href="https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html">取消</a>操作会自动在运行中的整个协程层次结构内传播。</li>
+<li><strong>Jetpack 集成</strong>：许多 Jetpack 库都包含提供全面协程支持的<a href="https://developer.android.google.cn/kotlin/ktx">扩展</a>。某些库还提供自己的<a href="https://developer.android.google.cn/topic/libraries/architecture/coroutines">协程作用域</a>，可供您用于结构化并发。</li>
+</ul>
+<h2 id="管理长时间运行的任务"><a href="#管理长时间运行的任务" class="headerlink" title="管理长时间运行的任务"></a>管理长时间运行的任务</h2><p>协程在常规函数的基础上添加了两项操作，用于处理长时间运行的任务。在 <code>invoke</code>（或 <code>call</code>）和 <code>return</code> 之外，协程添加了 <code>suspend</code> 和 <code>resume</code>：</p>
+<ul>
+<li><code>suspend</code> 用于暂停执行当前协程，并保存所有局部变量。</li>
+<li><code>resume</code> 用于让已挂起的协程从挂起处继续执行。</li>
+</ul>
+<p>如需调用 <code>suspend</code> 函数，只能从其他 <code>suspend</code> 函数进行调用，或通过使用协程构建器（例如 <code>launch</code>）来启动新的协程。</p>
+<h2 id="使用协程确保主线程安全"><a href="#使用协程确保主线程安全" class="headerlink" title="使用协程确保主线程安全"></a>使用协程确保主线程安全</h2><p>Kotlin 协程使用调度程序确定哪些线程用于执行协程。要在主线程之外运行代码，可以让 Kotlin 协程在 Default 或 IO 调度程序上执行工作。在 Kotlin 中，所有协程都必须在调度程序中运行，即使它们在主线程上运行也是如此。协程可以自行挂起，而调度程序负责将其恢复。</p>
+<p>Kotlin 提供了三个调度程序，以用于指定应在何处运行协程：</p>
+<ul>
+<li><strong>Dispatchers.Main</strong> - 使用此调度程序可在 Android 主线程上运行协程。此调度程序只能用于与界面交互和执行快速工作。示例包括调用 <code>suspend</code> 函数，运行 Android 界面框架操作，以及更新 <a href="https://developer.android.google.cn/topic/libraries/architecture/livedata"><code>LiveData</code></a> 对象。</li>
+<li><strong>Dispatchers.IO</strong> - 此调度程序经过了专门优化，适合在主线程之外执行磁盘或网络 I/O。示例包括使用 <a href="https://developer.android.google.cn/topic/libraries/architecture/room">Room 组件</a>、从文件中读取数据或向文件中写入数据，以及运行任何网络操作。</li>
+<li><strong>Dispatchers.Default</strong> - 此调度程序经过了专门优化，适合在主线程之外执行占用大量 CPU 资源的工作。用例示例包括对列表排序和解析 JSON。</li>
+</ul>
+<p>接着前面的示例来讲，您可以使用调度程序重新定义 <code>get</code> 函数。在 <code>get</code> 的主体内，调用 <code>withContext(Dispatchers.IO)</code> 来创建一个在 IO 线程池中运行的块。您放在该块内的任何代码都始终通过 <code>IO</code> 调度程序执行。由于 <code>withContext</code> 本身就是一个挂起函数，因此函数 <code>get</code> 也是一个挂起函数。</p>
+<h2 id="CoroutineContext"><a href="#CoroutineContext" class="headerlink" title="CoroutineContext"></a>CoroutineContext</h2><p><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/index.html"><code>CoroutineContext</code></a> 使用以下元素集定义协程的行为：</p>
+<ul>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/index.html"><code>Job</code></a>：控制协程的生命周期。</li>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/index.html"><code>CoroutineDispatcher</code></a>：将工作分派到适当的线程。</li>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-name/index.html"><code>CoroutineName</code></a>：协程的名称，可用于调试。</li>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/index.html"><code>CoroutineExceptionHandler</code></a>：处理未捕获的异常。</li>
+</ul>
+<h2 id="启动协程"><a href="#启动协程" class="headerlink" title="启动协程"></a>启动协程</h2><p>您可以通过以下两种方式来启动协程：</p>
+<ul>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html"><code>launch</code></a> 可启动新协程而不将结果返回给调用方。任何被视为“一劳永逸”的工作都可以使用 <code>launch</code> 来启动。</li>
+<li><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html"><code>async</code></a>会启动一个新的协程，并允许您使用一个名为 <code>await</code> 的挂起函数返回结果。</li>
+</ul>
+<p>通常，您应使用 <code>launch</code> 从常规函数启动新协程，因为常规函数无法调用 <code>await</code>。只有在另一个协程内时，或在挂起函数内且正在执行并行分解时，才使用 <code>async</code>。</p>
+<h2 id="Job-作业"><a href="#Job-作业" class="headerlink" title="Job 作业"></a>Job 作业</h2><p><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/index.html"><code>Job</code></a> 是协程的句柄。使用 <code>launch</code> 或 <code>async</code> 创建的每个协程都会返回一个 <code>Job</code> 实例，该实例是相应协程的唯一标识并管理其生命周期</p>
+<p>一个任务可以包含一系列状态: 新创建 (<strong>New</strong>)、活跃 (<strong>Active</strong>)、完成中 (<strong>Completing</strong>)、已完成 (Completed)、取消中 (<strong>Cancelling</strong>) 和已取消 (<strong>Cancelled</strong>)。虽然我们无法直接访问这些状态，但是我们可以访问 <code>Job</code> 的属性: <code>isActive</code>、<code>isCancelled</code> 和 <code>isCompleted</code>。<br>如果协程处于活跃状态，协程运行出错或者调用 <code>job.cancel()</code> 都会将当前任务置为取消中 (<strong>Cancelling</strong>) 状态 (<code>isActive = false, isCancelled = true</code>)。当所有的子协程都完成后，协程会进入已取消 (<strong>Cancelled</strong>) 状态，此时 <code>isCompleted = true</code>。</p>
+<p>一篇文章带你了解——Kotlin协程</p>
+<p><a href="https://zhuanlan.zhihu.com/p/427092689">https://zhuanlan.zhihu.com/p/427092689</a></p>
+<h2 id="Suspend"><a href="#Suspend" class="headerlink" title="Suspend"></a>Suspend</h2><p>使用 <code>suspend</code> 不会让 Kotlin 在后台线程上运行函数。<code>suspend</code> 函数在主线程上运行是一种正常的现象。在主线程上启动协程的情况也很常见。当您需要确保主线程安全时（例如，从磁盘上读取数据或向磁盘中写入数据、执行网络操作或运行占用大量 CPU 资源的操作时），应始终在 <code>suspend</code> 函数内使用 <code>withContext()</code>。</p>
+<p><a href="https://developer.android.google.cn/kotlin/coroutines">https://developer.android.google.cn/kotlin/coroutines</a></p>
+<h2 id="CoroutineScope-1"><a href="#CoroutineScope-1" class="headerlink" title="CoroutineScope"></a>CoroutineScope</h2><p><a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/"><code>CoroutineScope</code></a> 会跟踪它使用 <code>launch</code> 或 <code>async</code> 创建的所有协程。您可以随时调用 <code>scope.cancel()</code> 以取消正在进行的工作（即正在运行的协程）。在 Android 中，某些 KTX 库为某些生命周期类提供自己的 <code>CoroutineScope</code>。例如，<code>ViewModel</code> 有 <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary?hl=zh-cn#(androidx.lifecycle.ViewModel).viewModelScope:kotlinx.coroutines.CoroutineScope"><code>viewModelScope</code></a>，<code>Lifecycle</code> 有 <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary?hl=zh-cn#lifecyclescope"><code>lifecycleScope</code></a>。不过，与调度程序不同，<code>CoroutineScope</code> 不运行协程。</p>
+<h1 id="13-在-Android-中使用协程的最佳做法"><a href="#13-在-Android-中使用协程的最佳做法" class="headerlink" title="13.在 Android 中使用协程的最佳做法"></a>13.在 Android 中使用协程的最佳做法</h1><p><a href="https://developer.android.google.cn/kotlin/coroutines/coroutines-best-practices">https://developer.android.google.cn/kotlin/coroutines/coroutines-best-practices</a></p>
+<h2 id="注入调度程序"><a href="#注入调度程序" class="headerlink" title="注入调度程序"></a>注入调度程序</h2><p>在创建新协程或调用 <code>withContext</code> 时，请勿对 <code>Dispatchers</code> 进行硬编码。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DO inject Dispatchers</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsRepository</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> defaultDispatcher: CoroutineDispatcher = Dispatchers.Default</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">loadNews</span><span class="params">()</span></span> = withContext(defaultDispatcher) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// DO NOT hardcode Dispatchers</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsRepository</span> </span>&#123;</span><br><span class="line">    <span class="comment">// DO NOT use Dispatchers.Default directly, inject it instead</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">loadNews</span><span class="params">()</span></span> = withContext(Dispatchers.Default) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="挂起函数应该能够安全地从主线程调用"><a href="#挂起函数应该能够安全地从主线程调用" class="headerlink" title="挂起函数应该能够安全地从主线程调用"></a>挂起函数应该能够安全地从主线程调用</h2><p>挂起函数应该是主线程安全的，这意味着，您可以安全地从主线程调用挂起函数。如果某个类在协程中执行长期运行的阻塞操作，那么该类负责使用 <code>withContext</code> 将执行操作移出主线程。这适用于应用中的所有类，无论其属于架构的哪个部分都不例外。</p>
+<h2 id="ViewModel-应创建协程"><a href="#ViewModel-应创建协程" class="headerlink" title="ViewModel 应创建协程"></a>ViewModel 应创建协程</h2><p><a href="https://developer.android.google.cn/topic/libraries/architecture/viewmodel"><code>ViewModel</code></a> 类应首选创建协程，而不是公开挂起函数来执行业务逻辑。如果只需要发出一个值，而不是使用数据流公开状态，<code>ViewModel</code> 中的挂起函数就会非常有用。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DO create coroutines in the ViewModel</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> _uiState = MutableStateFlow&lt;LatestNewsUiState&gt;(LatestNewsUiState.Loading)</span><br><span class="line">    <span class="keyword">val</span> uiState: StateFlow&lt;LatestNewsUiState&gt; = _uiState</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">loadNews</span><span class="params">()</span></span> &#123;</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            <span class="keyword">val</span> latestNewsWithAuthors = getLatestNewsWithAuthors()</span><br><span class="line">            _uiState.value = LatestNewsUiState.Success(latestNewsWithAuthors)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Prefer observable state rather than suspend functions from the ViewModel</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase</span><br><span class="line">) : ViewModel() &#123;</span><br><span class="line">    <span class="comment">// DO NOT do this. News would probably need to be refreshed as well.</span></span><br><span class="line">    <span class="comment">// Instead of exposing a single value with a suspend function, news should</span></span><br><span class="line">    <span class="comment">// be exposed using a stream of data as in the code snippet above.</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">loadNews</span><span class="params">()</span></span> = getLatestNewsWithAuthors()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>视图不应直接触发任何协程来执行业务逻辑，而应将这项工作委托给 <code>ViewModel</code>。这样一来，业务逻辑就会变得更易于测试，因为可以对 <code>ViewModel</code> 对象进行单元测试，而不必使用测试视图所必需的插桩测试。</p>
+<p>此外，如果工作是在 <code>viewModelScope</code> 中启动，您的协程将在配置更改后自动保留。如果您改用 <code>lifecycleScope</code> 创建协程，则必须手动进行处理该操作。如果协程的存在时间需要比 <code>ViewModel</code> 的作用域更长，请查看<a href="https://developer.android.google.cn/kotlin/coroutines/coroutines-best-practices#create-coroutines-data-layer">“在业务和数据层中创建协程”部分</a>。</p>
+<h2 id="不要公开可变类型"><a href="#不要公开可变类型" class="headerlink" title="不要公开可变类型"></a>不要公开可变类型</h2><p>最好向其他类公开不可变类型。这样一来，对可变类型的所有更改都会集中在一个类中，便于在出现问题时进行调试。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DO expose immutable types</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> _uiState = MutableStateFlow(LatestNewsUiState.Loading)</span><br><span class="line">    <span class="keyword">val</span> uiState: StateFlow&lt;LatestNewsUiState&gt; = _uiState</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LatestNewsViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// DO NOT expose mutable types</span></span><br><span class="line">    <span class="keyword">val</span> uiState = MutableStateFlow(LatestNewsUiState.Loading)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据层和业务层应公开挂起函数和数据流"><a href="#数据层和业务层应公开挂起函数和数据流" class="headerlink" title="数据层和业务层应公开挂起函数和数据流"></a>数据层和业务层应公开挂起函数和数据流</h2><p>数据层和业务层中的类通常会公开函数以执行一次性调用，或接收数据随时间变化的通知。这些层中的类应该<strong>针对一次性调用公开挂起函数</strong>，并<strong>公开数据流以接收关于数据更改的通知</strong>。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Classes in the data and business layer expose</span></span><br><span class="line"><span class="comment">// either suspend functions or Flows</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleRepository</span> </span>&#123;</span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">makeNetworkRequest</span><span class="params">()</span></span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getExamples</span><span class="params">()</span></span>: Flow&lt;Example&gt; &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>采用该最佳做法后，调用方（通常是演示层）能够控制这些层中发生的工作的执行和生命周期，并在需要时取消相应工作。</p>
+<h2 id="在业务层和数据层中创建协程"><a href="#在业务层和数据层中创建协程" class="headerlink" title="在业务层和数据层中创建协程"></a>在业务层和数据层中创建协程</h2><p>对于数据层或业务层中因不同原因而需要创建协程的类，它们可以选择不同的选项。</p>
+<p>如果仅当用户查看当前屏幕时，要在这些协程中完成的工作才具有相关性，则应遵循调用方的生命周期。在大多数情况下，调用方将是 ViewModel。在这种情况下，应使用 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html"><code>coroutineScope</code></a> 或 <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html"><code>supervisorScope</code></a>。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetAllBooksAndAuthorsUseCase</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> booksRepository: BooksRepository,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> authorsRepository: AuthorsRepository,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> defaultDispatcher: CoroutineDispatcher = Dispatchers.Default</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getBookAndAuthors</span><span class="params">()</span></span>: BookAndAuthors &#123;</span><br><span class="line">        <span class="comment">// In parallel, fetch books and authors and return when both requests</span></span><br><span class="line">        <span class="comment">// complete and the data is ready</span></span><br><span class="line">        <span class="keyword">return</span> coroutineScope &#123;</span><br><span class="line">            <span class="keyword">val</span> books = async(defaultDispatcher) &#123;</span><br><span class="line">                booksRepository.getAllBooks()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">val</span> authors = async(defaultDispatcher) &#123;</span><br><span class="line">                authorsRepository.getAllAuthors()</span><br><span class="line">            &#125;</span><br><span class="line">            BookAndAuthors(books.await(), authors.await())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果只要应用处于打开状态，要完成的工作就具有相关性，并且此工作不限于特定屏幕，那么此工作的存在时间应该比调用方的生命周期更长。对于这种情况，您应使用外部 <code>CoroutineScope</code>（如<a href="https://medium.com/androiddevelopers/coroutines-patterns-for-work-that-shouldnt-be-cancelled-e26c40f142ad">“不应取消的工作的协程和模式”这篇博文</a>中所述）。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArticlesRepository</span></span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> articlesDataSource: ArticlesDataSource,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> externalScope: CoroutineScope,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> defaultDispatcher: CoroutineDispatcher = Dispatchers.Default</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="comment">// As we want to complete bookmarking the article even if the user moves</span></span><br><span class="line">    <span class="comment">// away from the screen, the work is done creating a new coroutine</span></span><br><span class="line">    <span class="comment">// from an external scope</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">bookmarkArticle</span><span class="params">(article: <span class="type">Article</span>)</span></span> &#123;</span><br><span class="line">        externalScope.launch(defaultDispatcher) &#123;</span><br><span class="line">            articlesDataSource.bookmarkArticle(article)</span><br><span class="line">        &#125;</span><br><span class="line">            .join() <span class="comment">// Wait for the coroutine to complete</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>externalScope</code> 应由存在时间比当前屏幕更长的类进行创建和管理，并且可由 <code>Application</code> 类或作用域限定为导航图的 <code>ViewModel</code> 进行管理。</p>
+<h1 id="14-sealed中的类型"><a href="#14-sealed中的类型" class="headerlink" title="14. sealed中的类型"></a>14. sealed中的类型</h1><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">sealed</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">object</span> Refresh : HomeEvent()</span><br><span class="line">    <span class="keyword">object</span> TipsShown : HomeEvent()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="15-Kotlin中的操作符"><a href="#15-Kotlin中的操作符" class="headerlink" title="15. Kotlin中的操作符"></a>15. Kotlin中的操作符</h1><p><a href="https://blog.csdn.net/weixin_33877092/article/details/87984701">https://blog.csdn.net/weixin_33877092/article/details/87984701</a></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// mapNotNull&#123;...&#125; : 同map&#123;&#125;相同，过滤掉转换之后为null的元素</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">mapNotNull</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> mList = arrayListOf(<span class="literal">null</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">val</span> mapNotNullList = mList.mapNotNull &#123;</span><br><span class="line">        it?.let &#123; it * <span class="number">2</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(mapNotNullList)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//[0, 2, 4, 6, 8, 10, 12]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="映射操作符"><a href="#映射操作符" class="headerlink" title="映射操作符"></a>映射操作符</h3><ul>
+<li><code>map&#123;...&#125;</code> : 把每个元素按照特定的方法进行转换，组成一个新的集合。</li>
+<li><code>mapNotNull&#123;...&#125;</code> : 同<code>map&#123;&#125;</code>函数的作用相同，只是过滤掉转换之后为<code>null</code>的元素</li>
+<li><code>mapIndexed&#123;index,result&#125;</code> : 把每个元素按照特定的方法进行转换，只是其可以操作元素的下标(<code>index</code>)，组成一个新的集合。</li>
+<li><code>mapIndexedNotNull&#123;index,result&#125;</code> : 同<code>mapIndexed&#123;&#125;</code>函数的作用相同，只是过滤掉转换之后为<code>null</code>的元素</li>
+<li><code>flatMap&#123;...&#125;</code> : 根据条件合并两个集合，组成一个新的集合。</li>
+<li><code>groupBy&#123;...&#125;</code> : 分组。即根据条件把集合拆分为为一个<code>Map&lt;K,List&lt;T&gt;&gt;</code>类型的集合。具体看实例</li>
+</ul>
+<h3 id="过滤操作符"><a href="#过滤操作符" class="headerlink" title="过滤操作符"></a>过滤操作符</h3><ul>
+<li><code>filter&#123;...&#125;</code> : 把不满足条件的元素过滤掉</li>
+<li><code>filterIndexed&#123;...&#125;</code> : 和<code>filter&#123;&#125;</code>函数作用类似，只是可以操作集合中元素的下标（<code>index</code>）</li>
+<li><code>filterNot&#123;...&#125;</code> : 和<code>filter&#123;&#125;</code>函数的作用相反</li>
+<li><code>filterNotNull()</code> : 过滤掉集合中为<code>null</code>的元素。</li>
+<li><code>take(num)</code> : 返回集合中前<code>num</code>个元素组成的集合</li>
+<li><code>takeWhile&#123;...&#125;</code> : 循环遍历集合，从第一个元素开始遍历集合，当第一个出现不满足条件元素的时候，退出遍历。然后把满足条件所有元素组成的集合返回。</li>
+<li><code>takeLast(num)</code> : 返回集合中后<code>num</code>个元素组成的集合</li>
+<li><code>takeLastWhile&#123;...&#125;</code> : 循环遍历集合，从最后一个元素开始遍历集合，当第一个出现不满足条件元素的时候，退出遍历。然后把满足条件所有元素组成的集合返回。</li>
+<li><code>drop(num)</code> : 过滤集合中前<code>num</code>个元素</li>
+<li><code>dropWhile&#123;...&#125;</code> : 相同条件下，和执行<code>takeWhile&#123;...&#125;</code>函数后得到的结果相反</li>
+<li><code>dropLast(num)</code> : 过滤集合中后<code>num</code>个元素</li>
+<li><code>dropLastWhile&#123;...&#125;</code> : 相同条件下，和执行<code>takeLastWhile&#123;...&#125;</code>函数后得到的结果相反</li>
+<li><code>distinct()</code> : 去除重复元素</li>
+<li><code>distinctBy&#123;...&#125;</code> : 根据操作元素后的结果去除重复元素</li>
+<li><code>slice</code> : 过滤掉所有不满足执行下标的元素。</li>
+</ul>
+<h3 id="统计操作符"><a href="#统计操作符" class="headerlink" title="统计操作符"></a>统计操作符</h3><ul>
+<li><code>any()</code> : 判断是不是一个集合，若是，则在判断集合是否为空，若为空则返回<code>false</code>,反之返回true,若不是集合，则返回<code>hasNext</code></li>
+<li><code>any&#123;...&#125;</code> : 判断集合中是否存在满足条件的元素。若存在则返回<code>true</code>,反之返回<code>false</code></li>
+<li><code>all&#123;...&#125;</code> : 判断集合中的所有元素是否都满足条件。若是则返回<code>true</code>,反之则返回<code>false</code></li>
+<li><code>none()</code> : 和<code>any()</code>函数的作用相反</li>
+<li><code>none&#123;...&#125;</code> : 和<code>all&#123;...&#125;</code>函数的作用相反</li>
+<li><code>max()</code> : 获取集合中最大的元素，若为空元素集合，则返回<code>null</code></li>
+<li><code>maxBy&#123;...&#125;</code> : 获取方法处理后返回结果最大值对应那个元素的初始值，如果没有则返回<code>null</code></li>
+<li><code>min()</code> : 获取集合中最小的元素，若为空元素集合，则返回<code>null</code></li>
+<li><code>minBy&#123;...&#125;</code> : 获取方法处理后返回结果最小值对应那个元素的初始值，如果没有则返回<code>null</code></li>
+<li><code>sum()</code> : 计算出集合元素累加的结果。</li>
+<li><code>sumBy&#123;...&#125;</code> : 根据元素运算操作后的结果，然后根据这个结果计算出累加的值。</li>
+<li><code>sumByDouble&#123;...&#125;</code> : 和<code>sumBy&#123;&#125;</code>相似，不过<code>sumBy&#123;&#125;</code>是操作<code>Int</code>类型数据，而<code>sumByDouble&#123;&#125;</code>操作的是<code>Double</code>类型数据</li>
+<li><code>average()</code> : 获取平均数</li>
+<li><code>reduce&#123;...&#125;</code> : 从集合中的第一项到最后一项的累计操作。</li>
+<li><code>reduceIndexed&#123;...&#125;</code> : 和<code>reduce&#123;&#125;</code>作用相同，只是其可以操作元素的下标(<code>index</code>)</li>
+<li><code>reduceRight&#123;...&#125;</code> : 从集合中的最后一项到第一项的累计操作。</li>
+<li><code>reduceRightIndexed&#123;...&#125;</code> : 和<code>reduceRight&#123;&#125;</code>作用相同，只是其可以操作元素的下标(<code>index</code>)</li>
+<li><code>fold&#123;...&#125;</code> : 和<code>reduce&#123;&#125;</code>类似，但是<code>fold&#123;&#125;</code>有一个初始值</li>
+<li><code>foldIndexed&#123;...&#125;</code> : 和<code>reduceIndexed&#123;&#125;</code>类似，但是<code>foldIndexed&#123;&#125;</code>有一个初始值</li>
+<li><code>foldRight&#123;...&#125;</code> : 和<code>reduceRight&#123;&#125;</code>类似，但是<code>foldRight&#123;&#125;</code>有一个初始值</li>
+<li><code>foldRightIndexed&#123;...&#125;</code> : 和<code>reduceRightIndexed&#123;&#125;</code>类似，但是<code>foldRightIndexed&#123;&#125;</code>有一个初始值</li>
+<li>combine 组合两个流，在经过第一次发射以后，任意方有新数据来的时候就可以发射，另一方有可能是已经发射过的数据</li>
+</ul>
+<h1 id="16-tryEmit"><a href="#16-tryEmit" class="headerlink" title="16.tryEmit"></a>16.tryEmit</h1><p>emit方法可以理解成先使用tryEmit进行发送，如果发送失败，则将emitter加入到队列中</p>
+<h1 id="17-UIState-中数据更新"><a href="#17-UIState-中数据更新" class="headerlink" title="17. UIState 中数据更新"></a>17. UIState 中数据更新</h1><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Updates the MutableStateFlow.value atomically using the specified function of its value.</span></span><br><span class="line"><span class="comment">function may be evaluated multiple times, if value is being concurrently updated.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> MutableStateFlow<span class="type">&lt;T&gt;</span>.<span class="title">update</span><span class="params">(function: (<span class="type">T</span>) -&gt; <span class="type">T</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">val</span> prevValue = value</span><br><span class="line">        <span class="keyword">val</span> nextValue = function(prevValue)</span><br><span class="line">        <span class="keyword">if</span> (compareAndSet(prevValue, nextValue)) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> _uiState = MutableStateFlow(HomeUiState())</span><br><span class="line"><span class="keyword">val</span> uiState: StateFlow&lt;HomeUiState&gt; = _uiState</span><br><span class="line"><span class="comment">// 可以实现局部字段更新</span></span><br><span class="line">  _uiState.update &#123; current -&gt;</span><br><span class="line">                    current.copy(words = currentWords)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeUiState</span></span>(</span><br><span class="line">    <span class="keyword">val</span> words: List&lt;String&gt;? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> time: String? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> date: String? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> weather: WeatherUiState? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> name: String? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> list: List&lt;Any&gt;? = <span class="literal">null</span>,</span><br><span class="line">    <span class="keyword">val</span> tips: TipsUiState? = <span class="literal">null</span>,</span><br><span class="line">) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getImmediateUiState</span><span class="params">(index: <span class="type">Int</span>)</span></span>: ImmediateUiState? &#123;</span><br><span class="line">        <span class="keyword">return</span> list?.getOrNull(index) <span class="keyword">as</span>? ImmediateUiState</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Virgo 端的数据重新展示 类型不变，移植到新的 launcher 中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">RecommendCardView</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">ImmediateUiState</span></span>(</span><br><span class="line">    <span class="keyword">val</span> immediateTraining: ImmediateTraining,</span><br><span class="line">    <span class="keyword">val</span> onStart: () -&gt; <span class="built_in">Unit</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = userRepository.getImmediateTraining()</span><br><span class="line">    .map &#123; immediateTraining -&gt;</span><br><span class="line">        ImmediateUiState(immediateTraining) &#123;</span><br><span class="line">            <span class="comment">// onStart block 回调</span></span><br><span class="line">            startCourse(immediateTraining)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="18-问题记录"><a href="#18-问题记录" class="headerlink" title="18.问题记录"></a>18.问题记录</h1><p>/Users/juneyang/Documents/Android/Virgo/Virgo/LibCore/src/main/java/com/fiture/virgo/data/repository/UserRepositoryImpl.kt: (29, 42): Return type of ‘getRecommend’ is not a subtype of the return type of the overridden member ‘public abstract suspend fun getRecommend(): Flow<Recommend> defined in com.fiture.virgo.data.repository.UserRepository’</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 获取推荐活动</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getRecommend</span><span class="params">()</span></span>: Recommend</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getRecommend</span><span class="params">()</span></span>: Flow&lt;Recommend&gt; <span class="comment">// 用这个目前会报错</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>扩展阅读：</p>
+<p><a href="https://fiture.feishu.cn/docx/doxcn39KHBfMr5lNf7mBGZnLpae">hilt、kotlin学习记录</a></p>
+<h1 id="19-操作符"><a href="#19-操作符" class="headerlink" title="19.操作符"></a>19.操作符</h1><p>distinct : 过滤掉重复的元素</p>
+<p>distinctUntilChanged: 过滤掉连续重复的元素,不连续重复的是不过滤。</p>
+<p><a href="https://blog.csdn.net/qq_33210042/article/details/103351771">https://blog.csdn.net/qq_33210042/article/details/103351771</a></p>
+<p>SharedFlow 默认无粘性的，也就是后面的观察者不能收到前面已经发射的数据。</p>
+<p>当然也有api，支持。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MutableSharedFlow</span><br><span class="line">replay 代表重放的数据个数</span><br><span class="line">replay 为0 代表不重放，也就是没有粘性</span><br><span class="line">replay 为1 代表重放最新的一个数据，后来的接收器能接受1个最新数据。</span><br><span class="line">replay 为2 代表重放最新的两个数据，后来的接收器能接受2个最新数据。</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/zhaoyanjun6/article/details/121911675">https://blog.csdn.net/zhaoyanjun6/article/details/121911675</a></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns a [Flow] whose values are generated with [transform] function by combining</span></span><br><span class="line"><span class="comment"> * the most recently emitted values by each flow.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * It can be demonstrated with the following example:</span></span><br><span class="line"><span class="comment"> * ```</span></span><br><span class="line"><span class="comment"> * val flow = flowOf(1, 2).onEach &#123; delay(10) &#125;</span></span><br><span class="line"><span class="comment"> * val flow2 = flowOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;).onEach &#123; delay(15) &#125;</span></span><br><span class="line"><span class="comment"> * combine(flow, flow2) &#123; i, s -&gt; i.toString() + s &#125;.collect &#123;</span></span><br><span class="line"><span class="comment"> *     println(it) // Will print &quot;1a 2a 2b 2c&quot;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> * ```</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This function is a shorthand for `combineTransform(flow, flow2) &#123; a, b -&gt; emit(transform(a, b)) &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T1, T2, R&gt;</span> <span class="title">combine</span><span class="params">(flow: <span class="type">Flow</span>&lt;<span class="type">T1</span>&gt;, flow2: <span class="type">Flow</span>&lt;<span class="type">T2</span>&gt;, transform: <span class="type">suspend</span> (<span class="type">a</span>: <span class="type">T1</span>, <span class="type">b</span>: <span class="type">T2</span>) -&gt; <span class="type">R</span>)</span></span>: Flow&lt;R&gt; =</span><br><span class="line">    flow.combine(flow2, transform)</span><br></pre></td></tr></table></figure>
+
+<h1 id="20-ViewModel"><a href="#20-ViewModel" class="headerlink" title="20. ViewModel"></a>20. ViewModel</h1><h2 id="ViewModelScope"><a href="#ViewModelScope" class="headerlink" title="ViewModelScope"></a>ViewModelScope</h2><p>为应用中的每个 <a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=zh-cn"><code>ViewModel</code></a> 定义了 <code>ViewModelScope</code>。如果 <code>ViewModel</code> 已清除，则在此范围内启动的协程都会自动取消。如果您具有仅在 <code>ViewModel</code> 处于活动状态时才需要完成的工作，此时协程非常有用。例如，如果要为布局计算某些数据，则应将工作范围限定至 <code>ViewModel</code>，以便在 <code>ViewModel</code> 清除后，系统会自动取消工作以避免消耗资源。</p>
+<p>您可以通过 ViewModel 的 <code>viewModelScope</code> 属性访问 <code>ViewModel</code> 的 <code>CoroutineScope</code>，如以下示例所示：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyViewModel</span>: <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            <span class="comment">// Coroutine that will be canceled when the ViewModel is cleared.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LifecycleScope"><a href="#LifecycleScope" class="headerlink" title="LifecycleScope"></a>LifecycleScope</h2><p>为每个 <a href="https://developer.android.com/topic/libraries/architecture/lifecycle?hl=zh-cn"><code>Lifecycle</code></a> 对象定义了 <code>LifecycleScope</code>。在此范围内启动的协程会在 <code>Lifecycle</code> 被销毁时取消。您可以通过 <code>lifecycle.coroutineScope</code> 或 <code>lifecycleOwner.lifecycleScope</code> 属性访问 <code>Lifecycle</code> 的 <code>CoroutineScope</code>。</p>
+<p>以下示例演示了如何使用 <code>lifecycleOwner.lifecycleScope</code> 异步创建预计算文本：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFragment</span>: <span class="type">Fragment</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onViewCreated</span><span class="params">(view: <span class="type">View</span>, savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onViewCreated(view, savedInstanceState)</span><br><span class="line">        viewLifecycleOwner.lifecycleScope.launch &#123;</span><br><span class="line">            <span class="keyword">val</span> params = TextViewCompat.getTextMetricsParams(textView)</span><br><span class="line">            <span class="keyword">val</span> precomputedText = withContext(Dispatchers.Default) &#123;</span><br><span class="line">                PrecomputedTextCompat.create(longTextContent, params)</span><br><span class="line">            &#125;</span><br><span class="line">            TextViewCompat.setPrecomputedText(textView, precomputedText)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="可重启生命周期感知型协程"><a href="#可重启生命周期感知型协程" class="headerlink" title="可重启生命周期感知型协程"></a>可重启生命周期感知型协程</h2><p>即使 <code>lifecycleScope</code> 提供了适当的方法以在 <code>Lifecycle</code> 处于 <code>DESTROYED</code> 状态时自动取消长时间运行的操作，但在某些情况下，您可能需要在 <code>Lifecycle</code> 处于某个特定状态时开始执行代码块，并在其处于其他状态时取消。例如，您可能希望在 <code>Lifecycle</code> 处于 <code>STARTED</code> 状态时收集数据流，并在其处于 <code>STOPPED</code> 状态时取消收集。此方法仅在界面显示在屏幕上时才处理数据流发出操作，这样可节省资源并可能会避免发生应用崩溃问题。</p>
+<p>对于这些情况，<code>Lifecycle</code> 和 <code>LifecycleOwner</code> 提供了挂起 <code>repeatOnLifecycle</code> API 来确切实现相应操作。以下示例中的代码块会在每次关联的 <code>Lifecycle</code> 至少处于 <code>STARTED</code> 状态时运行，并且会在 <code>Lifecycle</code> 处于 <code>STOPPED</code> 状态时取消运行：</p>
+<h1 id="21-MVI-架构"><a href="#21-MVI-架构" class="headerlink" title="21. MVI 架构"></a>21. MVI 架构</h1><p>MVI架构中，特别是谷歌推崇的开发模式，是将整个页面的状态存放于单一的类中，而且这个类必须是Kotlin的data class，因为kotlin的这个特殊的类自带了copy功能，非常方便去更新部分的属性，于是我们就有了下面的一个类：</p>
+<p><a href="https://juejin.cn/post/7104565566568202276">https://juejin.cn/post/7104565566568202276</a></p>
+<p><a href="https://juejin.cn/post/7022624191723601928">Google 推荐使用 MVI 架构？卷起来了</a></p>
+<p>本文主要介绍了<code>MVC</code>,<code>MVP</code>,<code>MVVM</code>与<code>MVI</code>架构，目前<code>MVVM</code>是官方推荐的架构，但仍然有以下几个痛点</p>
+<ol>
+<li><code>MVVM</code>与<code>MVP</code>的主要区别在于双向数据绑定，但由于很多人(比如我)并不喜欢使用<code>DataBindg</code>，其实并没有使用<code>MVVM</code>双向绑定的特性，而是单一数据源</li>
+<li>当页面复杂时，需要定义很多<code>State</code>,并且需要定义可变与不可变两种,状态会以双倍的速度膨胀，模板代码较多且容易遗忘</li>
+<li><code>View</code>与<code>ViewModel</code>通过<code>ViewModel</code>暴露的方法交互，比较零乱难以维护</li>
+</ol>
+<p>而<code>MVI</code>可以比较好的解决以上痛点，它主要有以下优势：</p>
+<ol>
+<li>强调数据单向流动，很容易对状态变化进行跟踪和回溯</li>
+<li>使用<code>ViewState</code>对<code>State</code>集中管理，只需要订阅一个 <code>ViewState</code> 便可获取页面的所有状态，相对 <code>MVVM</code> 减少了不少模板代码</li>
+<li><code>ViewModel</code>通过<code>ViewState</code>与<code>Action</code>通信，通过浏览<code>ViewState</code> 和 <code>Aciton</code> 定义就可以理清 <code>ViewModel</code> 的职责，可以直接拿来作为接口文档使用。</li>
+</ol>
+<blockquote>
+<p><code>MVI</code>架构为了解决<code>MVVM</code>在逻辑复杂时需要写多个<code>LiveData</code>(可变+不可变)的问题,使用<code>ViewState</code>对<code>State</code>集中管理，只需要订阅一个 <code>ViewState</code> 便可获取页面的所有状态。</p>
+</blockquote>
+<p>当然<code>MVI</code>也有一些缺点，比如</p>
+<ol>
+<li>所有的操作最终都会转换成<code>State</code>，所以当复杂页面的<code>State</code>容易膨胀</li>
+<li><code>state</code>是不变的，因此每当<code>state</code>需要更新时都要创建新对象替代老对象，这会带来一定内存开销</li>
+</ol>
+<p>软件开发中没有银弹，所有架构都不是完美的，有自己的适用场景,读者可根据自己的需求选择使用。<br> 但通过以上的分析与介绍，我相信使用<code>MVI</code>架构代替没有使用<code>DataBinding</code>的<code>MVVM</code>是一个比较好的选择~</p>
+<p>这是 MVI 架构的第三篇</p>
+<p><a href="https://juejin.cn/post/7108498411149590558(%E6%8E%A8%E8%8D%90)">https://juejin.cn/post/7108498411149590558(推荐)</a></p>
+<p>用 Flow 重构的数据链路上，Repository 和 ViewModel 的界限就很清晰了：</p>
+<p><strong>用 Flow 重构的数据链路上，Repository 和 ViewModel 的界限就很清晰了：Repository 提供原始的数据流，以供 ViewModel 用各种自己喜欢的方式进行合流及变换。</strong></p>
+<h1 id="22-应用架构指南"><a href="#22-应用架构指南" class="headerlink" title="22.应用架构指南"></a>22.应用架构指南</h1><p><a href="https://developer.android.google.cn/topic/architecture#best-practices">https://developer.android.google.cn/topic/architecture#best-practices</a></p>
+<blockquote>
+<p>遵循这些建议和最佳实践可以提升应用的可扩缩性、质量和稳健性，并可使应用更易于测试。不过，您应该将这些提示视为指南，并视需要进行调整来满足您的要求。</p>
+</blockquote>
+<h1 id="23-模拟调试"><a href="#23-模拟调试" class="headerlink" title="23. 模拟调试"></a>23. 模拟调试</h1><blockquote>
+<p>在 Android 中模拟一个点击事件有三种方式是通过模拟 MotionEvent 来实现；一种是通过 ADB 来实现；一种是通过 Instrumentation 测试框架来实现。</p>
+</blockquote>
+<p><a href="https://blog.51cto.com/u_9894631/2788274">Android模拟点击的四种方式</a></p>
+<p>模拟返回事件：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Instrumentation inst = <span class="keyword">new</span> Instrumentation();</span><br><span class="line">inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);</span><br></pre></td></tr></table></figure>
+
+<h1 id="24-ViewPager2的使用"><a href="#24-ViewPager2的使用" class="headerlink" title="24.ViewPager2的使用"></a>24.ViewPager2的使用</h1><p><a href="https://www.jianshu.com/p/25aa5cacbfb9">https://www.jianshu.com/p/25aa5cacbfb9</a></p>
+<h1 id="25-MAD，现代安卓开发技术：Android-领域开发方式的重大变革！"><a href="#25-MAD，现代安卓开发技术：Android-领域开发方式的重大变革！" class="headerlink" title="25. MAD，现代安卓开发技术：Android 领域开发方式的重大变革！"></a>25. MAD，现代安卓开发技术：Android 领域开发方式的重大变革！</h1><p><a href="https://juejin.cn/post/7056983987859750919">https://juejin.cn/post/7056983987859750919</a></p>
+<h1 id="26-关于时间格式的处理"><a href="#26-关于时间格式的处理" class="headerlink" title="26.关于时间格式的处理"></a>26.关于时间格式的处理</h1><p><a href="https://blog.csdn.net/shenyuanqing/article/details/47703951">https://blog.csdn.net/shenyuanqing/article/details/47703951</a></p>
+<h1 id="27-编写地道的-Kotlin-代码"><a href="#27-编写地道的-Kotlin-代码" class="headerlink" title="27.编写地道的 Kotlin 代码"></a>27.编写地道的 Kotlin 代码</h1><p><a href="https://droidyue.com/blog/2019/05/19/do-and-dont-in-kotlin/">https://droidyue.com/blog/2019/05/19/do-and-dont-in-kotlin/</a></p>
+]]></content>
   </entry>
 </search>
